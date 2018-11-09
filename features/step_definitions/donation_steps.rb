@@ -44,7 +44,6 @@ end
 
 And /^I fill in direct debit details$/ do
   TestBrowser.donate_form.fill_form('direct_debit')
-  binding.pry
 end
 
 Then /^I am taken to the one-off payment page$/ do

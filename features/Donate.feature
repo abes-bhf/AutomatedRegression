@@ -36,7 +36,7 @@ Feature: Homepage
 		And I enter valid PayPal details
 		Then I am taken to the confirmation page
 
-	@monthly @payment
+	@monthly @payment @here
 	Scenario: Monthly preset donation
 		Given I navigate to the Donation page
 		And I select a monthly donation of 10

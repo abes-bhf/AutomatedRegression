@@ -55,3 +55,8 @@ EMAIL ADDRESSES USED FOR SUCCESSFUL DONATIONS:
 > 31c4cb21144943df@test.com - Monthly donation submitted on uat at 2018-11-08 17:11:35 +0000 
 > 0702eb7421b30fa4@test.com - Monthly donation submitted on uat at 2018-11-08 17:14:33 +0000 
 > aead365ccd5572b1@test.com - Monthly donation submitted on uat at 2018-11-08 17:19:12 +0000 
+> 22cd300cc147dc8f@test.com - Monthly campaign donation submitted on uat at 2018-11-09 12:53:37 +0000 
+> f5daff8f9984af36@test.com - Monthly donation submitted on uat at 2018-11-09 12:56:19 +0000 
+> 8677c2f9646fa70f@test.com - Monthly campaign donation submitted on uat at 2018-11-09 13:02:47 +0000 
+> 5c3443ee953edaef@test.com - Monthly donation submitted on uat at 2018-11-09 13:07:16 +0000 
+> 443f10342895083c@test.com - Monthly campaign donation submitted on uat at 2018-11-09 13:08:42 +0000 
