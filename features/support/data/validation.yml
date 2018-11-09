@@ -1,0 +1,26 @@
+validation:
+  dp:
+    email: Select Email preference
+    phone: Select Phone preference
+    post: Select Post preference
+    text: Select Text preference
+
+  name:
+    title: Title must be filled in.
+    first_name: First Name must be filled in.
+    last_name: Last Name must be filled in.
+
+  email:
+    email: Email address must be filled in.
+
+  address:
+    postcode: Postcode must be filled in.
+    a1: Address line 1 must be filled in.
+    tc: Town or city must be filled in.
+
+  directdebit:
+    date: Please pick a direct debit date.
+    accname: Enter name of account holder.
+    accno: Enter account number.
+    sortcode: Enter sort code.
+    bank: Enter name of bank or building society.

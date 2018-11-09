@@ -1,0 +1,32 @@
+# Access to the data in this file is provided through the EnvConfig class - see env_config.rb
+
+defaults: &execution_defaults
+  default_config: uat #This just ensures the staging profile (below) is loaded if no CONFIG= is passed from the command line.
+
+live:
+  <<: *execution_defaults
+  base_url: https://www.bhf.org.uk/
+
+uat:
+  <<: *execution_defaults
+  base_url: https://uat-bhf.precedenthost.co.uk/
+
+uat2:
+  <<: *execution_defaults
+  base_url: https://bhfuat2.precedenthost.co.uk/
+
+cd1:
+  <<: *execution_defaults
+  base_url: https://bhftest-dh4.precedenthost.com/
+
+cd1:
+  <<: *execution_defaults
+  base_url: https://bhftest-dh4.precedenthost.com/
+
+cd2:
+  <<: *execution_defaults
+  base_url: https://bhftest-pul.precedenthost.com/
+
+cd3:
+  <<: *execution_defaults
+  base_url: https://bhf-cd3-dh4.precedenthost.com/

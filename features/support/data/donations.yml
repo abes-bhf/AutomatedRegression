@@ -1,0 +1,26 @@
+single_donation:
+  details:
+    fn: Auto Single FN
+    ln: Auto Single LN
+    tel: 0123456789
+    postcode: NW17AW
+    dpemail: no
+    dptext: no
+    dppost: no
+    dptel: no
+
+direct_debit:
+  details:
+    fn: Auto Monthly FN
+    ln: Auto Monthly LN
+    tel: 0123456789
+    postcode: NW18AW
+    dpemail: no
+    dptext: no
+    dppost: no
+    dptel: no
+
+paypal:
+  details:
+    em: paypal-test@bhf.org.uk
+    pw: 6icR=lauMW5XI3Q
