@@ -25,12 +25,4 @@ class DonateForm < GenericForm
     continue
   end
 
-  def amount_selected?(amount)
-    if amount.to_s == @donationamount.text
-      return true
-    else
-      return false
-    end
-  end
-
 end

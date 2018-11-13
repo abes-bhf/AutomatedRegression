@@ -11,14 +11,13 @@ Feature: Homepage
 	@single @smoketest
 	Scenario: Single preset donation
 		Given I navigate to the Donation page
-		And I select a one-off donation of 20
+		And I select a donation preset
 		Then I am taken to the first page of the one-off donation form
-		And 20 is displayed on the form
 
 	@single @worldpay @payment
 	Scenario: Single preset donation card payment Worldpay
 		Given I navigate to the Donation page
-		And I select a one-off donation of 20
+		And I select a donation preset
 		And I fill in single payment details
 		Then I am taken to the one-off payment page
 		When I select Donate by credit/debit card
@@ -29,17 +28,17 @@ Feature: Homepage
 	@single @paypal @payment
 	Scenario: Single preset donation card payment PayPal
 		Given I navigate to the Donation page
-		And I select a one-off donation of 20
+		And I select a donation preset
 		And I fill in single payment details
 		Then I am taken to the one-off payment page
 		When I select Donate by PayPal
 		And I enter valid PayPal details
 		Then I am taken to the confirmation page
 
-	@monthly @payment @here
+	@monthly @payment
 	Scenario: Monthly preset donation
 		Given I navigate to the Donation page
-		And I select a monthly donation of 10
+		And I select a monthly donation preset
 		And I fill in direct debit details
 		Then I am taken to the monthly payment page
 		And I enter valid direct debit details
@@ -48,7 +47,7 @@ Feature: Homepage
 	@oneoff @campaign @payment @worldpay
 	Scenario: Single preset campaign donation card payment
 		Given I navigate to a campaign page
-		And I select a one-off campaign donation of 10
+		And I select a one-off campaign donation preset
 		And I fill in single payment details
 		Then I am taken to the one-off payment page
 		When I select Donate by credit/debit card
@@ -58,7 +57,7 @@ Feature: Homepage
 	@monthly @campaign @payment
 	Scenario: Monthly preset campaign donation card payment
 		Given I navigate to a campaign page
-		And I select a monthly campaign donation of 10
+		And I select a monthly campaign donation preset
 		And I fill in direct debit details
 		Then I am taken to the monthly payment page
 		And I enter valid direct debit details
@@ -67,14 +66,14 @@ Feature: Homepage
 	@oneoff @fail
 	Scenario: Donation form validation
 		Given I navigate to the Donation page
-		And I select a one-off donation of 20
+		And I select a donation preset
 		And I press continue without filling details
 		Then the donate form should refresh with validation messages
 
-	@monthly @fail @here
+	@monthly @fail
 	Scenario: Monthly donation payment page validation
 		Given I navigate to the Donation page
-		And I select a monthly donation of 10
+		And I select a monthly donation preset
 		And I fill in direct debit details
 		And I am taken to the monthly payment page
 		And I press continue without filling direct debit details
@@ -84,9 +83,8 @@ Feature: Homepage
 	@single @uatregression
 	Scenario: Testing single donations complete with transactions
 		Given I navigate to the Donation page
-		And I select a one-off donation of 20
+		And I select a donation preset
 		And I am taken to the first page of the one-off donation form
-		And 20 is displayed on the form
 		And I press continue without filling details
 		Then the donate form should refresh with validation messages
 		When I fill in single payment details
@@ -99,7 +97,7 @@ Feature: Homepage
 	@monthly @uatregression
 	Scenario: Testing monthly donations complete with transactions
 		Given I navigate to the Donation page
-		And I select a monthly donation of 10
+		And I select a monthly donation preset
 		And I fill in direct debit details
 		Then I am taken to the monthly payment page
 		And I press continue without filling direct debit details
@@ -111,9 +109,8 @@ Feature: Homepage
 	@transactionless @single @liveregression
 	Scenario: Testing single donations live without completing transactions
 		Given I navigate to the Donation page
-		And I select a one-off donation of 20
+		And I select a donation preset
 		And I am taken to the first page of the one-off donation form
-		And 20 is displayed on the form
 		And I press continue without filling details
 		Then the donate form should refresh with validation messages
 		When I fill in single payment details
@@ -130,7 +127,7 @@ Feature: Homepage
 	@transactionless @monthly @liveregression
 	Scenario: Testing monthly donations live without completing transactions
 		Given I navigate to the Donation page
-		And I select a monthly donation of 10
+		And I select a monthly donation preset
 		And I fill in direct debit details
 		Then I am taken to the monthly payment page
 		And I press continue without filling direct debit details

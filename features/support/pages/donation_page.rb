@@ -13,27 +13,21 @@ class DonationPage < GenericPage
     return trait
   end
 
-  def select_donation(type, amount)
+  def select_donation(type)
+    #selects a random preset donation amount displayed on the page
     @oneofftab = browser.a(id: "main_0_pagecontent_0_donations1_0_lnkOneOff")
     @monthlytab = browser.a(id: "main_0_pagecontent_0_donations1_0_lnkRegular")
-    @twenty = browser.span(class: 'amount', text: '£20')
-    @ten = browser.span(class: 'amount', text: '£10')
     if type == "one-off"
       @oneofftab.scroll.to
-      if amount == 20
-        click!(@twenty)
-        continue
-      else
-        pending
-      end
-    elsif type == "monthly"
+    elsif type =="monthly"
       @monthlytab.click!
-      if amount == 10
-        @ten.click!
-        continue
-      end
-    else
     end
+    presets = []
+    browser.fieldset(class: 'donation-radio').ul.each do |preset|
+      presets << preset.span(class: 'amount')
+    end
+    presets.sample.click!
+    continue
   end
 
 

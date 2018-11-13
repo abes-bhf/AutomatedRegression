@@ -10,32 +10,28 @@ Then /^the Donation page is displayed$/ do
   raise unless TestBrowser.donation_page.on_page?
 end
 
-Given /^I select a one-off donation of 20$/ do
+Given /^I select a donation preset$/ do
   @@donationtype = "One-off"
-  TestBrowser.donation_page.select_donation("one-off", 20)
+  TestBrowser.donation_page.select_donation('one-off')
 end
 
-Given("I select a one-off campaign donation of {int}") do |int|
+Given("I select a one-off campaign donation preset") do
   @@donationtype = "One-off campaign"
-  TestBrowser.rosco_page.select_donation("one-off", int)
+  TestBrowser.rosco_page.select_donation("one-off")
 end
 
-Given("I select a monthly campaign donation of {int}") do |int|
+Given("I select a monthly campaign donation preset") do
   @@donationtype = "Monthly campaign"
-  TestBrowser.rosco_page.select_donation("monthly", int)
+  TestBrowser.rosco_page.select_donation("monthly")
 end
 
-Given /^I select a monthly donation of 10$/ do
+Given ("I select a monthly donation preset") do
   @@donationtype = "Monthly"
-  TestBrowser.donation_page.select_donation("monthly", 10)
+  TestBrowser.donation_page.select_donation("monthly")
 end
 
 Then /^I am taken to the first page of the one-off donation form$/ do
   raise unless TestBrowser.donate_form.on_page? # Write code here that turns the phrase above into concrete actions
-end
-
-Then /^20 is displayed on the form$/ do
-  raise unless TestBrowser.donate_form.amount_selected?(20)
 end
 
 And /^I fill in single payment details$/ do

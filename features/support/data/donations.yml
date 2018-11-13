@@ -1,3 +1,9 @@
+presets:
+  single: 20, 50, 85
+  monthly: 10, 25, 50
+  rosco_single: 3, 10, 15
+  rosco_monthly: 3, 5, 10 
+
 single_donation:
   details:
     fn: Auto Single FN

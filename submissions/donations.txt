@@ -108,3 +108,20 @@ EMAIL ADDRESSES USED FOR SUCCESSFUL DONATIONS:
 > e99f2c56f00dcb33@test.com - Monthly campaign donation submitted on uat at 2018-11-12 17:22:25 +0000 
 > 5d8abb85f579fb2a@test.com - One-off donation submitted on uat at 2018-11-12 17:25:18 +0000 
 > 94625cad40bace0c@test.com - Monthly donation submitted on uat at 2018-11-12 17:26:40 +0000 
+> ba49e6cb50dc6085@test.com - One-off donation submitted on uat2 at 2018-11-13 14:18:42 +0000 
+> 32836318680cc6bf@test.com - One-off PayPal donation submitted on uat2 at 2018-11-13 14:21:19 +0000 
+> 7a2e0124ee108de5@test.com - One-off PayPal donation submitted on uat2 at 2018-11-13 14:23:20 +0000 
+> 5c58171e974be9b2@test.com - Monthly donation submitted on uat2 at 2018-11-13 14:25:15 +0000 
+> f23fca91cd7635f8@test.com - Monthly donation submitted on uat2 at 2018-11-13 14:26:55 +0000 
+> 77e0a37d40c32263@test.com - One-off campaign donation submitted on uat2 at 2018-11-13 14:41:35 +0000 
+> 54eaaf2453a8c6ff@test.com - Monthly campaign donation submitted on uat at 2018-11-13 16:13:33 +0000 
+> ad6a63ed8c3c4707@test.com - Monthly campaign donation submitted on uat at 2018-11-13 16:15:42 +0000 
+> 8707904bd339b5f9@test.com - One-off donation submitted on uat at 2018-11-13 16:37:22 +0000 
+> 6a407b1f2e389587@test.com - Monthly donation submitted on uat at 2018-11-13 16:38:47 +0000 
+> b1e4a82d65164d02@test.com - One-off donation submitted on uat at 2018-11-13 16:44:37 +0000 
+> efb1e47536e178be@test.com - One-off PayPal donation submitted on uat at 2018-11-13 16:46:23 +0000 
+> 4802aaa495fc99df@test.com - Monthly donation submitted on uat at 2018-11-13 16:47:20 +0000 
+> 8519b07aeb79fe6c@test.com - One-off campaign donation submitted on uat at 2018-11-13 16:48:36 +0000 
+> 2b4e5cd5e7904bd3@test.com - Monthly campaign donation submitted on uat at 2018-11-13 16:51:43 +0000 
+> ab3c735b1d9feb45@test.com - One-off donation submitted on uat at 2018-11-13 16:53:36 +0000 
+> e88b233c3ee5a01c@test.com - Monthly donation submitted on uat at 2018-11-13 16:54:39 +0000 
