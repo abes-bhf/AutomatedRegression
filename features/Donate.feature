@@ -71,7 +71,7 @@ Feature: Homepage
 		And I press continue without filling details
 		Then the donate form should refresh with validation messages
 
-	@monthly @fail
+	@monthly @fail @here
 	Scenario: Monthly donation payment page validation
 		Given I navigate to the Donation page
 		And I select a monthly donation of 10

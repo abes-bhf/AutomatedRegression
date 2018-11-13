@@ -28,7 +28,12 @@ class MonthlyPaymentForm < GenericForm
   end
 
   def fill_account_details
-    dd_start_date(1, 'December')
+    if Date.today.month == 12
+      date = "January"
+    else
+      date = Date::MONTHNAMES[Date.today.month + 1]
+    end
+    dd_start_date(1, date)
     accname = browser.input(id: 'main_0_pagecontent_0_donations3_0_txtDDNameAccountHolder')
     sendkeys!(accname, 'Auto Monthly')
     accno = browser.input(id: 'main_0_pagecontent_0_donations3_0_txtDDAccountNumber')

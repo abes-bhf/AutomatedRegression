@@ -24,3 +24,6 @@ validation:
     accno: Enter account number.
     sortcode: Enter sort code.
     bank: Enter name of bank or building society.
+
+  accountdetails:
+    something: something else
