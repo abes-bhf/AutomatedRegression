@@ -75,6 +75,10 @@ When /^I enter valid direct debit details$/ do
   TestBrowser.monthly_payment_form.fill_account_details
 end
 
+And /^I should be able to select a start date within the next six months$/ do
+  TestBrowser.monthly_payment_form.date_choices
+end
+
 Then /^I am taken to the confirmation page$/ do
   if TestBrowser.single_confirm_page.on_page?
     open(File.join(Dir.pwd, 'submissions/donations.txt'), 'a') do |f|

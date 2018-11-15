@@ -35,13 +35,14 @@ Feature: Homepage
 		And I enter valid PayPal details
 		Then I am taken to the confirmation page
 
-	@monthly @payment
+	@monthly @payment @here
 	Scenario: Monthly preset donation
 		Given I navigate to the Donation page
 		And I select a monthly donation preset
 		And I fill in direct debit details
 		Then I am taken to the monthly payment page
-		And I enter valid direct debit details
+		And I should be able to select a start date within the next six months
+		When I enter valid direct debit details
 		Then I am taken to the confirmation page
 
 	@oneoff @campaign @payment @worldpay

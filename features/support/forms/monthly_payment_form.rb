@@ -13,6 +13,10 @@ class MonthlyPaymentForm < GenericForm
     return trait
   end
 
+  def date_choices
+    binding.pry
+  end
+
   def dd_start_date(day, month)
     ddmonth = browser.select(id: 'main_0_pagecontent_0_donations3_0_ddlMonth')
     if day == 1
