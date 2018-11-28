@@ -12,6 +12,11 @@ class HomePage < GenericPage
     return trait
   end
 
+  def login
+    loginregister = browser.a(text: 'LOG IN/REGISTER')
+    loginregister.click!
+  end
+
 
 
 end

@@ -14,7 +14,14 @@ class MonthlyPaymentForm < GenericForm
   end
 
   def date_choices
-    binding.pry
+    months_shown = []
+    month_options = browser.select(id: 'main_0_pagecontent_0_donations3_0_ddlMonth').options
+    month_options.each do |month|
+      if Date::MONTHNAMES.include?(month.text)
+        months_shown << month.text unless month == nil
+      end
+    end
+    raise unless months_shown.size > 5
   end
 
   def dd_start_date(day, month)

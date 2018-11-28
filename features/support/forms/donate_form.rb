@@ -14,9 +14,8 @@ class DonateForm < GenericForm
 
   def fill_form(type)
     details = EnvConfig.data[type]['details']
-    title = random_title
-    email = @@email
-    select_title(title)
+    email = @@donate_email
+    select_title(random_title)
     fill_name(details['fn'], details['ln'])
     fill_email(email)
     fill_telephone(details['tel'])

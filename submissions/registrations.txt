@@ -1,0 +1,94 @@
+Current registration format
+
+email: [randomly generated string]@test.co.uk
+title: [randomly selected]
+First name: AutoReg FN
+Last name: AutoReg LN
+Postcode: NW18AW
+First address selected from list of postcode lookup results, should be Apartment 1, 210 Regents Park Road
+Telephone: 0987654321
+No to all DP
+Password: Pa55w0rd
+
+EMAIL ADDRESSES USED FOR SUCCESSFUL REGISTRATIONS:
+> dfcc44eb0e81c2be@test.co.uk registered on uat at 2018-11-16 12:27:02 +0000
+> 6eadb97fc2cc4c31@test.co.uk registered on uat at 2018-11-16 14:27:22 +0000 
+> 1ecc8cd390381cca@test.co.uk registered on uat at 2018-11-16 15:19:24 +0000 
+> 6e1ad99b1ce1fae0@test.co.uk registered on uat at 2018-11-16 15:36:17 +0000 
+> 1466b533e2d029a8@test.co.uk registered on uat at 2018-11-16 15:50:26 +0000 
+> 59459f212bdb819a@test.co.uk registered on uat at 2018-11-16 15:57:06 +0000 
+> 35581491d08d3126@test.co.uk registered on uat at 2018-11-16 15:58:33 +0000 
+> e19b6a63cd6b40eb@test.co.uk registered on uat at 2018-11-16 16:01:23 +0000 
+> d6a5fab8cceb6d2d@test.co.uk registered on uat at 2018-11-16 16:02:38 +0000 
+> 89524afcfa11c031@test.co.uk registered on uat at 2018-11-16 16:05:59 +0000 
+> 133fbf4947edd1a1@test.co.uk registered on uat2 at 2018-11-21 10:28:10 +0000 
+> 1a1d8d10e39d42a9@test.co.uk registered on uat2 at 2018-11-21 16:53:10 +0000 
+> c1f2e31a4caf37d3@test.co.uk registered on uat2 at 2018-11-21 16:56:46 +0000 
+> 730fe49c7c9f49e1@test.co.uk registered on uat2 at 2018-11-21 16:59:48 +0000 
+> ce72dab0408f25e8@test.co.uk registered on uat2 at 2018-11-21 17:03:04 +0000 
+> fe6a6fa1b91bc219@test.co.uk registered on uat2 at 2018-11-21 17:05:26 +0000 
+> 56d3e89ced77a59e@test.co.uk registered on uat2 at 2018-11-21 17:07:36 +0000 
+> 7d408cea6170af4b@test.co.uk registered on uat2 at 2018-11-21 17:09:32 +0000 
+> 940ccdba19165abc@test.co.uk registered on uat2 at 2018-11-21 17:12:23 +0000 
+> 35ae13131b4dadc8@test.co.uk registered on cd3 at 2018-11-22 14:58:42 +0000 
+> aed6293a58fb37d7@test.co.uk registered on uat2 at 2018-11-22 15:50:08 +0000 
+> 78f6013758cf9177@test.co.uk registered on uat2 at 2018-11-23 11:47:59 +0000 
+> 9748a532fcb5948b@test.co.uk registered on uat2 at 2018-11-23 11:51:56 +0000 
+> cceeee13f53888d1@test.co.uk registered on uat2 at 2018-11-23 11:57:14 +0000 
+> 08aad3e10c7bb509@test.co.uk registered on uat2 at 2018-11-23 11:58:51 +0000 
+> bbb189ed5eaa8e9d@test.co.uk registered on uat2 at 2018-11-23 13:11:30 +0000 
+> da1ab3887408feaa@test.co.uk registered on uat2 at 2018-11-23 13:17:25 +0000 
+> ae243c1e5c443e90@test.co.uk registered on uat at 2018-11-23 14:05:22 +0000 
+> c92bdc284db81e8c@test.co.uk registered on uat at 2018-11-23 14:13:43 +0000 
+> 5f01f582ce37d3b7@test.co.uk registered on uat at 2018-11-23 14:27:59 +0000 
+> ef7aa3781761f386@test.co.uk registered on uat at 2018-11-23 14:43:40 +0000 
+> 324017304b8a41b6@test.co.uk registered on uat at 2018-11-23 14:45:57 +0000 
+> 1a616eb9144771c8@test.co.uk registered on uat at 2018-11-23 14:58:33 +0000 
+> 8e3213bb67cb1e43@test.co.uk registered on uat at 2018-11-23 15:00:44 +0000 
+> 5e55af3e5235c89d@test.co.uk registered on uat at 2018-11-23 15:03:29 +0000 
+> 45c197fa2b3041af@test.co.uk registered on uat at 2018-11-23 15:07:47 +0000 
+> 752b643234790ded@test.co.uk registered on uat at 2018-11-23 15:10:31 +0000 
+> fe3bd344d52c6fdd@test.co.uk registered on uat at 2018-11-23 15:15:44 +0000 
+> b4c1545d05c52df2@test.co.uk registered on uat at 2018-11-23 15:26:17 +0000 
+> 922d73100dc27d9f@test.co.uk registered on uat at 2018-11-23 15:38:44 +0000 
+> 9d299fe2ab3caf8f@test.co.uk registered on uat at 2018-11-23 15:58:07 +0000 
+> 6a2786ea6afd87ad@test.co.uk registered on uat at 2018-11-23 16:08:04 +0000 
+> bf56eb196583b84b@test.co.uk registered on uat at 2018-11-23 16:14:06 +0000 
+> 04007beebcad9839@test.co.uk registered on uat at 2018-11-23 16:16:05 +0000 
+> a0458325bb657cc7@test.co.uk registered on uat at 2018-11-23 16:24:18 +0000 
+> 000527c1851d5f87@test.co.uk registered on uat at 2018-11-23 16:27:31 +0000 
+> b495c8c2c442b4f6@test.co.uk registered on uat at 2018-11-23 16:29:41 +0000 
+> 2fb31f89db875b96@test.co.uk registered on uat at 2018-11-23 16:34:10 +0000 
+> a97616d39cb3086a@test.co.uk registered on uat at 2018-11-23 16:37:19 +0000 
+> 07845ba7d3d39c41@test.co.uk registered on uat at 2018-11-23 16:45:43 +0000 
+> 70da3988536180ba@test.co.uk registered on uat at 2018-11-23 16:48:52 +0000 
+> 50889fcfd61c7f6a@test.co.uk registered on uat at 2018-11-23 17:04:01 +0000 
+> b4224487a9196522@test.co.uk registered on uat at 2018-11-23 17:09:03 +0000 
+> 01bcf05d81120c9e@test.co.uk registered on uat at 2018-11-26 16:15:28 +0000 
+> 7a6ea0ca938da429@test.co.uk registered on uat at 2018-11-26 16:24:03 +0000 
+> e5e2ca90588c4cdd@test.co.uk registered on uat at 2018-11-26 16:29:38 +0000 
+> d8bc4bce900ffc89@test.co.uk registered on uat at 2018-11-26 16:34:07 +0000 
+> d20972a7ab967c53@test.co.uk registered on uat at 2018-11-26 16:59:01 +0000 
+> bd0e8d5086c66b89@test.co.uk registered on uat at 2018-11-27 11:08:28 +0000 
+> 8a10a12ec033cad1@test.co.uk registered on uat at 2018-11-27 11:20:04 +0000 
+> 5d9702697444ca0b@test.co.uk registered on uat at 2018-11-27 11:22:45 +0000 
+> 7ec7218c8ac64ba9@test.co.uk registered on uat at 2018-11-27 12:55:18 +0000 
+> c3fd08ef26f7db6f@test.co.uk registered on uat at 2018-11-27 12:58:51 +0000 
+> 285d0b2d85f5def7@test.co.uk registered on uat at 2018-11-27 13:16:07 +0000 
+> cd34b5752a535645@test.co.uk registered on uat at 2018-11-27 13:17:24 +0000 
+> c09b303b2bb750dc@test.co.uk registered on uat at 2018-11-27 13:19:25 +0000 
+> 660f394cc0c01102@test.co.uk registered on uat at 2018-11-27 13:21:43 +0000 
+> 5472ec95dc8bfd6a@test.co.uk registered on uat at 2018-11-27 13:34:25 +0000 
+> c3ddfdd1e89bb4cc@test.co.uk registered on uat at 2018-11-27 13:52:57 +0000 
+> b06350c272ccb25d@test.co.uk registered on uat at 2018-11-27 13:58:25 +0000 
+> fbfa9ee427b46531@test.co.uk registered on uat at 2018-11-27 14:04:44 +0000 
+> b8a37688913baa13@test.co.uk registered on uat at 2018-11-27 14:17:59 +0000 
+> 52e3cefd5ac9e799@test.co.uk registered on uat at 2018-11-27 14:20:29 +0000 
+> 3d5282a77baca7a7@test.co.uk registered on uat at 2018-11-27 14:26:45 +0000 
+> a98f8019ebef2da6@test.co.uk registered on uat at 2018-11-27 14:31:48 +0000 
+> 6ad8157aa56ba77d@test.co.uk registered on uat at 2018-11-27 14:35:15 +0000 
+> c2ea5fb6fd80e3c1@test.co.uk registered on uat at 2018-11-27 14:37:38 +0000 
+> 19f360c881940f53@test.co.uk registered on uat at 2018-11-27 14:42:17 +0000 
+> 610b12be9c9b40e5@test.co.uk registered on uat at 2018-11-27 14:57:15 +0000 
+> 6a55375a76ac10ba@test.co.uk registered on uat at 2018-11-27 15:20:44 +0000 
+> 215ff8a99781e35b@test.co.uk registered on uat at 2018-11-27 15:23:10 +0000 

@@ -82,7 +82,7 @@ end
 Then /^I am taken to the confirmation page$/ do
   if TestBrowser.single_confirm_page.on_page?
     open(File.join(Dir.pwd, 'submissions/donations.txt'), 'a') do |f|
-      f << "> #{@@email} - #{@@donationtype} donation submitted on #{ENV['CONFIG']} at #{Time.now} \n"
+      f << "> #{@@donate_email} - #{@@donationtype} donation submitted on #{@@ENV} at #{Time.now} \n"
     end
   else
     raise

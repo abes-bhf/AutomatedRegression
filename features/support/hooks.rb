@@ -3,7 +3,13 @@
 TestBrowser.browser = Watir::Browser.new (ENV['BROWSER'] || 'chrome').to_sym
 Before do
   TestBrowser.browser.cookies.clear
-  @@email = "#{SecureRandom.hex 8}@test.com"
+  @@new_acc_email = "#{SecureRandom.hex 8}@test.co.uk"
+  @@donate_email = "#{SecureRandom.hex 8}@test.com"
+  if ENV['CONFIG'] == nil
+    @@ENV = 'uat'
+  else
+    @@ENV = ENV['CONFIG']
+  end
 end
 
 After do |scenario|

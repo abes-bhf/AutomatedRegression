@@ -19,6 +19,38 @@ class GenericPage
     TestBrowser.browser.goto @url
   end
 
+  def login_button
+    loginbutton = browser.ul(class: 'g-nav-primary__top').a(text: 'LOG IN/REGISTER')
+    return loginbutton
+  end
+
+  def logout_button
+    logoutbutton = browser.ul(class: 'g-nav-primary__top').a(text: 'LOGOUT')
+    return logoutbutton
+  end
+
+  def log_out
+    loginbutton = login_button
+    if loginbutton.present? == false
+      logoutbutton = logout_button
+      logoutbutton.click!
+    else
+      raise('no logout button found, are you already logged out?')
+    end
+    binding.pry
+  end
+
+  def log_in
+    logoutbutton = logout_button
+    binding.pry
+    if logoutbutton.present? == false
+      loginbutton = login_button
+      loginbutton.click!
+    else
+      raise('no login button found, are you already logged in?')
+    end
+  end
+
   def click!(element)
     #scrolls to element and clicks
     Watir::Wait.until { element.exists? }

@@ -28,31 +28,85 @@ class GenericForm < GenericPage
         option.click
       end
     end
-    raise unless dropdown.text == selection
+    raise("#{selection} not found in dropdown list") unless dropdown.text == selection
+  end
+
+  def find_inputs(label)
+    inputs = []
+    divs= browser.divs(class: 'scfSingleLineTextBorder')
+    divs.each do |d|
+      if d.text.downcase == label.downcase
+      inputs << d.input
+      end
+    end
+    if inputs.size == 1
+      return inputs[0]
+    else
+      puts "multiple input fields with that label exist, not sure why"
+      return inputs
+    end
+  end
+
+  def fill_name2(fn, ln)
+    first = find_inputs('First name*')
+    last = find_inputs('Last name*')
+    sendkeys!(first, fn)
+    sendkeys!(last, ln)
   end
 
   def fill_name(fn, ln)
-    first = browser.input(id: 'main_0_pagecontent_0_form_8E055C52ADC344FFB848479DB2A001D7_field_69FAFF59EC3F48D9B0DB856338B988D6')
-    last = browser.input(id: 'main_0_pagecontent_0_form_8E055C52ADC344FFB848479DB2A001D7_field_096F6DDA72A34E118CED7CA79FE6276B')
+    first = browser.div(class: 'name.first-name').input
+    last = browser.div(class: 'name.last-name').input
+    sendkeys!(first, fn)
+    sendkeys!(last, ln)
+  end
+
+  def fill_name1(fn, ln)
+    first = browser.div(class: 'name.name').input
+    last = browser.div(class: 'name.last-name').input
     sendkeys!(first, fn)
     sendkeys!(last, ln)
   end
 
   def fill_email(em)
-    email = browser.input(id: 'main_0_pagecontent_0_form_8E055C52ADC344FFB848479DB2A001D7_field_BBBAE32901A64DD68F4053FE55319A7F')
+    email = browser.div(class: 'name.e-mail').input
     sendkeys!(email, em)
   end
 
+  def fill_email2(em)
+    email = browser.div(class: 'name.emailaddress').input
+    sendkeys!(email, em)
+    browser.label(text: 'Email address*').click
+  end
+
+  def fill_new_email
+    email = browser.div(class: 'name.emailaddress').input
+    sendkeys!(email, "#{SecureRandom.hex 8}@test.org.uk")
+    new_pw
+  end
+
+  def new_pw
+    binding.pry
+  end
+
+  def fill_password
+    passwordfields = browser.divs(class: 'scfConfirmPasswordBorder')
+    passwordfields.each do |pw|
+      sendkeys!(pw.input, 'Pa55w0rd')
+    end
+  end
+
   def postcode_lookup(pc)
-    postcode = browser.input(id: 'main_0_pagecontent_0_form_8E055C52ADC344FFB848479DB2A001D7_field_CE18DEEFF98A4292956D7A2904E98B39')
+    postcode = browser.div(class: 'name.postcode').div.input
     sendkeys!(postcode, pc)
-    browser.a(class: 'pcaFind').click
-    postcode_dropdown_options = browser.select(class: 'pcaResults').options
-    postcode_dropdown_options[1].click
+    browser.a(class: 'pcaFind').click!
+    postcode_dropdown = browser.select(class: 'pcaResults')
+    postcode_dropdown.click
+    postcode_dropdown.options[1].click
   end
 
   def fill_telephone(tel)
-    telephone = browser.input(id: 'main_0_pagecontent_0_form_8E055C52ADC344FFB848479DB2A001D7_field_0F7A608B75A743558549862A28466887')
+    telephone = browser.div(class: 'scfTelephoneGeneralPanel').input
     sendkeys!(telephone, tel)
   end
 
@@ -67,6 +121,11 @@ class GenericForm < GenericPage
     values.each do |choice|
       dp.radio(value: choice).set
     end
+  end
+
+  def radio_selector_by_value(value)
+    browser.radio(value: value).scroll.to
+    browser.radio(value: value).set
   end
 
   def yesno(boolean)
@@ -104,6 +163,30 @@ class GenericForm < GenericPage
       message.text
     end
     return messages.sort == expected_list.sort
+  end
+
+  def date_of_birth(dd, mm, yyyy)
+    optionlist = []
+    day = browser.select(class: 'scfDateSelectorDay')
+    month = browser.select(class: 'scfDateSelectorMonth')
+    year = browser.select(class: 'scfDateSelectorYear')
+    month.options.each do |option|
+      optionlist << option.text
+    end
+    Date::MONTHNAMES.each do |month|
+      optionlist << month unless month == nil
+    end
+    if !/\A\d+\z/.match(mm)
+      raise('invalid month') unless optionlist.include?(mm)
+      m = mm[0..2]
+    elsif mm.class == String
+      mm = mm.to_i
+      raise('invalid month') unless mm < 13
+      m = Date::MONTHNAMES[mm][0..2]
+    end
+    dropdownselect(day, dd)
+    dropdownselect(month, m)
+    dropdownselect(year, yyyy)
   end
 
 end
