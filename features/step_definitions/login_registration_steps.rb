@@ -54,8 +54,7 @@ Given /^I navigate to the L2B registration form without logging in$/ do
 end
 
 And /^I enter the email used in registration$/ do
-  # TestBrowser.london_to_brighton_registration1.fill_email2(@@new_acc_email)
-  TestBrowser.london_to_brighton_registration1.fill_email2("dfcc44eb0e81c2be@test.co.uk")
+  TestBrowser.london_to_brighton_registration1.fill_email2(@@new_acc_email)
 end
 
 And /^I am prompted to log in to the account associated with the email$/ do
@@ -85,4 +84,12 @@ end
 
 And /^I fill in event specific questions$/ do
   TestBrowser.london_to_brighton_registration2.fill_details
+end
+
+And /^I pay for my registration through PayPal$/ do
+  TestBrowser.event_payment_page.select_paypal
+end
+
+Then /^I am taken to the event confirmation page$/ do
+  TestBrowser.event_confirmation_page.on_page?
 end

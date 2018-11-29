@@ -37,12 +37,10 @@ class GenericPage
     else
       raise('no logout button found, are you already logged out?')
     end
-    binding.pry
   end
 
   def log_in
     logoutbutton = logout_button
-    binding.pry
     if logoutbutton.present? == false
       loginbutton = login_button
       loginbutton.click!

@@ -23,9 +23,8 @@ class LondonToBrightonRegistration2 < GenericForm
     fundraising_target = browser.input(id: 'uxa496e56d-38e6-41b6-a4e9-1fb77eb94317')
     insurance_agreement = browser.checkbox(value: '3cee98c7-0e83-4892-ae67-d15e8f70d4c5')
     helmet_agreement = browser.checkbox(value: 'cf5efcae-0fa9-416c-b56f-f6324bd172bd')
-    terms_and_conditions = browser.checkbox(value: 'main_0_pagecontent_0_eventreg2_0_chkTandCs')
+    terms_and_conditions = browser.checkbox(id: 'main_0_pagecontent_0_eventreg2_0_chkTandCs')
     photo_question = browser.select(id: 'ux83dabcff-b2bf-407b-95ce-696f9cdae082')
-    binding.pry
     sendkeys!(next_of_kin_name, answers['next_of_kin_name'])
     sendkeys!(next_of_kin_relation, answers['next_of_kin_relation'])
     sendkeys!(next_of_kin_number, answers['next_of_kin_number'])

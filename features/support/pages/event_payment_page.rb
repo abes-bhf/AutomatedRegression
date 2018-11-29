@@ -13,12 +13,12 @@ class EventPaymentPage < GenericPage
   end
 
   def select_worldpay
-    worldpay_button = browser.input(id: "main_0_pagecontent_0_donations3_0_Button1")
+    worldpay_button = browser.input(id: "main_0_pagecontent_0_eventreg3_0_uxSubmitBtn")
     worldpay_button.click!
   end
 
   def select_paypal
-    paypal_button = browser.input(id: "main_0_pagecontent_0_eventreg3_0_uxSubmitBtn")
+    paypal_button = browser.input(id: "main_0_pagecontent_0_eventreg3_0_Button2")
     paypal_button.click!
   end
 
