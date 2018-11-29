@@ -11,7 +11,7 @@ And /^I click register$/ do
 end
 
 Then /^I am taken to the registration form$/ do
-  TestBrowser.registration_form.on_page?
+  raise unless TestBrowser.registration_form.on_page?
 end
 
 Given /^I fill in the registration form$/ do

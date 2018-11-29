@@ -127,3 +127,10 @@ EMAIL ADDRESSES USED FOR SUCCESSFUL DONATIONS:
 > e88b233c3ee5a01c@test.com - Monthly donation submitted on uat at 2018-11-13 16:54:39 +0000 
 > a04b539b58d06bce@test.com - Monthly donation submitted on uat at 2018-11-26 15:49:25 +0000 
 > 01e4a38147d8beb5@test.com - Monthly donation submitted on uat at 2018-11-26 16:57:49 +0000 
+> ae69481a338b9df9@test.com - One-off donation submitted on uat at 2018-11-29 11:39:31 +0000 
+> 2b2977c4c9967d67@test.com - One-off PayPal donation submitted on uat at 2018-11-29 11:41:38 +0000 
+> 1d20501ccc30ab35@test.com - Monthly donation submitted on uat at 2018-11-29 11:42:45 +0000 
+> f6c5cc4ba6d94184@test.com - One-off campaign donation submitted on uat at 2018-11-29 11:44:48 +0000 
+> b6cf9b32aa19fe9e@test.com - Monthly campaign donation submitted on uat at 2018-11-29 11:46:09 +0000 
+> f083178cdcc1c832@test.com - One-off donation submitted on uat at 2018-11-29 11:48:51 +0000 
+> bf4b2c087d7e1f9a@test.com - Monthly donation submitted on uat at 2018-11-29 11:50:20 +0000 
