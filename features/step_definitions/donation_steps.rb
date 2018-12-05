@@ -94,6 +94,7 @@ When /^I press continue without filling details$/ do
 end
 
 When /^I press continue without filling direct debit details$/ do
+  binding.pry
   TestBrowser.monthly_payment_form.continue
 end
 

@@ -86,10 +86,18 @@ And /^I fill in event specific questions$/ do
   TestBrowser.london_to_brighton_registration2.fill_details
 end
 
-And /^I pay for my registration through PayPal$/ do
+And /^I decide to pay for registration through PayPal$/ do
   TestBrowser.event_payment_page.select_paypal
 end
 
 Then /^I am taken to the event confirmation page$/ do
   TestBrowser.event_confirmation_page.on_page?
+end
+
+Then /^I am taken to the events payment page$/ do
+  raise unless TestBrowser.event_payment_page.on_page?
+end
+
+Then /^I return to the event payment page$/ do
+  TestBrowser.pay_pal_page.cancel
 end
