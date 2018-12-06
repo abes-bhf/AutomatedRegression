@@ -120,3 +120,5 @@ EMAIL ADDRESSES USED FOR SUCCESSFUL REGISTRATIONS:
 > 7f00851286473128@test.co.uk registered on uat2 at 2018-12-05 15:26:34 +0000 
 > b1993335a53d4650@test.co.uk registered on uat2 at 2018-12-05 15:28:59 +0000 
 > 6f5eba1c27b1d67c@test.co.uk registered on uat2 at 2018-12-05 15:30:33 +0000 
+> 362dc0b2cd4c978f@test.co.uk registered on uat2 at 2018-12-06 10:15:52 +0000 
+> 21e4e0caac9b6516@test.co.uk registered on uat2 at 2018-12-06 10:23:52 +0000 

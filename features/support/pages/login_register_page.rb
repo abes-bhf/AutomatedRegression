@@ -23,7 +23,7 @@ class LoginRegisterPage < GenericForm
     sendkeys!(email, @@new_acc_email)
     sendkeys!(password, 'Pa55w0rd')
     submitbutton = browser.input(class: 'scfSubmitButton')
-    submitbutton.click!
+    binding.pry
   end
 
 end

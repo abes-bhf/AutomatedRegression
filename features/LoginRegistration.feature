@@ -10,7 +10,7 @@ Feature: Login/Registration
 		And I click log in/register
 		Then I am taken to the login registration page
 
-	@form
+	@export
 	Scenario: User account registration
 		Given I am on the login registration page
 		And I click register

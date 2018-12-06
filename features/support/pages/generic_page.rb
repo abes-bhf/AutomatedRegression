@@ -40,7 +40,6 @@ class GenericPage
   end
 
   def log_in
-    binding.pry
     logoutbutton = logout_button
     if logoutbutton.present? == false
       loginbutton = login_button
