@@ -25,7 +25,7 @@ class GenericPage
   end
 
   def logout_button
-    logoutbutton = browser.ul(class: 'g-nav-primary__top').a(text: 'LOGOUT')
+    logoutbutton = browser.ul(class: 'g-nav-primary__top').a(text: 'SIGN OUT')
     return logoutbutton
   end
 

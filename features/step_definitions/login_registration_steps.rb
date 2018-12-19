@@ -48,8 +48,10 @@ Then /^I am on my account page$/ do
 end
 
 Given /^I navigate to the L2B registration form without logging in$/ do
+  binding.pry
   TestBrowser.london_to_brighton_page.visit
   TestBrowser.london_to_brighton_page.guest_sign_up
+  binding.pry
   raise unless TestBrowser.london_to_brighton_registration1.on_page?
 end
 
@@ -84,6 +86,7 @@ end
 
 And /^I fill in event specific questions$/ do
   TestBrowser.london_to_brighton_registration2.fill_details
+  binding.pry
 end
 
 And /^I decide to pay for registration through PayPal$/ do

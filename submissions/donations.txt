@@ -141,3 +141,24 @@ EMAIL ADDRESSES USED FOR SUCCESSFUL DONATIONS:
 > f2c57e0a55714acf@test.com - Monthly campaign donation submitted on uat at 2018-11-30 14:10:32 +0000 
 > 35074e7b8f8a0446@test.com - One-off donation submitted on uat at 2018-11-30 14:12:58 +0000 
 > e2895cc66cdab5bd@test.com - Monthly donation submitted on uat at 2018-11-30 14:14:28 +0000 
+> 0722a4f7ecb8234e@test.com - One-off donation submitted on uat at 2018-12-13 17:22:59 +0000 
+> d5697a76d7ead915@test.com - One-off PayPal donation submitted on uat at 2018-12-13 17:24:25 +0000 
+> 50d2d8c598135b08@test.com - Monthly donation submitted on uat at 2018-12-13 17:25:18 +0000 
+> 31e9efbaf86f25f1@test.com - One-off campaign donation submitted on uat at 2018-12-13 17:26:09 +0000 
+> c7c1b5f4600cc550@test.com - Monthly campaign donation submitted on uat at 2018-12-13 17:26:57 +0000 
+> 0f1329c6999fc1b9@test.com - One-off donation submitted on uat at 2018-12-13 17:29:28 +0000 
+> b8da2355814c7a8d@test.com - Monthly donation submitted on uat at 2018-12-13 17:30:56 +0000 
+> b5d23b064b4d4ec2@test.com - One-off donation submitted on uat at 2018-12-18 15:46:28 +0000 
+> 626d23b4487b2191@test.com - One-off PayPal donation submitted on uat at 2018-12-18 15:48:05 +0000 
+> 10cba2b592360af5@test.com - Monthly donation submitted on uat at 2018-12-18 15:49:02 +0000 
+> 5eb4f25e32669be8@test.com - One-off campaign donation submitted on uat at 2018-12-18 15:49:56 +0000 
+> 19c5c84463f4ed12@test.com - Monthly campaign donation submitted on uat at 2018-12-18 15:50:45 +0000 
+> c394d86504aa2a66@test.com - One-off donation submitted on uat at 2018-12-18 15:59:26 +0000 
+> 214d6f53eff8fe21@test.com - Monthly donation submitted on uat at 2018-12-18 16:02:05 +0000 
+> 2c943a44a9e2f607@test.com - One-off donation submitted on uat at 2018-12-19 14:24:10 +0000 
+> f627968dd684a518@test.com - One-off PayPal donation submitted on uat at 2018-12-19 14:25:22 +0000 
+> 957b4dad2545e3e3@test.com - Monthly donation submitted on uat at 2018-12-19 14:26:08 +0000 
+> 949cf135e5a83908@test.com - One-off campaign donation submitted on uat at 2018-12-19 14:26:51 +0000 
+> d3f8b1cd554a22ac@test.com - Monthly campaign donation submitted on uat at 2018-12-19 14:27:35 +0000 
+> 54ea6d1670b757c0@test.com - One-off donation submitted on uat at 2018-12-19 14:29:20 +0000 
+> c7e76f0412155638@test.com - Monthly donation submitted on uat at 2018-12-19 14:30:15 +0000 
