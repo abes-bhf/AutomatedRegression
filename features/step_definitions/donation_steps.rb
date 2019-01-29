@@ -64,6 +64,7 @@ When /^I select Donate by PayPal$/ do
 end
 
 When /^I enter valid card details$/ do
+  binding.pry
   TestBrowser.worldpay_page.use_valid_card # Write code here that turns the phrase above into concrete actions
 end
 
@@ -111,4 +112,8 @@ When /^I return to the payment page$/ do
   else
     TestBrowser.pay_pal_page.cancel
   end
+end
+
+Given /^I answer no to the GiftAid question$/ do
+  TestBrowser.single_payment_page.gift_aid(true)
 end

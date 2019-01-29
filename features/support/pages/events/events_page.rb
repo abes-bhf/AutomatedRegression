@@ -12,8 +12,18 @@ class EventsPage < GenericPage
     return trait
   end
 
+  def categories
+    event_categories = browser.lis(class: 'eventsTab')
+    return event_categories
+  end
+
   def select_category(category)
-    binding.pry
+    tabs = categories
+    tabs.each do |tab|
+      if tab.text.downcase == category.downcase
+        tab.a.click!
+      end
+    end
   end
 
 

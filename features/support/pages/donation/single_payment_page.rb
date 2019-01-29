@@ -27,4 +27,14 @@ class SinglePaymentPage < GenericPage
     on_page?
   end
 
+  def gift_aid(personal)
+    personal_money = browser.span(class: 'my-money').radio
+    not_personal_money = browser.span(class: 'not-my-money').radio
+    if personal
+      personal_money.set
+    else
+      not_personal_money.set
+    end
+  end
+
 end

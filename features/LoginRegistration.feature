@@ -1,4 +1,4 @@
-@login @register
+@loginregister
 Feature: Login/Registration
 	In order to save my details to the BHF website
 	As a BHF supporter

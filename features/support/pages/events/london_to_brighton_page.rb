@@ -13,11 +13,13 @@ class LondonToBrightonPage < GenericPage
   end
 
   def guest_sign_up
-    signupbutton = browser.a(text: 'Sign up')
-    signupbutton.click
     if logout_button.present?
       log_out
+      signupbutton = browser.a(text: 'Sign up')
+      signupbutton.click
     elsif login_button.present?
+      signupbutton = browser.a(text: 'Sign up')
+      signupbutton.click
       guest_continue = browser.a(text: 'CONTINUE')
       guest_continue.click!
     else
