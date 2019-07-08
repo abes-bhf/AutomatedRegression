@@ -29,11 +29,11 @@ class LondonToBrightonRegistration2 < GenericForm
     sendkeys!(next_of_kin_relation, answers['next_of_kin_relation'])
     sendkeys!(next_of_kin_number, answers['next_of_kin_number'])
     sendkeys!(fundraising_target, answers['fundraising_target'])
-    insurance_agreement.scroll.to
-    insurance_agreement.set
-    helmet_agreement.scroll.to
-    helmet_agreement.set
-    dropdownselect(photo_question, 'Yes')
+    # binding.pry
+    # insurance_agreement.scroll.to
+    # insurance_agreement.set
+    # helmet_agreement.scroll.to
+    # helmet_agreement.set
     terms_and_conditions.scroll.to
     terms_and_conditions.set
     continue

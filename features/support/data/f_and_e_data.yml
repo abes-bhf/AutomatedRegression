@@ -1,0 +1,38 @@
+f_and_e:
+  title: Professor
+  fn: AutoFandE FN
+  ln: AutoFandE LN
+  postcode: NW17AW
+  a1: This is
+  a2: A test submission
+  a3: Please ignore
+  towncity: London
+  county:
+  telephone: 1234567890
+  email: abes_pet_robot@mailsac.com
+  firstchoice:
+  secondchoice:
+  howdidyouhear:
+  dpemail: no
+  dptext: no
+  dppost: no
+  dptel: no
+
+flow:
+  email: siregara@bhf.org.uk
+  password: Password1!
+
+hc:
+  fn: AutoHC FN
+  ln: AutoHC LN
+  postcode: NW18AW
+  a1: This is
+  a2: A test submission
+  a3: Please ignore
+  towncity: London
+  telephone: 1234567890
+  email: abes_pet_robot@mailsac.com
+  dpemail: no
+  dptext: no
+  dppost: no
+  dptel: no

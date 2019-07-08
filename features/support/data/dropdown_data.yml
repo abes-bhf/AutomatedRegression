@@ -1,0 +1,34 @@
+f_and_e_how_did_you_hear:
+  id:
+    - main_0_pagecontent_1_pnlHowDidYouHear
+  options:
+    - Bensons for Beds
+    - DFS
+    - Donated previously
+    - Enfield Council
+    - Google
+    - Harveys
+    - Heart Matters
+    - Leaflet
+    - M&S Home
+    - Newspaper/magazine/radio/TV ad
+    - Tesco Leaflet
+    - Word of mouth
+
+hc_how_did_you_hear:
+  id:
+    - main_0_pagecontent_1_pnlHowDidYouHear
+  options:
+    - Leaflet
+    - On Line search
+    - Word of Mouth/recommendation
+    - BHF Store
+
+reason_for_requesting:
+  id:
+    - main_0_pagecontent_1_pnlAdditionalQuestions
+  options:
+    - Bereavement
+    - Downsizing
+    - Moving abroad
+    - Moving into care

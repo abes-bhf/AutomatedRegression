@@ -4,7 +4,7 @@ class LondonToBrightonPage < GenericPage
 
   def initialize(browser)
     super
-    @url = EnvConfig.base_url + "how-you-can-help/events/bike-rides/london-to-brighton-bike-ride-2019"
+    @url = EnvConfig.base_url + "how-you-can-help/events/bike-rides/london-to-brighton-bike-ride-2020"
   end
 
   def trait

@@ -27,3 +27,22 @@ validation:
 
   accountdetails:
     something: something else
+
+  fande:
+    firelabels: The I confirm that all soft furnishings have fire labels attached. I understand that goods need to be in a saleable condition and meet health and safety requirements.* checkbox must be checked
+    declination: The I understand that items may be declined by BHF van drivers at the point of collection if they’re items BHF is unable to sell.* checkbox must be checked
+    firstchoice: First choice must be filled in.
+    postcode: Postcode must be filled in.
+    a1: Address 1 must be filled in.
+    tc: Town/city must be filled in.
+    email: Email must be filled in.
+
+  hc:
+    postcode: Postcode must be filled in.
+    a1: Address 1 must be filled in.
+    tc: Town/city must be filled in.
+    email: Email must be filled in.
+
+
+  telephone:
+    telephone: Telephone must be filled in.

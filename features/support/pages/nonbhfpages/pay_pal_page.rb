@@ -13,13 +13,11 @@ class PayPalPage < GenericPage
 
   def login
     # loginbutton = browser.a(text: 'Log In')
-    nextbutton = browser.button(id: 'btnNext')
-    loginbutton = browser.button(id: 'btnLogin')
     email = browser.input(id: "email")
+    password = browser.input(id: "password")
+    loginbutton = browser.button(id: 'btnLogin')
     email.click
     email.send_keys(EnvConfig.data['paypal']['details']['em'])
-    nextbutton.click!
-    password = browser.input(id: "password")
     password.send_keys(EnvConfig.data['paypal']['details']['pw'])
     loginbutton.click!
     continue = browser.input(id: "confirmButtonTop")

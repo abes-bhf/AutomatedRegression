@@ -64,7 +64,6 @@ When /^I select Donate by PayPal$/ do
 end
 
 When /^I enter valid card details$/ do
-  binding.pry
   TestBrowser.worldpay_page.use_valid_card # Write code here that turns the phrase above into concrete actions
 end
 

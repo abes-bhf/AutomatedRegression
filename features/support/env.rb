@@ -5,6 +5,7 @@ require 'pry'
 require 'fileutils'
 require 'rspec/expectations'
 require 'watir-scroll'
+require 'page-object'
 
 
 #

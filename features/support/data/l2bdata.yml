@@ -1,16 +1,12 @@
 radios:
   beginner: 6f09dd35-6b2d-43ed-8772-a8221eee099e
-  threetofourhours: b42ce931-17c1-4f42-b81c-d8f099d1e2b2
   noelectricbike: a4f83d11-4cd8-4341-9dc9-2ca2d6695de2
   notandem: 712b3540-ed62-492e-a27d-bac32ff45a97
   dosharestory: 3931c607-6165-4df7-9947-51459b9cd47e
   yespersonalinfo: 2ab9d3da-e1ca-431d-89f6-cfa0c392b147
-  yesphotos: 15447150-7348-4955-b12a-6434fac02e0c
-  yesphotomail: 39a8610c-50ec-496d-bd27-de0da59b628c
 
 event_specific_answers:
   next_of_kin_name: Uncle Ruckus
   next_of_kin_relation: No relation
   next_of_kin_number: 0192837465
   fundraising_target: 9002
-   

@@ -1,4 +1,4 @@
-class WorldpayPage < GenericPage
+class WorldpayPage < GenericForm
   include RSpec::Matchers
   attr_accessor :browser, :trait
 
@@ -15,10 +15,10 @@ class WorldpayPage < GenericPage
     visa = browser.img(title: "VISA")
     visa.click!
     browser.input(id: "cardNumber").send_keys('4444333322221111')
-    expmonth = browser.select(id: "expiryMonth")
-    expyear = browser.select(id: "expiryYear")
-    dropdownselect(expmonth, '01')
-    dropdownselect(expyear, "#{Time.now.year + 1}")
+    expmonth = browser.input(id: "expiryMonth")
+    expyear = browser.input(id: "expiryYear")
+    sendkeys!(expmonth, '01')
+    sendkeys!(expyear, "#{Time.now.year + 1}")
     browser.input(id: "securityCode").send_keys('123')
     browser.input(id: "submitButton").click!
   end

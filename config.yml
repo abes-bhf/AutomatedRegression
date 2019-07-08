@@ -6,27 +6,74 @@ defaults: &execution_defaults
 live:
   <<: *execution_defaults
   base_url: https://www.bhf.org.uk/
+  flow_url: https://10.190.2.5/
 
 uat:
   <<: *execution_defaults
   base_url: https://uat-bhf.precedenthost.co.uk/
+  flow_url: https://10.190.2.5/
+
 
 uat2:
   <<: *execution_defaults
   base_url: https://bhfuat2.precedenthost.co.uk/
+  flow_url: https://10.190.2.5/
+
 
 cd1:
   <<: *execution_defaults
   base_url: https://bhftest-dh4.precedenthost.com/
+  flow_url: https://10.190.2.5/
+
 
 cd1:
   <<: *execution_defaults
   base_url: https://bhftest-dh4.precedenthost.com/
+  flow_url: https://10.190.2.5/
+
 
 cd2:
   <<: *execution_defaults
   base_url: https://bhftest-pul.precedenthost.com/
+  flow_url: https://10.190.2.5/
+
 
 cd3:
   <<: *execution_defaults
   base_url: https://bhf-cd3-dh4.precedenthost.com/
+  flow_url: https://10.190.2.5/
+
+azure:
+  <<: *execution_defaults
+  base_url: https://ukw-bhf-sc8-prd-cd1.azurewebsites.net/
+  flow_url: https://10.190.2.5/
+
+preprod:
+  <<: *execution_defaults
+  base_url: https://ukw-bhf-sc8-prd-cd1-staging.azurewebsites.net/
+  flow_url: https://10.190.2.5/
+
+stg:
+  <<: *execution_defaults
+  base_url: https://ukw-bhf-sc8-stg-cd1.azurewebsites.net/
+  flow_url: https://10.190.2.5/
+
+whatever:
+  <<: *execution_defaults
+  base_url: https://www.bhf.org.uk/
+  flow_url: https://uat-bhf-flow.precedenthost.co.uk/
+
+gateway:
+  <<: *execution_defaults
+  base_url: https://4055544a-da9d-40df-a0cd-666cd8cab416.cloudapp.net/
+  flow_url: https://10.190.2.5/
+
+sandbox:
+  <<: *execution_defaults
+  base_url: https://bhf-sandbox.azurewebsites.net/
+  flow_url: https://10.190.2.5/
+
+integration:
+  <<: *execution_defaults
+  base_url: https://bhf-integration.azurewebsites.net/
+  flow_url: https://10.190.2.5/

@@ -4,12 +4,19 @@ class DonateForm < GenericForm
     super
     @url = EnvConfig.base_url + "how-you-can-help/donate/donate-form?page=1"
     @donationamount = browser.span(id: "main_0_pagecontent_0_donations2right_0_lblPieAmount")
-    @continue = browser.input( id: "main_0_pagecontent_0_form_8E055C52ADC344FFB848479DB2A001D7_form_8E055C52ADC344FFB848479DB2A001D7_submit")
+    @continue = browser.input(value: 'Continue')
   end
 
   def trait
     trait = browser.h1(text: 'Your details')
     return trait
+  end
+
+  def fill_name(fn, ln)
+    first = browser.div(class: "name.first-name").textarea
+    last = browser.div(class: "name.last-name").textarea
+    sendkeys!(first, fn)
+    sendkeys!(last, ln)
   end
 
   def fill_form(type)

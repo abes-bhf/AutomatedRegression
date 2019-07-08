@@ -4,12 +4,6 @@ class GenericForm < GenericPage
     super
   end
 
-  def sendkeys!(input, text)
-    # takes an input html element as the 1st argument, scrolls to it then fills it with the keys provided in the second argument)
-    input.scroll.to
-    input.send_keys(text)
-  end
-
   def random_title
     titles = ['Ms', 'Mr', 'Mrs', 'Miss', 'Dr', 'Professor', 'Other']
     return titles.sample
@@ -48,8 +42,8 @@ class GenericForm < GenericPage
   end
 
   def fill_name2(fn, ln)
-    first = find_inputs('First name*')
-    last = find_inputs('Last name*')
+    first = find_inputs("First name*")
+    last = find_inputs("Last name*")
     sendkeys!(first, fn)
     sendkeys!(last, ln)
   end
@@ -76,7 +70,7 @@ class GenericForm < GenericPage
   def fill_email2(em)
     email = browser.div(class: 'name.emailaddress').input
     sendkeys!(email, em)
-    browser.label(text: 'Email address*').click
+    browser.label(text: "Email address*").click
   end
 
   def fill_new_email
@@ -187,6 +181,18 @@ class GenericForm < GenericPage
     dropdownselect(day, dd)
     dropdownselect(month, m)
     dropdownselect(year, yyyy)
+  end
+
+  def dropdown_check(type)
+    expected_options = EnvConfig.data[type]['options'].sort
+    options = browser.div(id: EnvConfig.data[type]['id'][0]).select.options
+    options_found = []
+    options.each do |option|
+      if option.text.size > 0
+        options_found << option.text
+      end
+    end
+    return options_found.sort == expected_options.sort
   end
 
 end

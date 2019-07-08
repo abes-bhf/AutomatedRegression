@@ -2,9 +2,12 @@ class GenericPage
   include RSpec::Matchers
   attr_accessor :browser
 
+  include PageObject
+
   def initialize(browser)
     @browser = browser
     @logo = browser.a(class: 'g-logo')
+    @trait = ''
   end
 
   def find_logo
@@ -67,6 +70,12 @@ class GenericPage
     #   binding.pry
     # end
     @continue.click!
+  end
+
+  def sendkeys!(input, text)
+    # takes an input html element as the 1st argument, scrolls to it then fills it with the keys provided in the second argument)
+    input.scroll.to
+    input.send_keys(text)
   end
 
   def on_page?

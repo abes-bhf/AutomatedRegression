@@ -4,7 +4,7 @@ Feature: Homepage
 	As a BHF supporter
 	I want to make a donation
 
-	@smoketest @oneoff
+	@smoketest @oneoff @geg
 	Scenario: Visit donation page
 		Given I navigate to the Donation page
 		Then the Donation page is displayed
