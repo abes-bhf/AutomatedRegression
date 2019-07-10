@@ -15,7 +15,7 @@ class RegistrationForm < GenericForm
     fill_email(@@new_acc_email)
     fill_password
     select_title(random_title)
-    fill_name2('AutoReg FN', 'AutoReg LN')
+    fill_name1('AutoReg FN', 'AutoReg LN')
     postcode_lookup('NW18AW')
     fill_telephone('0987654321')
     data_protection('no', 'no', 'no', 'no')

@@ -41,16 +41,24 @@ class GenericForm < GenericPage
     end
   end
 
-  def fill_name2(fn, ln)
-    first = find_inputs("First name*")
-    last = find_inputs("Last name*")
-    sendkeys!(first, fn)
-    sendkeys!(last, ln)
-  end
+  # def fill_name2(fn, ln)
+  #   binding.pry
+  #   first = find_inputs("First name*")
+  #   last = find_inputs("Last name*")
+  #   sendkeys!(first, fn)
+  #   sendkeys!(last, ln)
+  # end
+
+  # def fill_name(fn, ln)
+  #   first = browser.div(class: 'name.first-name').input
+  #   last = browser.div(class: 'name.last-name').input
+  #   sendkeys!(first, fn)
+  #   sendkeys!(last, ln)
+  # end
 
   def fill_name(fn, ln)
-    first = browser.div(class: 'name.first-name').input
-    last = browser.div(class: 'name.last-name').input
+    first = browser.div(class: "name.first-name").textarea
+    last = browser.div(class: "name.last-name").textarea
     sendkeys!(first, fn)
     sendkeys!(last, ln)
   end

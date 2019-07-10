@@ -21,7 +21,7 @@ class HCForm < GenericForm
     additionalquestion = browser.select(id: 'main_0_pagecontent_1_ddlAdditionalQuestion')
     additionalanswer = EnvConfig.data['reason_for_requesting']['options'].sample
     dropdownselect(title_dropdown, random_title)
-    fill_name2(details['fn'],details['ln'])
+    fill_name1(details['fn'],details['ln'])
     postcode_lookup(details['postcode'])
     sendkeys!(telephone, details['telephone'])
     sendkeys!(email, details['email'])

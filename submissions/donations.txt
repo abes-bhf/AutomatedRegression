@@ -437,3 +437,5 @@ EMAIL ADDRESSES USED FOR SUCCESSFUL DONATIONS:
 > e5576202ab1b6a3a@test.com - Monthly donation submitted on preprod at 2019-06-24 13:46:38 +0100 
 > 3b9f857ca923edc4@test.com - One-off donation submitted on integration at 2019-06-25 10:47:32 +0100 
 > 0c99b9e0c5dd68f3@test.com - Monthly donation submitted on integration at 2019-06-25 10:48:18 +0100 
+> 70f3d23371a9cd0f@mailsac.com - One-off donation submitted on gateway at 2019-07-09 14:35:55 +0100 
+> 354d819f4fa60dcb@mailsac.com - Monthly donation submitted on gateway at 2019-07-09 14:37:22 +0100 

@@ -12,13 +12,6 @@ class DonateForm < GenericForm
     return trait
   end
 
-  def fill_name(fn, ln)
-    first = browser.div(class: "name.first-name").textarea
-    last = browser.div(class: "name.last-name").textarea
-    sendkeys!(first, fn)
-    sendkeys!(last, ln)
-  end
-
   def fill_form(type)
     details = EnvConfig.data[type]['details']
     email = @@donate_email
