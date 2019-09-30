@@ -82,7 +82,7 @@ And /^I view requests for all shops$/ do
 end
 
 And /^I search for a collection reference$/ do
-  @@f_and_e_reference = 'W41-A24048689'
+  # @@f_and_e_reference = 'W41-A24048689'
   TestBrowser.flow.searchref(@@f_and_e_reference)
 end
 

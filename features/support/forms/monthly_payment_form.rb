@@ -26,16 +26,17 @@ class MonthlyPaymentForm < GenericForm
 
   def dd_start_date(day, month)
     ddmonth = browser.select(id: 'main_0_pagecontent_0_donations3_0_ddlMonth')
+    dropdownselect(ddmonth, month)
     if day == 1
-      start = browser.radio(value: 'rbDonationFirst')
+      start = browser.input(value: 'rbDonationFirst')
     elsif day == 15
-      start = browser.radio(value: 'rbDonationSecond')
+      start = browser.input(value: 'rbDonationSecond')
     else
       pending
     end
-    dropdownselect(ddmonth, month)
     start.scroll.to
-    start.set
+    # binding.pry
+    start.click!
   end
 
   def fill_account_details

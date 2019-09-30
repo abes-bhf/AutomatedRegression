@@ -97,6 +97,23 @@ Feature: Homepage
 		And I enter valid card details
 		Then I am taken to the confirmation page
 
+	@oneoff @emailregression
+	Scenario: Testing single donations complete with transactions
+		Given I navigate to the Donation page
+		And I select a donation preset
+		And I am taken to the first page of the one-off donation form
+		And I press continue without filling details
+		Then the donate form should refresh with validation messages
+		When I fill in single payment details
+		And I am taken to the one-off payment page
+		And I answer no to the GiftAid question
+		And I select Donate by credit/debit card
+		And I am taken to the Worldpay page
+		And I enter valid card details
+		Then I am taken to the confirmation page
+		And I visit the Mailsac inbox for my donation email
+		Then There should be an email confirmation of my one-off donation with expected content
+
 	@monthly @uatregression
 	Scenario: Testing monthly donations complete with transactions
 		Given I navigate to the Donation page

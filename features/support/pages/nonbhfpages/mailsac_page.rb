@@ -40,9 +40,33 @@ class MailsacPage < GenericPage
     msgs.each do |m|
       matches << m unless m.td(class:"col-xs-5").text != subject
     end
-    binding.pry
+    binding.pry unless matches.size > 0
     matches[0].click
     browser.goto(matches[0].a(text: "Unblock links and images ↗").href)
+  end
+
+  def one_off_donation_content_check
+    data = EnvConfig.data['one_off_email_content']
+    font = []
+    data['font'].each do |d|
+      font << d
+    end
+    font << data["donation_details"][0]+" £ £#{@@donation_amount}"
+    font << data["donation_details"][1]+" #{@@donation_reference}"
+    binding.pry
+    raise("Mailsac buttons not found") unless browser.a(text: 'Sign in to reply').present?
+    raise("Mailsac buttons not found") unless browser.a(text: 'Buy private email addresses, send messages, or build with the developer API.')
+    raise("Unable to find image") unless browser.img(src: data['img_src']).present?
+    font.each do |f|
+      raise("Unable to find content: #{f}") unless browser.font(text: f).present?
+    end
+    data['a'].each do |a|
+      raise("Unable to find content: #{a}") unless browser.a(text: a).present?
+    end
+    raise("Reference not displayed correctly") unless browser.font(text: data["donation_details"][1]+" #{@@donation_reference}").present?
+    # raise("Donation amount not displayed correctly") unless browser.font(text: data["donation_details"][0]+" £ £#{@@donation_amount}").present?
+
+    binding.pry
   end
 
   def f_and_e_content_check

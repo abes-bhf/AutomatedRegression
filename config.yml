@@ -1,7 +1,7 @@
 # Access to the data in this file is provided through the EnvConfig class - see env_config.rb
 
 defaults: &execution_defaults
-  default_config: uat #This just ensures the staging profile (below) is loaded if no CONFIG= is passed from the command line.
+  default_config: integration #This just ensures the staging profile (below) is loaded if no CONFIG= is passed from the command line.
 
 live:
   <<: *execution_defaults

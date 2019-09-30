@@ -18,7 +18,7 @@ class PayPalPage < GenericPage
     loginbutton = browser.button(id: 'btnLogin')
     email.click
     email.send_keys(EnvConfig.data['paypal']['details']['em'])
-    binding.pry
+    loginbutton.click!
     password.send_keys(EnvConfig.data['paypal']['details']['pw'])
     loginbutton.click!
     continue = browser.input(id: "confirmButtonTop")

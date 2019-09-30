@@ -78,18 +78,15 @@ class GenericForm < GenericPage
   def fill_email2(em)
     email = browser.div(class: 'name.emailaddress').input
     sendkeys!(email, em)
-    browser.label(text: "Email address*").click
+    emailabel = browser.legend(text: "Email")
+    emailabel.click!
   end
 
-  def fill_new_email
-    email = browser.div(class: 'name.emailaddress').input
-    sendkeys!(email, "#{SecureRandom.hex 8}@test.org.uk")
-    new_pw
-  end
-
-  def new_pw
-    binding.pry
-  end
+  # def fill_new_email
+  #   email = browser.div(class: 'name.emailaddress').input
+  #   sendkeys!(email, "#{SecureRandom.hex 8}@test.org.uk")
+  #   new_pw
+  # end
 
   def fill_password
     passwordfields = browser.divs(class: 'scfConfirmPasswordBorder')

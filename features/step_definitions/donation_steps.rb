@@ -11,22 +11,24 @@ Then /^the Donation page is displayed$/ do
 end
 
 Given /^I select a donation preset$/ do
-  @@donationtype = "One-off"
+  @@donation_type = "One-off"
+  binding.pry
   TestBrowser.donation_page.select_donation('one-off')
+  binding.pry
 end
 
 Given("I select a one-off campaign donation preset") do
-  @@donationtype = "One-off campaign"
+  @@donation_type = "One-off campaign"
   TestBrowser.rosco_page.select_donation("one-off")
 end
 
 Given("I select a monthly campaign donation preset") do
-  @@donationtype = "Monthly campaign"
+  @@donation_type = "Monthly campaign"
   TestBrowser.rosco_page.select_donation("monthly")
 end
 
 Given ("I select a monthly donation preset") do
-  @@donationtype = "Monthly"
+  @@donation_type = "Monthly"
   TestBrowser.donation_page.select_donation("monthly")
 end
 
@@ -43,6 +45,7 @@ And /^I fill in direct debit details$/ do
 end
 
 Then /^I am taken to the one-off payment page$/ do
+  binding.pry
   raise unless TestBrowser.single_payment_page.on_pg?
 end
 
@@ -59,7 +62,7 @@ When /^I select Donate by credit\/debit card$/ do
 end
 
 When /^I select Donate by PayPal$/ do
-  @@donationtype = "One-off PayPal"
+  @@donation_type = "One-off PayPal"
   TestBrowser.single_payment_page.select_paypal # Write code here that turns the phrase above into concrete actions
 end
 
@@ -81,8 +84,15 @@ end
 
 Then /^I am taken to the confirmation page$/ do
   if TestBrowser.single_confirm_page.on_page?
+    case @@donation_type
+      when "One-off"
+        @@donation_reference = TestBrowser.browser.url.split("=")[2][16..51]
+        @@donation_amount =  '%.2f' % (TestBrowser.browser.url.split("paymentAmount=")[1][0..3].to_i/100)
+      when "Monthly"
+        @@donation_amount =  '%.2f' % (TestBrowser.browser.url.split("=")[3].to_i/100)
+    end
     open(File.join(Dir.pwd, 'submissions/donations.txt'), 'a') do |f|
-      f << "> #{@@donate_email} - #{@@donationtype} donation submitted on #{@@ENV} at #{Time.now} \n"
+      f << "> #{@@donate_email} - #{@@donation_type} donation submitted on #{@@ENV} at #{Time.now}\n"
     end
   else
     raise
@@ -106,7 +116,8 @@ Then /^the direct debit form should refresh with validation messages$/ do
 end
 
 When /^I return to the payment page$/ do
-  if @@donationtype == "One-off"
+  binding.pry
+  if @@donation_type == "One-off"
     TestBrowser.worldpay_page.cancel
   else
     TestBrowser.pay_pal_page.cancel

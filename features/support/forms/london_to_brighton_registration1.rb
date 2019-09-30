@@ -11,8 +11,10 @@ class LondonToBrightonRegistration1 < GenericForm
   end
 
   def email_recognised?
-    browser.label(text: 'Email address*').click
+    emailabel = browser.legend(text: "Email")
+    emailabel.click!
     accmatched = browser.p(id: 'accMatched')
+    binding.pry
     begin
       Watir::Wait.until { accmatched.present? }
       return true
@@ -25,7 +27,7 @@ class LondonToBrightonRegistration1 < GenericForm
     select_title(random_title)
     date_of_birth("#{Time.now.day}", "#{Time.now.month}", "#{Time.now.year - 20}")
     fill_name1('Auto LTB FN', 'Auto LTB LN')
-    fill_new_email unless browser.div(class: 'name.emailaddress').input.value != ""
+    # fill_new_email unless browser.div(class: 'name.emailaddress').input.value != ""
     postcode_lookup('NW22PX')
     fill_telephone('0987612345')
     data_protection(false, false, false, false)
@@ -33,7 +35,10 @@ class LondonToBrightonRegistration1 < GenericForm
   end
 
   def login_now
-    browser.p(id: 'accMatched').a(text: "login now").click
+    emailabel = browser.legend(text: "Email")
+    emailabel.click!
+    login = browser.p(id: 'accMatched').a(text: "login now")
+    binding.pry
   end
 
   def prepopulated_submission

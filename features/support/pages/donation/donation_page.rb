@@ -27,7 +27,9 @@ class DonationPage < GenericPage
     browser.fieldset(class: 'donation-radio').ul.each do |preset|
       presets << preset
     end
-    presets.sample.span(class: 'amount').click!
+    amount = presets.sample
+    amount.span(class: 'amount').click!
+    @@donation_amount = amount.text.split("\n")[0]
     continue
   end
 

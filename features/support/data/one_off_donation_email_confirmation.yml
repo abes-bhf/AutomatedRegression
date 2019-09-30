@@ -1,0 +1,39 @@
+one_off_email_content:
+  span:
+    - Thank you for your donation.
+  font:
+    - Auto Single FN,
+    - Thank you so much for your donation; you really are a life saver!
+    - Every pound donated helps us make more
+    - and get us closer to our vision of a world in which people do n
+    - ot die prematurely or suffer from cardiovascular disease.
+    - .
+    - "Here are the details of your donation, for your records:"
+    - You will also receive a separate email confirming the payment.
+    - 0300 330 3322
+    - We can’t thank you enough for fighting with us against heart disease.
+    - The BHF team
+  a:
+    - research discoveries
+    - heretohelp@bhf.org.uk
+
+
+  donation_details:
+    - "You've donated:"
+    - "Your Transaction ID is:"
+  img_src: https://i.emlfiles4.com/cmpimg/8/5/1/9/1/2/files/imagecache/315047/w660_471199_tsdonation.jpg
+  booking_details:
+    ref: h64-B280619010844442
+    items: 1
+    bags: 0
+    date1: 28/06/2020
+    date2: 01/01/0001
+    store: Holloway Home Store
+    what_next:
+      - Holloway Home Store will call or email you within three days to confirm the date and time of your collection.
+      - If you have any questions in the meantime call 020 3553 8090 during the store's opening hours or email onlinebooking@bhf.org.uk with your booking reference.
+    before_contact:
+      - Consider adding Gift Aid to your donation. Your items can be worth 25% more to us at no cost to you. We’ll ask whether you would like to add Gift Aid when we contact you.
+      - Think about any smaller items you may want to donate. We can collect your unwanted clothes, books, CDs, DVDs and other small things at the same time as your furniture or electricals - just let us know when we contact you.
+  footer_src: https://i.emlfiles4.com/cmpimg/8/5/1/9/1/2/files/429115_bhf_conditionstrip_red_rgb.png
+  disclaimer: Copyright © 2019 British Heart Foundation. All rights reserved. British Heart Foundation is a registered Charity No. 225971. Registered as a Charity in Scotland No. SC039426.
