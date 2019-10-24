@@ -18,6 +18,7 @@ class DonationPage < GenericPage
   def select_donation(type)
     if type == "one-off"
       @oneofftab.scroll.to
+      @oneofftab.click!
     elsif type =="monthly"
       @monthlytab.click!
       @monthlytab.scroll.to

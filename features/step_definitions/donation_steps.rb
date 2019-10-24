@@ -12,9 +12,7 @@ end
 
 Given /^I select a donation preset$/ do
   @@donation_type = "One-off"
-  binding.pry
   TestBrowser.donation_page.select_donation('one-off')
-  binding.pry
 end
 
 Given("I select a one-off campaign donation preset") do
@@ -45,7 +43,6 @@ And /^I fill in direct debit details$/ do
 end
 
 Then /^I am taken to the one-off payment page$/ do
-  binding.pry
   raise unless TestBrowser.single_payment_page.on_pg?
 end
 

@@ -20,6 +20,9 @@ class GenericPage
 
   def visit
     TestBrowser.browser.goto @url
+    if browser.button(text: "Accept and close").present?
+      browser.button(text: "Accept and close").click
+    end
   end
 
   def login_button

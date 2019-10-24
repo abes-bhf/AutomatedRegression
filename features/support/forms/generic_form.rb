@@ -100,7 +100,8 @@ class GenericForm < GenericPage
     sendkeys!(postcode, pc)
     browser.a(class: 'pcaFind').click!
     postcode_dropdown = browser.select(class: 'pcaResults')
-    postcode_dropdown.click
+    postcode_dropdown.scroll.to
+    postcode_dropdown.click!
     postcode_dropdown.options[1].click
   end
 
@@ -111,14 +112,14 @@ class GenericForm < GenericPage
 
   def data_protection(email, text, post, phone)
     dp = browser.table(class: "data-protection-table")
-    dp.scroll.to
     eml = "rbContactByEmail#{yesno(email)}"
     txt = "rbContactByText#{yesno(text)}"
     pst = "rbContactByPost#{yesno(post)}"
     ph = "rbContactByPhone#{yesno(phone)}"
     values = [eml, txt, pst, ph]
     values.each do |choice|
-      dp.radio(value: choice).set
+      decision = dp.radio(value: choice)
+      decision.click!
     end
   end
 
