@@ -124,8 +124,10 @@ class GenericForm < GenericPage
   end
 
   def radio_selector_by_value(value)
-    browser.radio(value: value).scroll.to
-    browser.radio(value: value).set
+    radiobutton = browser.radio(value: value)
+    raise("Unable to locate radio button") unless radiobutton.present?
+    radiobutton.scroll.to
+    radiobutton.click!
   end
 
   def yesno(boolean)

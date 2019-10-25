@@ -13,8 +13,9 @@ class LondonToBrightonRegistration1 < GenericForm
   def email_recognised?
     emailabel = browser.div(id: "main_0_pagecontent_0_form_7A686591743F4EC0B53503C4317F3936_field_D4C11CA3D79048BBAD57E421EB9E50D5_scope")
     accmatched = browser.p(id: 'accMatched')
+    browser.a(text: 'Search').click!
+    browser.div(class: ["g-screen", "active"]).click
     emailabel.scroll.to
-    emailabel.click!
     begin
       Watir::Wait.until { accmatched.present? }
       return true
@@ -35,9 +36,9 @@ class LondonToBrightonRegistration1 < GenericForm
   end
 
   def login_now
-    emailabel = browser.legend(text: "Email")
-    emailabel.click!
+    raise("Email not recognised") unless email_recognised?
     login = browser.p(id: 'accMatched').a(text: "login now")
+    login.click!
   end
 
   def prepopulated_submission

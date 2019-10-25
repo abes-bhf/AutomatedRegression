@@ -35,7 +35,7 @@ class LondonToBrightonRegistration2 < GenericForm
     # helmet_agreement.scroll.to
     # helmet_agreement.set
     terms_and_conditions.scroll.to
-    terms_and_conditions.set
+    terms_and_conditions.click!
     continue
   end
 
