@@ -1,0 +1,9 @@
+source "http://rubygems.org"
+
+gem 'rspec'
+gem 'watir'
+gem 'pry'
+gem 'fileutils'
+gem 'rspec/expectations'
+gem 'watir-scroll'
+gem 'page-object'
