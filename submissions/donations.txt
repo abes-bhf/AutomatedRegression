@@ -73,3 +73,5 @@ EMAIL ADDRESSES USED FOR SUCCESSFUL DONATIONS:
 > fd69179514ffdebd@mailsac.com - One-off donation submitted on gateway at 2019-10-24 10:39:19 +0100
 > 0510f4ba7cb8cc1f@mailsac.com - One-off donation submitted on gateway at 2019-10-25 11:09:20 +0100
 > 7dae3b0cd339d87f@mailsac.com - One-off donation submitted on gateway at 2019-10-28 13:54:33 +0000
+> 9ebdd07ac52f725b@mailsac.com - One-off donation submitted on integration at 2019-11-04 13:21:15 +0000
+> 1d8f56bd66d00a37@mailsac.com - Monthly donation submitted on integration at 2019-11-04 13:21:50 +0000
