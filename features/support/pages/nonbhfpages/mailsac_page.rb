@@ -46,14 +46,15 @@ class MailsacPage < GenericPage
   end
 
   def one_off_donation_content_check
+    # Note: This method does not check the entirety of the content of the e-mail, just some of it, including donation amount and reference. Thus a pass should only confirm that the e-mail got sent,
+    # not that the content is all correct, following that, any content changes to the e-mail may cause these tests to fall over.
     data = EnvConfig.data['one_off_email_content']
     font = []
     data['font'].each do |d|
       font << d
     end
-    font << data["donation_details"][0]+" £ £#{@@donation_amount}"
+    font << data["donation_details"][0]+" \u00A3#{@@donation_amount}"
     font << data["donation_details"][1]+" #{@@donation_reference}"
-    binding.pry
     raise("Mailsac buttons not found") unless browser.a(text: 'Sign in to reply').present?
     raise("Mailsac buttons not found") unless browser.a(text: 'Buy private email addresses, send messages, or build with the developer API.')
     raise("Unable to find image") unless browser.img(src: data['img_src']).present?
@@ -66,7 +67,6 @@ class MailsacPage < GenericPage
     raise("Reference not displayed correctly") unless browser.font(text: data["donation_details"][1]+" #{@@donation_reference}").present?
     # raise("Donation amount not displayed correctly") unless browser.font(text: data["donation_details"][0]+" £ £#{@@donation_amount}").present?
 
-    binding.pry
   end
 
   def f_and_e_content_check
