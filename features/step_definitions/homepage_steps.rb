@@ -57,7 +57,7 @@ And /^I click one of the level three links$/ do
 end
 
 Then /^I am taken to the correct page$/ do
-  raise unless TestBrowser.browser.url == @@expectingurl
+  raise("Expected to be on #{@@expectingurl}, am currently on #{TestBrowser.browser.url}") unless TestBrowser.browser.url == @@expectingurl
 end
 
 And /^I click on search$/ do

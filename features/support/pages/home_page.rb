@@ -85,13 +85,22 @@ class HomePage < GenericPage
     return links.sample
   end
 
+  def level_two_links
+    begin
+      leveltwolinks = level_two.last(level_two.size - 1)
+    rescue ArgumentError
+      binding.pry
+    end
+    return leveltwolinks
+  end
+
   def random_level_two
-    leveltwolinks = level_two.last(level_two.size - 1)
+    leveltwolinks = level_two_links
     return leveltwolinks.sample
   end
 
   def random_level_two_with_subitems
-    leveltwolinks = level_two.last(level_two.size - 1)
+    leveltwolinks = level_two_links
     level2 = []
     links_w_subitems = []
     EnvConfig.data['navlinks'][@@hovered1].each do |l|
