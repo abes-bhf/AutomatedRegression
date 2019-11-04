@@ -1,4 +1,4 @@
-@home
+@home @uatregression
 Feature: Homepage
 	In order to navigate the BHF website
 	As a BHF supporter
