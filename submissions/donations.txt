@@ -10,3 +10,30 @@ Telephone: 0123456789
 No to all DP
 
 EMAIL ADDRESSES USED FOR SUCCESSFUL DONATIONS:
+> 8679a83a53e61f18@mailsac.com - One-off donation submitted on integration at 2019-11-08 11:46:30 +0000
+> ad4d041176b7e38c@mailsac.com - Monthly donation submitted on integration at 2019-11-08 11:47:00 +0000
+> d60f6da5f230e615@mailsac.com - One-off donation submitted on integration at 2019-11-08 14:43:06 +0000
+> 878fadf888284e2d@mailsac.com - Monthly donation submitted on integration at 2019-11-08 14:44:15 +0000
+> 85c642574fe84e57@mailsac.com - One-off donation submitted on gateway at 2019-11-18 14:30:27 +0000
+> d5a40a5d0fccd3c3@mailsac.com - One-off donation submitted on gateway at 2019-11-18 14:37:53 +0000
+> 94fe43ea385f668a@mailsac.com - One-off donation submitted on gateway at 2019-11-18 14:46:21 +0000
+> 4d7801117db38508@mailsac.com - One-off donation submitted on integration at 2019-11-19 16:54:30 +0000
+> 0c628e11038f37dd@mailsac.com - Monthly donation submitted on integration at 2019-11-19 16:55:16 +0000
+> 4243d96cc35f31c5@mailsac.com - One-off donation submitted on integration at 2019-11-21 13:27:24 +0000
+> 65c86e4375bd1281@mailsac.com - Monthly donation submitted on integration at 2019-11-21 13:28:32 +0000
+> 680e456e40d3e13b@mailsac.com - One-off donation submitted on integration at 2019-11-21 13:54:14 +0000
+> 679504f307e6f2bd@mailsac.com - One-off donation submitted on integration at 2019-11-21 17:47:31 +0000
+> b358f5cb493b810f@mailsac.com - Monthly donation submitted on integration at 2019-11-21 17:49:50 +0000
+> ca35508e0268930a@mailsac.com - One-off donation submitted on integration at 2019-11-22 15:24:21 +0000
+> ce03ea1a5eb56b1c@mailsac.com - Monthly donation submitted on integration at 2019-11-22 15:25:56 +0000
+> ad1c5d3c2f7b80ba@mailsac.com - One-off donation submitted on gateway at 2019-11-25 15:05:26 +0000
+> 30bdfd6133d24bcb@mailsac.com - One-off donation submitted on gateway at 2019-11-26 10:17:47 +0000
+> e4459b3385c830cf@mailsac.com - Monthly donation submitted on gateway at 2019-11-26 14:21:51 +0000
+> 5ca5f5c0393b0829@mailsac.com - One-off donation submitted on gateway at 2019-11-26 14:27:37 +0000
+> fcb0858a76a37b3f@mailsac.com - Monthly donation submitted on gateway at 2019-11-26 14:28:09 +0000
+> 535d16be6dda88b0@mailsac.com - One-off donation submitted on integration at 2019-11-26 17:04:39 +0000
+> b7647e4d8911ffcd@mailsac.com - Monthly donation submitted on integration at 2019-11-26 17:05:26 +0000
+> 2b9c90099f77262e@mailsac.com - One-off donation submitted on sandbox at 2019-11-27 15:34:34 +0000
+> d953fca3aa171c75@mailsac.com - One-off donation submitted on integration at 2019-11-28 11:59:55 +0000
+> 4850f8f76725b1fd@mailsac.com - Monthly donation submitted on integration at 2019-11-28 12:01:01 +0000
+> f49cac98974fbba6@mailsac.com - One-off PayPal donation submitted on integration at 2019-11-28 12:04:23 +0000

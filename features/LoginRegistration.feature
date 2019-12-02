@@ -4,6 +4,12 @@ Feature: Login/Registration
 	As a BHF supporter
 	I want to register and log in
 
+	@smoke @uatregression
+	Scenario: Navigating to user account registration form
+		Given I am on the login registration page
+		And I click register
+		Then I am taken to the registration form
+
 	@export @uatregression
 	Scenario: User account registration
 		Given I am on the login registration page
@@ -12,7 +18,7 @@ Feature: Login/Registration
 		Given I fill in the registration form
 		Then I am taken to the account creation confirmation screen
 		And I am logged in
-		And I log out
+		Given I log out
 		Then I can log in with the details used in registration
 		Then I am on my account page
 		Given I log out

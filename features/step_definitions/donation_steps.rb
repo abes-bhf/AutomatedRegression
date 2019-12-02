@@ -30,7 +30,7 @@ Given ("I select a monthly donation preset") do
   TestBrowser.donation_page.select_donation("monthly")
 end
 
-Then /^I am taken to the first page of the one-off donation form$/ do
+Then /^I am taken to the first page of the donation form$/ do
   raise unless TestBrowser.donate_form.on_page? # Write code here that turns the phrase above into concrete actions
 end
 
@@ -104,12 +104,17 @@ When /^I press continue without filling direct debit details$/ do
   TestBrowser.monthly_payment_form.continue
 end
 
-Then /^the donate form should refresh with validation messages$/ do
-  raise unless TestBrowser.donate_form.validation_present?('dp', 'name', 'address', 'email')
+Then /^the donate form should refresh with blank validation messages$/ do
+  raise("Validation messages not matching expected list") unless TestBrowser.donate_form.validation_present?('blankdp', 'blankname', 'blankaddress', 'blankemail')
 end
 
-Then /^the direct debit form should refresh with validation messages$/ do
-  raise unless TestBrowser.monthly_payment_form.validation_present?('directdebit')
+Then /^the direct debit form should refresh with blank validation messages$/ do
+  raise("Validation messages not matching expected list") unless TestBrowser.monthly_payment_form.validation_present?('blankdirectdebit')
+end
+
+Then ("the one-off payment form should refresh with blank validation messages") do
+  binding.pry
+  raise unless TestBrowser.donate_form.validation_present?('blankdp', 'blankname', 'blankaddress', 'blankemail')
 end
 
 When /^I return to the payment page$/ do
@@ -123,4 +128,12 @@ end
 
 Given /^I answer no to the GiftAid question$/ do
   TestBrowser.single_payment_page.gift_aid(true)
+end
+
+Given /^I press continue after filling in invalid details$/ do
+  TestBrowser.donate_form.invalid_fill_form('single_donation')
+end
+
+Then /^The donate form should refresh with validation messages$/ do
+  pending # Write code here that turns the phrase above into concrete actions
 end

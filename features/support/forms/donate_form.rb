@@ -24,4 +24,8 @@ class DonateForm < GenericForm
     continue
   end
 
+  def invalid_fill_form(type)
+    binding.pry
+  end
+
 end

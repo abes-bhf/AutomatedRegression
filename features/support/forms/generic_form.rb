@@ -147,6 +147,7 @@ class GenericForm < GenericPage
       end
     end
     v = validation_check(expected_list)
+    return v
   end
 
   def validation_check(expected_list)
@@ -155,6 +156,7 @@ class GenericForm < GenericPage
     validation_summary = browser.div(class: "scfValidationSummary").lis
     messages = []
     validation_summary.each do |x|
+      x.wait_until(&:present?)
       x.scroll.to
       if x.present?
         messages << x.text.downcase
