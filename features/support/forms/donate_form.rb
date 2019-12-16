@@ -19,19 +19,24 @@ class DonateForm < GenericForm
     fill_name(details['fn'], details['ln'])
     fill_email(email)
     fill_telephone(details['tel'])
-    postcode_lookup(details['postcode'])
+    fill_postcode(details['postcode'])
+    manualaddressurl = browser.a(text: "or enter address manually")
+    manualaddressurl.click!
+    manual_address(details['address'])
     data_protection(details['dpemail'],details['dptext'],details['dppost'],details['dptel'])
     continue
   end
 
   def invalid_fill_form(type)
-    details = EnvConfig.data[type]['details']
+    select_title(random_title)
     fill_name("123", "@@@")
     fill_email("email@com")
     fill_telephone("phone")
     data_protection(false,false,false,false)
-    fill_postcode("123456")
-    binding.pry
+    manualaddressurl = browser.a(text: "or enter address manually")
+    manualaddressurl.click!
+    manual_address(EnvConfig.data["invalid_address"])
+    continue
   end
 
 end

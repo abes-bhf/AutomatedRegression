@@ -95,6 +95,14 @@ class GenericForm < GenericPage
     end
   end
 
+  def manual_address(address)
+    address1 = browser.input(id: "main_0_pagecontent_0_form_8E055C52ADC344FFB848479DB2A001D7_field_A1BD006906684BDF99478FA1977CC767")
+    towncity = browser.input(id: "main_0_pagecontent_0_form_8E055C52ADC344FFB848479DB2A001D7_field_757212F4026C426C9D95AC5C39AF2E16")
+    fill_postcode(address['postcode'])
+    sendkeys!(address1, address['address1'])
+    sendkeys!(towncity, address['towncity'])
+  end
+
   def postcode_lookup(pc)
     fill_postcode(pc)
     browser.a(class: 'pcaFind').click!

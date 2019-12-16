@@ -113,8 +113,7 @@ Then /^the direct debit form should refresh with blank validation messages$/ do
 end
 
 Then ("the one-off payment form should refresh with blank validation messages") do
-  binding.pry
-  raise unless TestBrowser.donate_form.validation_present?('blankdp', 'blankname', 'blankaddress', 'blankemail')
+  raise("Validation messages displayed do not expected list") unless TestBrowser.donate_form.validation_present?('blankdp', 'blankname', 'blankaddress', 'blankemail')
 end
 
 When /^I return to the payment page$/ do
@@ -135,5 +134,5 @@ Given /^I press continue after filling in invalid details$/ do
 end
 
 Then /^The donate form should refresh with validation messages$/ do
-  pending # Write code here that turns the phrase above into concrete actions
+  raise("Validation messages displayed do not expected list") unless TestBrowser.donate_form.validation_present?('invalidname', 'invalidemail', 'invalidpostcode', 'invalidtelephone')
 end

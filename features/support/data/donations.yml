@@ -9,14 +9,14 @@ single_donation:
     fn: Auto Single FN
     ln: Auto Single LN
     tel: 0123456789
-    postcode: NW17AW
+    address:
+      postcode: NW17AW
+      address1: Auto Address 1
+      towncity: London
     dpemail: no
     dptext: no
     dppost: no
     dptel: no
-    address:
-      postcode: NW17AW
-      address1: test address
 
 
 direct_debit:
@@ -24,7 +24,10 @@ direct_debit:
     fn: Auto Monthly FN
     ln: Auto Monthly LN
     tel: 0123456789
-    postcode: NW18AW
+    address:
+      postcode: NW17AW
+      address1: Auto Address 1
+      towncity: London
     dpemail: no
     dptext: no
     dppost: no
@@ -34,3 +37,8 @@ paypal:
   details:
     em: paypal-test@bhf.org.uk
     pw: 6icR=lauMW5XI3Q
+
+invalid_address:
+  postcode: 123456
+  address1: Auto Address 1
+  towncity: London
