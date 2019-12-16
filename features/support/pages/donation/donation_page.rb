@@ -15,13 +15,20 @@ class DonationPage < GenericPage
     return trait
   end
 
+  def donate_tab_selector(tabhtml)
+    tab = tabhtml
+    tab.scroll.to
+    tab.click! unless tab.attribute_value("class")=="is-selected"
+  end
+
+
   def select_donation(type)
     if type == "one-off"
-      @oneofftab.scroll.to
-      @oneofftab.click!
+      oneofftab = browser.a("data-ui-component": 'oneOffDonationTab')
+      donate_tab_selector(oneofftab)
     elsif type =="monthly"
-      @monthlytab.click!
-      @monthlytab.scroll.to
+      monthlytab = browser.a("data-ui-component": 'regularDonationTab')
+      donate_tab_selector(monthlytab)
     end
     #the following lines select a random preset donation amount displayed on the page
     presets = []

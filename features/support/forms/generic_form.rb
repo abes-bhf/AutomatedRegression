@@ -96,13 +96,17 @@ class GenericForm < GenericPage
   end
 
   def postcode_lookup(pc)
-    postcode = browser.div(class: 'name.postcode').div.input
-    sendkeys!(postcode, pc)
+    fill_postcode(pc)
     browser.a(class: 'pcaFind').click!
     postcode_dropdown = browser.select(class: 'pcaResults')
     postcode_dropdown.scroll.to
     postcode_dropdown.click!
     postcode_dropdown.options[1].click
+  end
+
+  def fill_postcode(pc)
+    postcode = browser.div(class: 'name.postcode').div.input
+    sendkeys!(postcode, pc)
   end
 
   def fill_telephone(tel)

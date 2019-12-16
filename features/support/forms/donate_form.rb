@@ -25,11 +25,12 @@ class DonateForm < GenericForm
   end
 
   def invalid_fill_form(type)
+    details = EnvConfig.data[type]['details']
     fill_name("123", "@@@")
     fill_email("email@com")
     fill_telephone("phone")
-    data_protection(details['dpemail'],details['dptext'],details['dppost'],details['dptel'])
-    manual_address()
+    data_protection(false,false,false,false)
+    fill_postcode("123456")
     binding.pry
   end
 

@@ -10,7 +10,7 @@ Then /^the Donation page is displayed$/ do
   raise unless TestBrowser.donation_page.on_page?
 end
 
-Given /^I select a donation preset$/ do
+Given /^I select a one-off donation preset$/ do
   @@donation_type = "One-off"
   TestBrowser.donation_page.select_donation('one-off')
 end
