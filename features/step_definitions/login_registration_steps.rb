@@ -95,6 +95,7 @@ Then /^I am taken to the event confirmation page$/ do
 end
 
 Then /^I am taken to the events payment page$/ do
+  binding.pry
   raise unless TestBrowser.event_payment_page.on_page?
 end
 

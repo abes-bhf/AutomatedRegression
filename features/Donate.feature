@@ -102,8 +102,6 @@ Feature: Homepage
 		Then There should be an email confirmation of my one-off donation with expected content
 
 
-
-
 	@transactionless @oneoff @liveregression
 	Scenario: Testing single donations live without completing transactions
 		Given I navigate to the Donation page
@@ -122,6 +120,9 @@ Feature: Homepage
 		When I select Donate by PayPal
 		And I return to the payment page
 		Then I am taken to the one-off payment page
+
+
+
 
 
 	@transactionless @oneoff @liveregression @uatregression @validation

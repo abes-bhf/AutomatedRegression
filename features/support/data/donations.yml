@@ -2,7 +2,7 @@ presets:
   single: 20, 50, 85
   monthly: 10, 25, 50
   rosco_single: 3, 10, 15
-  rosco_monthly: 3, 5, 10 
+  rosco_monthly: 3, 5, 10
 
 single_donation:
   details:
@@ -14,6 +14,10 @@ single_donation:
     dptext: no
     dppost: no
     dptel: no
+    address:
+      postcode: NW17AW
+      address1: test address
+
 
 direct_debit:
   details:

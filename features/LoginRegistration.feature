@@ -61,6 +61,7 @@ Feature: Login/Registration
 		And I am taken to a pre-populated registration form that can be submitted once complete
 		And I fill in event specific questions
 		Then I am taken to the events payment page
+		And I call upon the powers of pry
 		Then I decide to pay for registration through PayPal
 		And I return to the event payment page
 		Then I am taken to the events payment page
