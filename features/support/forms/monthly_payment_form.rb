@@ -46,19 +46,41 @@ class MonthlyPaymentForm < GenericForm
       date = Date::MONTHNAMES[Date.today.month + 1]
     end
     dd_start_date(1, date)
-    accname = browser.input("data-ui-component": 'ddNameAccountHolder')
+    accname = browser.text_field("data-ui-component": 'ddNameAccountHolder')
     sendkeys!(accname, 'Auto Monthly')
-    accno = browser.input("data-ui-component": 'ddAccountNumber')
+    accno = browser.text_field("data-ui-component": 'ddAccountNumber')
     sendkeys!(accno, '38290008')
-    sc1 = browser.input("data-ui-component": 'ddSortCode1')
+    sc1 = browser.text_field("data-ui-component": 'ddSortCode1')
     sendkeys!(sc1, '20')
-    sc2 = browser.input("data-ui-component": 'ddSortCode2')
+    sc2 = browser.text_field("data-ui-component": 'ddSortCode2')
     sendkeys!(sc2, '04')
-    sc3 = browser.input("data-ui-component": 'ddSortCode3')
+    sc3 = browser.text_field("data-ui-component": 'ddSortCode3')
     sendkeys!(sc3, '15')
-    bank = browser.input("data-ui-component": 'ddNameBankBuildingSociety')
+    bank = browser.text_field("data-ui-component": 'ddNameBankBuildingSociety')
     sendkeys!(bank, 'Auto Bank')
     browser.input(id: 'main_0_pagecontent_0_donations3_0_btnSubmitDD').click!
+  end
+
+  def invalid_account_details
+    if Date.today.month == 12
+      date = "January"
+    else
+      date = Date::MONTHNAMES[Date.today.month + 1]
+    end
+    dd_start_date(1, date)
+    accname = browser.text_field("data-ui-component": 'ddNameAccountHolder')
+    sendkeys!(accname, 'Auto Monthly')
+    accno = browser.text_field("data-ui-component": 'ddAccountNumber')
+    sendkeys!(accno, 'qweqweqw')
+    sc1 = browser.text_field("data-ui-component": 'ddSortCode1')
+    sendkeys!(sc1, 'aa')
+    sc2 = browser.text_field("data-ui-component": 'ddSortCode2')
+    sendkeys!(sc2, 'bb')
+    sc3 = browser.text_field("data-ui-component": 'ddSortCode3')
+    sendkeys!(sc3, 'cc')
+    bank = browser.text_field("data-ui-component": 'ddNameBankBuildingSociety')
+    sendkeys!(bank, 'Auto Bank')
+    browser.text_field(id: 'main_0_pagecontent_0_donations3_0_btnSubmitDD').click!
   end
 
 end

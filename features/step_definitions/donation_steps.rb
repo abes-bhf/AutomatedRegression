@@ -136,3 +136,11 @@ end
 Then /^The donate form should refresh with validation messages$/ do
   raise("Validation messages displayed do not expected list") unless TestBrowser.donate_form.validation_present?('invalidname', 'invalidemail', 'invalidpostcode', 'invalidtelephone')
 end
+
+Then("I press continue after filling in invalid direct debit details") do
+  TestBrowser.monthly_payment_form.invalid_account_details
+end
+
+Then("The direct debit form should refresh with validation messages") do
+  pending # Write code here that turns the phrase above into concrete actions
+end

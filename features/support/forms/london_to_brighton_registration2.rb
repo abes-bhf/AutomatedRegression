@@ -17,10 +17,10 @@ class LondonToBrightonRegistration2 < GenericForm
     values.each do |key, value|
       radio_selector_by_value(value)
     end
-    next_of_kin_name = browser.input(id: 'ux42504bc4-8b81-48d5-a178-835104b3cecb')
-    next_of_kin_relation = browser.input(id: 'ux8cc27851-dc55-4740-b861-b747c6234580')
-    next_of_kin_number = browser.input(id: 'ux16c3d25f-80a2-4a6e-8bdc-c42eccc5a3b2')
-    fundraising_target = browser.input(id: 'uxa496e56d-38e6-41b6-a4e9-1fb77eb94317')
+    next_of_kin_name = browser.text_field(id: 'ux42504bc4-8b81-48d5-a178-835104b3cecb')
+    next_of_kin_relation = browser.text_field(id: 'ux8cc27851-dc55-4740-b861-b747c6234580')
+    next_of_kin_number = browser.text_field(id: 'ux16c3d25f-80a2-4a6e-8bdc-c42eccc5a3b2')
+    fundraising_target = browser.text_field(id: 'uxa496e56d-38e6-41b6-a4e9-1fb77eb94317')
     insurance_agreement = browser.checkbox(value: '3cee98c7-0e83-4892-ae67-d15e8f70d4c5')
     helmet_agreement = browser.checkbox(value: 'cf5efcae-0fa9-416c-b56f-f6324bd172bd')
     terms_and_conditions = browser.checkbox(id: 'main_0_pagecontent_0_eventreg2_0_chkTandCs')

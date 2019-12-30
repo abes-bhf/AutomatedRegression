@@ -11,7 +11,7 @@ class MailsacPage < GenericPage
   end
 
   def inbox(address)
-    inbox_field = browser.input(class:'myinbox')
+    inbox_field = browser.text_field(class:'myinbox')
     if address.include?('@')
       raise("this doesn't look like a Mailsac address which confuses and bewilders me") unless address.split('@')[1]=="mailsac.com"
       address = address.split('@')[0]

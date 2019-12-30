@@ -13,8 +13,8 @@ class PayPalPage < GenericPage
 
   def login
     # loginbutton = browser.a(text: 'Log In')
-    email = browser.input(id: "email")
-    password = browser.input(id: "password")
+    email = browser.text_field(id: "email")
+    password = browser.text_field(id: "password")
     loginbutton = browser.button(id: 'btnLogin')
     email.click
     email.send_keys(EnvConfig.data['paypal']['details']['em'])

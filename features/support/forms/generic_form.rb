@@ -25,33 +25,33 @@ class GenericForm < GenericPage
     raise("#{selection} not found in dropdown list") unless dropdown.text == selection
   end
 
-  def find_inputs(label)
-    inputs = []
+  def find_textfields(label)
+    textfields = []
     divs= browser.divs(class: 'scfSingleLineTextBorder')
     divs.each do |d|
       if d.text.downcase == label.downcase
-      inputs << d.input
+      textfields << d.text_field
       end
     end
-    if inputs.size == 1
-      return inputs[0]
+    if textfields.size == 1
+      return textfields[0]
     else
-      puts "multiple input fields with that label exist, not sure why"
-      return inputs
+      puts "multiple textfield fields with that label exist, not sure why"
+      return textfields
     end
   end
 
   # def fill_name2(fn, ln)
   #   binding.pry
-  #   first = find_inputs("First name*")
-  #   last = find_inputs("Last name*")
+  #   first = find_textfields("First name*")
+  #   last = find_textfields("Last name*")
   #   sendkeys!(first, fn)
   #   sendkeys!(last, ln)
   # end
 
   # def fill_name(fn, ln)
-  #   first = browser.div(class: 'name.first-name').input
-  #   last = browser.div(class: 'name.last-name').input
+  #   first = browser.div(class: 'name.first-name').textfield
+  #   last = browser.div(class: 'name.last-name').textfield
   #   sendkeys!(first, fn)
   #   sendkeys!(last, ln)
   # end
@@ -64,26 +64,26 @@ class GenericForm < GenericPage
   end
 
   def fill_name1(fn, ln)
-    first = browser.div(class: 'name.name').input
-    last = browser.div(class: 'name.last-name').input
+    first = browser.div(class: 'name.name').text_field
+    last = browser.div(class: 'name.last-name').text_field
     sendkeys!(first, fn)
     sendkeys!(last, ln)
   end
 
   def fill_email(em)
-    email = browser.div(class: 'name.e-mail').input
+    email = browser.div(class: 'name.e-mail').text_field
     sendkeys!(email, em)
   end
 
   def fill_email2(em)
-    email = browser.div(class: 'name.emailaddress').input
+    email = browser.div(class: 'name.emailaddress').text_field
     sendkeys!(email, em)
     emailabel = browser.legend(text: "Email")
     emailabel.click!
   end
 
   # def fill_new_email
-  #   email = browser.div(class: 'name.emailaddress').input
+  #   email = browser.div(class: 'name.emailaddress').textfield
   #   sendkeys!(email, "#{SecureRandom.hex 8}@test.org.uk")
   #   new_pw
   # end
@@ -91,13 +91,13 @@ class GenericForm < GenericPage
   def fill_password
     passwordfields = browser.divs(class: 'scfConfirmPasswordBorder')
     passwordfields.each do |pw|
-      sendkeys!(pw.input, 'Pa55w0rd')
+      sendkeys!(pw.text_field, 'Pa55w0rd')
     end
   end
 
   def manual_address(address)
-    address1 = browser.input(id: "main_0_pagecontent_0_form_8E055C52ADC344FFB848479DB2A001D7_field_A1BD006906684BDF99478FA1977CC767")
-    towncity = browser.input(id: "main_0_pagecontent_0_form_8E055C52ADC344FFB848479DB2A001D7_field_757212F4026C426C9D95AC5C39AF2E16")
+    address1 = browser.text_field(id: "main_0_pagecontent_0_form_8E055C52ADC344FFB848479DB2A001D7_field_A1BD006906684BDF99478FA1977CC767")
+    towncity = browser.text_field(id: "main_0_pagecontent_0_form_8E055C52ADC344FFB848479DB2A001D7_field_757212F4026C426C9D95AC5C39AF2E16")
     fill_postcode(address['postcode'])
     sendkeys!(address1, address['address1'])
     sendkeys!(towncity, address['towncity'])
@@ -113,12 +113,12 @@ class GenericForm < GenericPage
   end
 
   def fill_postcode(pc)
-    postcode = browser.div(class: 'name.postcode').div.input
+    postcode = browser.div(class: 'name.postcode').div.text_field
     sendkeys!(postcode, pc)
   end
 
   def fill_telephone(tel)
-    telephone = browser.div(class: 'scfTelephoneGeneralPanel').input
+    telephone = browser.div(class: 'scfTelephoneGeneralPanel').text_field
     sendkeys!(telephone, tel)
   end
 

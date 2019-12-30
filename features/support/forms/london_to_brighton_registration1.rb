@@ -28,7 +28,7 @@ class LondonToBrightonRegistration1 < GenericForm
     select_title(random_title)
     date_of_birth("#{Time.now.day}", "#{Time.now.month}", "#{Time.now.year - 20}")
     fill_name1('Auto LTB FN', 'Auto LTB LN')
-    # fill_new_email unless browser.div(class: 'name.emailaddress').input.value != ""
+    # fill_new_email unless browser.div(class: 'name.emailaddress').text_field.value != ""
     postcode_lookup('NW22PX')
     fill_telephone('0987612345')
     data_protection(false, false, false, false)

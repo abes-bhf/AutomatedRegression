@@ -9,7 +9,7 @@ Before do
   # @@new_acc_email = "9256667b1139c660@test.co.uk"
   @@donate_email = "#{SecureRandom.hex 8}@mailsac.com"
   if ENV['CONFIG'] == nil
-    @@ENV = 'uat'
+    @@ENV = 'integration'
   else
     @@ENV = ENV['CONFIG']
   end

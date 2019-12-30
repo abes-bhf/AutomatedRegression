@@ -34,6 +34,7 @@ Feature: Homepage
 		And I click one of the level two links
 		Then I am taken to the correct page
 
+	@yy
 	Scenario: Level three links
 		Given I navigate to the Homepage
 		And I hover over one of the four main links

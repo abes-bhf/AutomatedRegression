@@ -24,7 +24,7 @@ Feature: Homepage
 		And I press continue without filling direct debit details
 		Then the direct debit form should refresh with blank validation messages
 
-	@wip
+	@transactionless @oneoff @liveregression @uatregression @validation
 	Scenario: Testing validation messages for invalid data on one-off form
 		Given I navigate to the Donation page
 		And I select a one-off donation preset
@@ -32,12 +32,13 @@ Feature: Homepage
 		And I press continue after filling in invalid details
 		Then The donate form should refresh with validation messages
 
+	@wip
 	Scenario: Testing validation messages for invalid data on monthly form
 		Given I navigate to the Donation page
 		And I select a monthly donation preset
 		And I am taken to the first page of the donation form
 		And I press continue after filling in invalid details
-		Then the donate form should refresh with validation messages
+		Then The donate form should refresh with validation messages
 		And I fill in direct debit details
 		Then I am taken to the monthly payment page
 		And I press continue after filling in invalid direct debit details
@@ -202,14 +203,12 @@ Feature: Homepage
 		Then There should be an email confirmation of my one-off donation with expected content
 
 
-	@transactionless @oneoff @liveregression
+	@transactionless @oneoff @liveregression @simp
 	Scenario: Testing single donations live without completing transactions
 		Given I navigate to the Donation page
 		And I select a one-off donation preset
 		And I am taken to the first page of the donation form
-		And I press continue without filling details
-		Then the donate form should refresh with validation messages
-		When I fill in single payment details
+		And I fill in single payment details
 		And I am taken to the one-off payment page
 		And I answer no to the GiftAid question
 		And I select Donate by credit/debit card

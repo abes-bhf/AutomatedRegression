@@ -14,8 +14,8 @@ class HCForm < GenericForm
   def fill_form
     details = EnvConfig.data['hc']
     title_dropdown = browser.select(id: 'main_0_pagecontent_1_ddlPersonTitle')
-    telephone = browser.input(id: 'main_0_pagecontent_1_txtDayTimePhone')
-    email = browser.input(id: 'main_0_pagecontent_1_txtEmailAddress')
+    telephone = browser.text_field(id: 'main_0_pagecontent_1_txtDayTimePhone')
+    email = browser.text_field(id: 'main_0_pagecontent_1_txtEmailAddress')
     howdidyouhear = browser.select(id: 'main_0_pagecontent_1_ddlHowDidYouHearAboutUs')
     howdyouhearchoice = EnvConfig.data['hc_how_did_you_hear']['options'].sample
     additionalquestion = browser.select(id: 'main_0_pagecontent_1_ddlAdditionalQuestion')
