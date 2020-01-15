@@ -80,7 +80,7 @@ class MonthlyPaymentForm < GenericForm
     sendkeys!(sc3, 'cc')
     bank = browser.text_field("data-ui-component": 'ddNameBankBuildingSociety')
     sendkeys!(bank, 'Auto Bank')
-    browser.text_field(id: 'main_0_pagecontent_0_donations3_0_btnSubmitDD').click!
+    browser.input(id: 'main_0_pagecontent_0_donations3_0_btnSubmitDD').click!
   end
 
 end

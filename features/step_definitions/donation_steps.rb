@@ -137,10 +137,26 @@ Then /^The donate form should refresh with validation messages$/ do
   raise("Validation messages displayed do not expected list") unless TestBrowser.donate_form.validation_present?('invalidname', 'invalidemail', 'invalidpostcode', 'invalidtelephone')
 end
 
-Then("I press continue after filling in invalid direct debit details") do
+Then /^I press continue after filling in invalid direct debit details$/ do
   TestBrowser.monthly_payment_form.invalid_account_details
 end
 
-Then("The direct debit form should refresh with validation messages") do
-  pending # Write code here that turns the phrase above into concrete actions
+Then /^The direct debit form should refresh with validation messages$/ do
+  raise("Validation messages displayed do not expected list") unless TestBrowser.donate_form.validation_present?('ddmustbenumber')
+end
+
+Given /^I enter a valid postcode into the postcode lookup field$/ do
+  TestBrowser.donate_form.fill_postcode("NW18AW")
+end
+
+Given /^I click the Find Address button$/ do
+  TestBrowser.donate_form.search_postcode
+end
+
+Given /^I select an address from the list of matching addresses$/ do
+  TestBrowser.donate_form.select_address
+end
+
+Then /^Address fields are shown with the address filled in$/ do
+  TestBrowser.donate_form.address_check("NW18AW")
 end

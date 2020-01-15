@@ -105,16 +105,42 @@ class GenericForm < GenericPage
 
   def postcode_lookup(pc)
     fill_postcode(pc)
+    search_postcode
+    select_address
+  end
+
+  def fill_postcode(pc)
+    postcode = browser.div(class: 'name.postcode').div.text_field
+    sendkeys!(postcode, pc)
+  end
+
+  def search_postcode
     browser.a(class: 'pcaFind').click!
+  end
+
+  def select_address
     postcode_dropdown = browser.select(class: 'pcaResults')
     postcode_dropdown.scroll.to
     postcode_dropdown.click!
     postcode_dropdown.options[1].click
   end
 
-  def fill_postcode(pc)
-    postcode = browser.div(class: 'name.postcode').div.text_field
-    sendkeys!(postcode, pc)
+  def address_check(pc)
+    addressfields = EnvConfig['data']['addressfields']
+    expected_address = EnvConfig['data']['postcodelookup'][pc]
+    expected_address.each do |x|
+      begin
+        retries ||= 0
+        value = browser.text_field(id: addressfields[x[0]]).value
+        if value == nil
+          raise("Unexpected value found for #{x[0]}, expected")
+        elsif value != x[1]
+          raise("Expected to find #{x[1]} for #{x[0]}, instead found #{value}")
+        end
+      rescue RuntimeError
+        retry if (retries += 1) < 3
+      end
+    end
   end
 
   def fill_telephone(tel)

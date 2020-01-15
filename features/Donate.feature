@@ -32,7 +32,7 @@ Feature: Homepage
 		And I press continue after filling in invalid details
 		Then The donate form should refresh with validation messages
 
-	@wip
+	@transactionless @monthly @liveregression @uatregression @validation
 	Scenario: Testing validation messages for invalid data on monthly form
 		Given I navigate to the Donation page
 		And I select a monthly donation preset
@@ -44,28 +44,28 @@ Feature: Homepage
 		And I press continue after filling in invalid direct debit details
 		Then The direct debit form should refresh with validation messages
 
+	@transactionless @oneoff @liveregression @uatregression @pca
 	Scenario: Testing address lookup on one-off form
 		Given I navigate to the Donation page
 		And I select a one-off donation preset
 		And I am taken to the first page of the donation form
-		Given I enter a valid postcode into the postcode lookup
+		Given I enter a valid postcode into the postcode lookup field
 		And I click the Find Address button
-		Then a dropdown with matching addresses is shown
-		Given I select an address from the list of matching addresses
+		And I select an address from the list of matching addresses
 		Then Address fields are shown with the address filled in
 
+	@transactionless @monthly @liveregression @uatregression @pca
 	Scenario: Testing address lookup on monthly form
 		Given I navigate to the Donation page
 		And I select a monthly donation preset
 		And I am taken to the first page of the donation form
-		Given I enter a valid postcode into the postcode lookup
+		Given I enter a valid postcode into the postcode lookup field
 		And I click the Find Address button
-		Then a dropdown with matching addresses is shown
-		Given I select an address from the list of matching addresses
-		Then address fields are shown with the address filled in
+		And I select an address from the list of matching addresses
+		Then Address fields are shown with the address filled in
 
-	@oneoff @uatregression @transaction
-	Scenario: Testing single donations complete with transactions
+	@oneoff @uatregression @transaction @worldpay
+	Scenario: Testing single donations complete with transactions (WorldPay)
 		Given I navigate to the Donation page
 		And I select a one-off donation preset
 		And I am taken to the first page of the donation form
@@ -77,6 +77,17 @@ Feature: Homepage
 		And I enter valid card details
 		Then I am taken to the confirmation page
 
+	@oneoff @uatregression @transaction @paypal
+	Scenario: Testing single donations complete with transactions (PayPal)
+		Given I navigate to the Donation page
+		And I select a one-off donation preset
+		And I fill in single payment details
+		Then I am taken to the one-off payment page
+		And I answer no to the GiftAid question
+		When I select Donate by PayPal
+		And I enter valid PayPal details
+		Then I am taken to the confirmation page
+
 	@monthly @uatregression @transaction
 	Scenario: Testing monthly donations complete with transactions
 		Given I navigate to the Donation page
@@ -85,6 +96,9 @@ Feature: Homepage
 		Then I am taken to the monthly payment page
 		When I enter valid direct debit details
 		Then I am taken to the confirmation page
+
+
+
 
 
 
@@ -122,18 +136,6 @@ Feature: Homepage
 		And I select Donate by credit/debit card
 		Then I am taken to the Worldpay page
 		When I enter valid card details
-		Then I am taken to the confirmation page
-
-	@oneoff @paypal @payment
-	Scenario: Single preset donation card payment PayPal
-		Given I navigate to the Donation page
-		And I select a one-off donation preset
-		And I fill in single payment details
-		Then I am taken to the one-off payment page
-		Given I answer no to the GiftAid question
-		And I answer no to the GiftAid question
-		When I select Donate by PayPal
-		And I enter valid PayPal details
 		Then I am taken to the confirmation page
 
 	@monthly @payment
@@ -191,7 +193,7 @@ Feature: Homepage
 		And I select a one-off donation preset
 		And I am taken to the first page of the donation form
 		And I press continue without filling details
-		Then the donate form should refresh with validation messages
+		Then the donate form should refresh with blank validation messages
 		When I fill in single payment details
 		And I am taken to the one-off payment page
 		And I answer no to the GiftAid question

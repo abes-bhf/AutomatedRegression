@@ -58,3 +58,7 @@ validation:
 
   invalidtelephone:
     telephone: Telephone contains an invalid telephone number.
+
+  ddmustbenumber:
+    accno: Account number must be a number.
+    sortcode: Sort code must be a number.
