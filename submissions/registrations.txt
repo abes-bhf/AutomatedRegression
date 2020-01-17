@@ -24,3 +24,4 @@ EMAIL ADDRESSES USED FOR SUCCESSFUL REGISTRATIONS:
 > d01d748e66296caf@mailsac.com registered on preprod at 2020-01-08 16:10:41 +0000 
 > 4c6bb7a83042e026@mailsac.com registered on integration at 2020-01-10 14:46:27 +0000 
 > 167abf4fc17e5192@mailsac.com registered on integration at 2020-01-15 11:47:58 +0000 
+> ebd94e5eeb728c5e@mailsac.com registered on integration at 2020-01-17 11:10:16 +0000 

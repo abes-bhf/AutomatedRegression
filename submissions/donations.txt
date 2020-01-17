@@ -45,3 +45,4 @@ EMAIL ADDRESSES USED FOR SUCCESSFUL DONATIONS:
 > 1ed36eeb6bcd9945@mailsac.com - One-off donation submitted on integration at 2020-01-15 11:45:14 +0000
 > d91df387257de8fd@mailsac.com - One-off PayPal donation submitted on integration at 2020-01-15 11:45:53 +0000
 > 81c9033160e4712f@mailsac.com - Monthly donation submitted on integration at 2020-01-15 11:46:09 +0000
+> 657c3fcf11cdde69@mailsac.com - One-off PayPal donation submitted on integration at 2020-01-17 11:09:02 +0000

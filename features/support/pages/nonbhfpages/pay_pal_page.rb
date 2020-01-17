@@ -21,7 +21,14 @@ class PayPalPage < GenericPage
     loginbutton.click!
     password.send_keys(EnvConfig.data['paypal']['details']['pw'])
     loginbutton.click!
-    continue = browser.input(id: "confirmButtonTop")
+    continue = browser.button(id: "payment-submit-btn")
+    trait2 = browser.p(text: "Chris Thorn")
+    begin
+      retries ||= 0
+      Watir::Wait.until { trait2.exists? && trait2.present? }
+    rescue
+      retry if (retries += 1) < 3
+    end
     continue.click!
   end
 

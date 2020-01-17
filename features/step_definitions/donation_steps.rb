@@ -87,6 +87,8 @@ Then /^I am taken to the confirmation page$/ do
         @@donation_amount =  '%.2f' % (TestBrowser.browser.url.split("paymentAmount=")[1][0..3].to_i/100)
       when "Monthly"
         @@donation_amount =  '%.2f' % (TestBrowser.browser.url.split("=")[3].to_i/100)
+      when "One-off PayPal"
+        @@donation_amount =  '%.2f' % (TestBrowser.browser.url.split("=")[2].split("&").first.to_i/100)
     end
     open(File.join(Dir.pwd, 'submissions/donations.txt'), 'a') do |f|
       f << "> #{@@donate_email} - #{@@donation_type} donation submitted on #{@@ENV} at #{Time.now}\n"
