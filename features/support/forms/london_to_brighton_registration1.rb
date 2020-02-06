@@ -13,8 +13,7 @@ class LondonToBrightonRegistration1 < GenericForm
   def email_recognised?
     emailabel = browser.div(id: "main_0_pagecontent_0_form_7A686591743F4EC0B53503C4317F3936_field_D4C11CA3D79048BBAD57E421EB9E50D5_scope")
     accmatched = browser.p(id: 'accMatched')
-    browser.a(text: 'Search').click!
-    browser.div(class: ["g-screen", "active"]).click
+    select_title(random_title)
     emailabel.scroll.to
     begin
       Watir::Wait.until { accmatched.present? }

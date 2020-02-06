@@ -20,6 +20,9 @@ class GenericPage
 
   def visit
     TestBrowser.browser.goto @url
+    if browser.div(id: 'onetrust-banner-sdk').present?
+      browser.button(id: 'onetrust-accept-btn-handler').click!
+    end
     if @@ENV == "gateway"
       if browser.button(id:"details-button").present?
         browser.button(id:"details-button").click
