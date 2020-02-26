@@ -22,4 +22,8 @@ class RegistrationForm < GenericForm
     continue
   end
 
+  def invalid_fill_form
+    binding.pry
+  end
+
 end

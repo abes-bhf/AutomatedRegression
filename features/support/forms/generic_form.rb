@@ -207,6 +207,11 @@ class GenericForm < GenericPage
     return messages.sort == expected_list.sort
   end
 
+  def validation_message_count(number)
+    validation_summary = browser.div(class: "scfValidationSummary").lis
+    validation_summary.size == number
+  end
+
   def date_of_birth(dd, mm, yyyy)
     optionlist = []
     day = browser.select(class: 'scfDateSelectorDay')

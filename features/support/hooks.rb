@@ -4,7 +4,6 @@
 TestBrowser.browser = Watir::Browser.new (ENV['BROWSER'] || 'chrome').to_sym, options: {options: {'useAutomationExtension' => false}}
 Before do
   TestBrowser.browser.window.maximize
-  TestBrowser.browser.cookies.clear
   @@new_acc_email = "#{SecureRandom.hex 8}@mailsac.com"
   # @@new_acc_email = "9256667b1139c660@test.co.uk"
   @@donate_email = "#{SecureRandom.hex 8}@mailsac.com"

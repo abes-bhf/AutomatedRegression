@@ -10,10 +10,3 @@ Telephone: 0123456789
 No to all DP
 
 EMAIL ADDRESSES USED FOR SUCCESSFUL DONATIONS:
-> eb2938a52b51efea@mailsac.com - One-off donation submitted on gateway at 2020-02-04 12:25:11 +0000
-> a7b75b9d1a05785b@mailsac.com - One-off PayPal donation submitted on gateway at 2020-02-04 12:41:45 +0000
-> a4e3332a53161a79@mailsac.com - One-off donation submitted on gateway at 2020-02-04 12:42:23 +0000
-> 674a54d50b24ce02@mailsac.com - One-off PayPal donation submitted on gateway at 2020-02-04 12:43:02 +0000
-> 93aacba662dd8ced@mailsac.com - One-off donation submitted on integration at 2020-02-06 14:29:18 +0000
-> 5bbcc50380c38e43@mailsac.com - One-off PayPal donation submitted on integration at 2020-02-06 14:29:49 +0000
-> 94956cfce4e9f801@mailsac.com - Monthly donation submitted on integration at 2020-02-06 14:30:04 +0000
