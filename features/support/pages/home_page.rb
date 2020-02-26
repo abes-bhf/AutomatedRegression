@@ -122,7 +122,7 @@ class HomePage < GenericPage
   end
 
   def search_button
-    search_button = browser.a(class: 'g-nav-primary__search--control')
+    search_button = browser.a(class:"g-nav-primary__search--control")
     return search_button
   end
 
@@ -133,7 +133,7 @@ class HomePage < GenericPage
 
   def search(term)
     search_button.click unless search_bar.present?
-    search_bar.input(id: 'keyword').send_keys(term)
+    search_bar.text_field(id: 'keyword').send_keys(term)
     search_bar.input(type: 'submit').click
   end
 end

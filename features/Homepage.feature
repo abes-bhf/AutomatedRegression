@@ -41,6 +41,7 @@ Feature: Homepage
 		And I click one of the level three links
 		Then I am taken to the correct page
 
+	@yy
 	Scenario: Search bar
 		Given I navigate to the Homepage
 		And I click on search

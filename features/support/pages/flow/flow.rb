@@ -28,8 +28,8 @@ class Flow < GenericPage
   end
 
   def login
-    email = browser.input(id: 'Email', name: 'Email')
-    pass = browser.input(id: 'Password', name: 'Password')
+    email = browser.text_field(id: 'Email', name: 'Email')
+    pass = browser.text_field(id: 'Password', name: 'Password')
     sendkeys!(email, EnvConfig.data['flow']['email'])
     sendkeys!(pass, EnvConfig.data['flow']['password'])
     puts('please complete the captcha for ya boy then type exit into the commandline')
@@ -49,7 +49,7 @@ class Flow < GenericPage
   end
 
   def searchref(ref)
-    searchbar = browser.input(id:'search')
+    searchbar = browser.text_field(id:'search')
     sendkeys!(searchbar, ref)
     searchbutton = browser.button(type: 'submit')
     searchbutton.click!

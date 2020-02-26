@@ -14,12 +14,12 @@ class WorldpayPage < GenericForm
   def use_valid_card
     visa = browser.img(title: "VISA")
     visa.click!
-    browser.input(id: "cardNumber").send_keys('4444333322221111')
-    expmonth = browser.input(id: "expiryMonth")
-    expyear = browser.input(id: "expiryYear")
+    browser.text_field(id: "cardNumber").send_keys('4444333322221111')
+    expmonth = browser.text_field(id: "expiryMonth")
+    expyear = browser.text_field(id: "expiryYear")
     sendkeys!(expmonth, '01')
-    sendkeys!(expyear, Time.now.year + 100)
-    browser.input(id: "securityCode").send_keys('123')
+    sendkeys!(expyear, "#{(Time.now.year + 1)%100}")
+    browser.text_field(id: "securityCode").send_keys('123')
     browser.input(id: "submitButton").click!
   end
 

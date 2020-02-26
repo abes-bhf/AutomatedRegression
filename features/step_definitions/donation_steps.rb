@@ -10,7 +10,7 @@ Then /^the Donation page is displayed$/ do
   raise unless TestBrowser.donation_page.on_page?
 end
 
-Given /^I select a donation preset$/ do
+Given /^I select a one-off donation preset$/ do
   @@donation_type = "One-off"
   TestBrowser.donation_page.select_donation('one-off')
 end
@@ -87,6 +87,8 @@ Then /^I am taken to the confirmation page$/ do
         @@donation_amount =  '%.2f' % (TestBrowser.browser.url.split("paymentAmount=")[1][0..3].to_i/100)
       when "Monthly"
         @@donation_amount =  '%.2f' % (TestBrowser.browser.url.split("=")[3].to_i/100)
+      when "One-off PayPal"
+        @@donation_amount =  '%.2f' % (TestBrowser.browser.url.split("=")[2].split("&").first.to_i/100)
     end
     open(File.join(Dir.pwd, 'submissions/donations.txt'), 'a') do |f|
       f << "> #{@@donate_email} - #{@@donation_type} donation submitted on #{@@ENV} at #{Time.now}\n"
@@ -113,8 +115,7 @@ Then /^the direct debit form should refresh with blank validation messages$/ do
 end
 
 Then ("the one-off payment form should refresh with blank validation messages") do
-  binding.pry
-  raise unless TestBrowser.donate_form.validation_present?('blankdp', 'blankname', 'blankaddress', 'blankemail')
+  raise("Validation messages displayed do not expected list") unless TestBrowser.donate_form.validation_present?('blankdp', 'blankname', 'blankaddress', 'blankemail')
 end
 
 When /^I return to the payment page$/ do
@@ -135,5 +136,29 @@ Given /^I press continue after filling in invalid details$/ do
 end
 
 Then /^The donate form should refresh with validation messages$/ do
-  pending # Write code here that turns the phrase above into concrete actions
+  raise("Validation messages displayed do not expected list") unless TestBrowser.donate_form.validation_present?('invalidname', 'invalidemail', 'invalidpostcode', 'invalidtelephone')
+end
+
+Then /^I press continue after filling in invalid direct debit details$/ do
+  TestBrowser.monthly_payment_form.invalid_account_details
+end
+
+Then /^The direct debit form should refresh with validation messages$/ do
+  raise("Validation messages displayed do not expected list") unless TestBrowser.donate_form.validation_present?('ddmustbenumber')
+end
+
+Given /^I enter a valid postcode into the postcode lookup field$/ do
+  TestBrowser.donate_form.fill_postcode("NW18AW")
+end
+
+Given /^I click the Find Address button$/ do
+  TestBrowser.donate_form.search_postcode
+end
+
+Given /^I select an address from the list of matching addresses$/ do
+  TestBrowser.donate_form.select_address
+end
+
+Then /^Address fields are shown with the address filled in$/ do
+  TestBrowser.donate_form.address_check("NW18AW")
 end

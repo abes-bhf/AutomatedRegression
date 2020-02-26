@@ -13,15 +13,22 @@ class PayPalPage < GenericPage
 
   def login
     # loginbutton = browser.a(text: 'Log In')
-    email = browser.input(id: "email")
-    password = browser.input(id: "password")
+    email = browser.text_field(id: "email")
+    password = browser.text_field(id: "password")
     loginbutton = browser.button(id: 'btnLogin')
     email.click
     email.send_keys(EnvConfig.data['paypal']['details']['em'])
     loginbutton.click!
     password.send_keys(EnvConfig.data['paypal']['details']['pw'])
     loginbutton.click!
-    continue = browser.input(id: "confirmButtonTop")
+    continue = browser.button(id: "payment-submit-btn")
+    trait2 = browser.p(text: "Chris Thorn")
+    begin
+      retries ||= 0
+      Watir::Wait.until { trait2.exists? && trait2.present? }
+    rescue
+      retry if (retries += 1) < 3
+    end
     continue.click!
   end
 

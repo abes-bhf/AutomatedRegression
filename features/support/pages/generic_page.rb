@@ -76,7 +76,7 @@ class GenericPage
   def continue
     # this is a work in progress! need an generic, airtight way of clicking the submit button
     # am not a huge fan of how i programmed it but its the most consistent way so far, yes I have tried using the ID, it changes
-    # submit_buttons = browser.inputs(type: 'submit')
+    # submit_buttons = browser.text_fields(type: 'submit')
     # binding.pry
     # if submit_buttons.size ==  2
     #   @continue = submit_buttons[1].click!
@@ -86,10 +86,10 @@ class GenericPage
     @continue.click!
   end
 
-  def sendkeys!(input, text)
-    # takes an input html element as the 1st argument, scrolls to it then fills it with the keys provided in the second argument)
-    input.scroll.to
-    input.send_keys(text)
+  def sendkeys!(textfield, text)
+    # takes an text_field html element as the 1st argument, scrolls to it then fills it with the keys provided in the second argument)
+    textfield.scroll.to
+    textfield.set(text)
   end
 
   def on_page?

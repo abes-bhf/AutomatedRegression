@@ -13,8 +13,7 @@ class LondonToBrightonRegistration1 < GenericForm
   def email_recognised?
     emailabel = browser.div(id: "main_0_pagecontent_0_form_7A686591743F4EC0B53503C4317F3936_field_D4C11CA3D79048BBAD57E421EB9E50D5_scope")
     accmatched = browser.p(id: 'accMatched')
-    browser.a(text: 'Search').click!
-    browser.div(class: ["g-screen", "active"]).click
+    select_title(random_title)
     emailabel.scroll.to
     begin
       Watir::Wait.until { accmatched.present? }
@@ -28,7 +27,7 @@ class LondonToBrightonRegistration1 < GenericForm
     select_title(random_title)
     date_of_birth("#{Time.now.day}", "#{Time.now.month}", "#{Time.now.year - 20}")
     fill_name1('Auto LTB FN', 'Auto LTB LN')
-    # fill_new_email unless browser.div(class: 'name.emailaddress').input.value != ""
+    # fill_new_email unless browser.div(class: 'name.emailaddress').text_field.value != ""
     postcode_lookup('NW22PX')
     fill_telephone('0987612345')
     data_protection(false, false, false, false)

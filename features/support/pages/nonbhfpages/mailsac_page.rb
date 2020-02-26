@@ -11,7 +11,7 @@ class MailsacPage < GenericPage
   end
 
   def inbox(address)
-    inbox_field = browser.input(class:'myinbox')
+    inbox_field = browser.text_field(class:'myinbox')
     if address.include?('@')
       raise("this doesn't look like a Mailsac address which confuses and bewilders me") unless address.split('@')[1]=="mailsac.com"
       address = address.split('@')[0]
@@ -57,8 +57,16 @@ class MailsacPage < GenericPage
     font << data["donation_details"][1]+" #{@@donation_reference}"
     raise("Mailsac buttons not found") unless browser.a(text: 'Sign in to reply').present?
     raise("Mailsac buttons not found") unless browser.a(text: 'Buy private email addresses, send messages, or build with the developer API.')
-    raise("Unable to find image") unless browser.img(src: data['img_src']).present?
+    begin
+      retries ||= 0
+      raise("Unable to find image") unless browser.img(src: data['img_src']).present?
+    rescue
+      retry if (retries += 1) < 3
+    end
     font.each do |f|
+      if f == "Auto Single FN,"
+        binding.pry
+      end
       raise("Unable to find content: #{f}") unless browser.font(text: f).present?
     end
     data['a'].each do |a|

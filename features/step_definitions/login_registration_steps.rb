@@ -101,3 +101,39 @@ end
 Then /^I return to the event payment page$/ do
   TestBrowser.pay_pal_page.cancel
 end
+
+And /^I click login without filling in details$/ do
+  TestBrowser.login_register_page.click_login
+end
+
+Then /^The login page should refresh with blank validation messages$/ do
+  raise("Validation messages not matching expected list") unless TestBrowser.login_register_page.validation_message_count(2)
+end
+
+Then /^The login page should refresh with an email validation message$/ do
+  raise("Validation messages not matching expected list") unless TestBrowser.login_register_page.validation_message_count(1)
+end
+
+Then /^The login page should refresh with a password validation message$/ do
+  raise("Validation messages not matching expected list") unless TestBrowser.login_register_page.password_validation?
+end
+
+And /^I click login with an invalid email$/ do
+  TestBrowser.login_register_page.invalid_email_login
+end
+
+And /^I click login with an invalid password$/ do
+  TestBrowser.login_register_page.invalid_password_login
+end
+
+Then /^The registration form should refresh with blank validation messages$/ do
+  TestBrowser.login_register_page.validation_message_count(14)
+end
+
+Then /^I register with invalid details$/ do
+  TestBrowser.registration_form.invalid_fill_form
+end
+
+Then /^The registration form should refresh with validation messages$/ do
+  binding.pry
+end

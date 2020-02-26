@@ -10,13 +10,23 @@ validation:
     first_name: First Name must be filled in.
     last_name: Last Name must be filled in.
 
+  invalidname:
+    first_name: The value of the First Name field is not valid.
+    last_name: The value of the Last Name field is not valid.
+
   blankemail:
     email: Email address must be filled in.
+
+  invalidemail:
+    email: Email address contains an invalid address.
 
   blankaddress:
     postcode: Postcode must be filled in.
     a1: Address line 1 must be filled in.
     tc: Town or city must be filled in.
+
+  invalidpostcode:
+    postcode: The Postcode is not valid.
 
   blankdirectdebit:
     date: Please pick a direct debit date.
@@ -43,6 +53,12 @@ validation:
     tc: Town/city must be filled in.
     email: Email must be filled in.
 
-
   telephone:
     telephone: Telephone must be filled in.
+
+  invalidtelephone:
+    telephone: Telephone contains an invalid telephone number.
+
+  ddmustbenumber:
+    accno: Account number must be a number.
+    sortcode: Sort code must be a number.

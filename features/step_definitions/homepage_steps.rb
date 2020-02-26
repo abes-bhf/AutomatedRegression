@@ -61,7 +61,7 @@ Then /^I am taken to the correct page$/ do
 end
 
 And /^I click on search$/ do
-  TestBrowser.home_page.search_button.click
+  TestBrowser.home_page.search_button.click!
 end
 
 Then /^The search bar should open$/ do
