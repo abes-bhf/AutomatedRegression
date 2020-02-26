@@ -18,7 +18,7 @@ class WorldpayPage < GenericForm
     expmonth = browser.input(id: "expiryMonth")
     expyear = browser.input(id: "expiryYear")
     sendkeys!(expmonth, '01')
-    sendkeys!(expyear, "#{Time.now.year + 1}")
+    sendkeys!(expyear, Time.now.year + 100)
     browser.input(id: "securityCode").send_keys('123')
     browser.input(id: "submitButton").click!
   end

@@ -20,10 +20,16 @@ class GenericPage
 
   def visit
     TestBrowser.browser.goto @url
-    if browser.button(title: "Accept and close").present?
+    if @@ENV == "gateway"
+      if browser.button(id:"details-button").present?
+        browser.button(id:"details-button").click
+        browser.a(id: "proceed-link").click
+      end
+    end
+    if browser.button(title: "Accept Cookies Button").present?
       begin
         retries ||= 0
-        browser.button(title: "Accept and close").click
+        browser.button(title: "Accept Cookies Button").click
       rescue Selenium::WebDriver::Error::ElementClickInterceptedError
         retry if (retries += 1) < 3
       end
