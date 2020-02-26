@@ -70,6 +70,7 @@ class GenericForm < GenericPage
     sendkeys!(last, ln)
   end
 
+
   def fill_email(em)
     email = browser.div(class: 'name.e-mail').text_field
     sendkeys!(email, em)

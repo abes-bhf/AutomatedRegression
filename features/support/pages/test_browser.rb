@@ -16,6 +16,10 @@ class TestBrowser
     @@pages[method_name] || @@pages[method_name] = Object.const_get(class_name).new(@@browser)
   end
 
+  def self.clear_pages
+    @@pages = {}
+  end
+
   private_class_method :new
 
 end

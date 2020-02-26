@@ -1,0 +1,88 @@
+publications_data:
+  details:
+    title: Professor
+    fn: AutoPub FN
+    ln: AutoPub LN
+    postcode: NW17AW
+    a1: This is
+    a2: A test submission
+    a3: Please ignore
+    towncity: London
+    county:
+    telephone: 1234567890
+    email: testingpub19@rhyta.com
+    registered_email: signedinPub@rhyta.com
+    password: Test1234
+    dpemail: no
+    dptext: no
+    dppost: no
+    dptel: no
+    alt_pc: NO14YU
+    alt_a1: Alternate
+    alt_a2: Billing address
+    alt_tc: Thessalonica
+    lookup_match: Greater London House Hampstead Road London NW1 7AW
+    lookup_a1: Greater London House
+    lookup_a2: Hampstead Road
+    lookup_city: London
+
+  pub_invalid:
+    title: Other
+    fn: 125F£
+    ln: 72(A
+    postcode: e
+    a1: ???
+    a2: ???
+    a3: x→ÙýÇI↔
+    towncity: TY!yt
+    county:
+    telephone: gr4ef
+    email: uwiwo....saw24/$
+    fn2: R r
+    ln2: u
+    telephone2: 0!236236
+    email2: sfww
+
+  pub_validation_messages:
+    blank_fn: The first name is required.
+    blank_ln: The last name is required.
+    blank_title: Please select Title
+    blank_pc: Delivery Postcode is a required field.
+    blank_alt_pc: Postcode is a required field.
+    blank_a1: Delivery Address 1 is a required field.
+    blank_alt_a1: Address 1 is a required field.
+    blank_towncity: Delivery City is a required field.
+    blank_alt_tc: City is a required field.
+    invalid_email: This value should be a valid email.
+    invalid_fn: The first name can contain characters only. Hyphens and spaces are permitted.
+    invalid_ln: The last name can contain characters only. Hyphens and spaces are permitted.
+    short_error: Field length must be between 2 and 255 characters long
+    invalid_characters: Characters and numbers only. Hyphens, spaces, dots, apostrophes and underscores are permitted.
+    req_field: Required field.
+    req_field_alt: This is a required field.
+
+
+
+
+
+
+
+
+# flow:
+#   email: siregara@bhf.org.uk
+#   password: Password1!
+#
+# hc:
+#   fn: AutoHC FN
+#   ln: AutoHC LN
+#   postcode: NW18AW
+#   a1: This is
+#   a2: A test submission
+#   a3: Please ignore
+#   towncity: London
+#   telephone: 1234567890
+#   email: abes_pet_robot@mailsac.com
+#   dpemail: no
+#   dptext: no
+#   dppost: no
+#   dptel: no

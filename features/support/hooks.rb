@@ -1,8 +1,9 @@
 # TestBrowser.browser = Watir::Browser.new (:chrome).to_sym
 # TestBrowser.browser.window.maximise
 # TestBrowser.browser = Watir::Browser.new (ENV['BROWSER'] || 'chrome').to_sym
-TestBrowser.browser = Watir::Browser.new (ENV['BROWSER'] || 'chrome').to_sym, options: {options: {'useAutomationExtension' => false}}
-Before do
+Before do |scenario|
+  TestBrowser.browser = Watir::Browser.new (ENV['BROWSER'] || 'chrome').to_sym, options: {options: {'useAutomationExtension' => false}}
+  TestBrowser.browser.windows.first.use
   TestBrowser.browser.window.maximize
   @@new_acc_email = "#{SecureRandom.hex 8}@mailsac.com"
   # @@new_acc_email = "9256667b1139c660@test.co.uk"
@@ -15,5 +16,8 @@ Before do
 end
 
 After do |scenario|
+  TestBrowser.browser.cookies.clear
   TestBrowser.browser.driver.manage.delete_all_cookies
+  TestBrowser.browser.close
+  TestBrowser.clear_pages
 end

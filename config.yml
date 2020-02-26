@@ -7,73 +7,86 @@ live:
   <<: *execution_defaults
   base_url: https://www.bhf.org.uk/
   flow_url: https://10.190.2.5/
+  publications_url: https://www.bhf.org.uk/basket/basket-form/
 
 uat:
   <<: *execution_defaults
   base_url: https://uat-bhf.precedenthost.co.uk/
   flow_url: https://10.190.2.5/
-
+  publications_url: https://uat-bhf.precedenthost.co.uk/basket/basket-form/
 
 uat2:
   <<: *execution_defaults
   base_url: https://bhfuat2.precedenthost.co.uk/
   flow_url: https://10.190.2.5/
+  publications_url: https://bhfuat2.precedenthost.co.uk/basket/basket-form/
 
 
 cd1:
   <<: *execution_defaults
   base_url: https://bhftest-dh4.precedenthost.com/
   flow_url: https://10.190.2.5/
+  publications_url: https://bhftest-dh4.precedenthost.com/basket/basket-form/
 
 
 cd1:
   <<: *execution_defaults
   base_url: https://bhftest-dh4.precedenthost.com/
   flow_url: https://10.190.2.5/
+  publications_url: https://bhftest-dh4.precedenthost.com/basket/basket-form/
 
 
 cd2:
   <<: *execution_defaults
   base_url: https://bhftest-pul.precedenthost.com/
   flow_url: https://10.190.2.5/
+  publications_url: https://bhftest-pul.precedenthost.com/basket-form
 
 
 cd3:
   <<: *execution_defaults
   base_url: https://bhf-cd3-dh4.precedenthost.com/
   flow_url: https://10.190.2.5/
+  publications_url: https://bhf-cd3-dh4.precedenthost.com/basket/basket-form/
 
 azure:
   <<: *execution_defaults
   base_url: https://ukw-bhf-sc8-prd-cd1.azurewebsites.net/
   flow_url: https://10.190.2.5/
+  publications_url: https://ukw-bhf-sc8-prd-cd1.azurewebsites.net/basket/basket-form/
 
 preprod:
   <<: *execution_defaults
   base_url: https://ukw-bhf-sc8-prd-cd1-staging.azurewebsites.net/
   flow_url: https://10.190.2.5/
+  publications_url: https://ukw-bhf-sc8-prd-cd1-staging.azurewebsites.net/basket/basket-form/
 
 stg:
   <<: *execution_defaults
   base_url: https://ukw-bhf-sc8-stg-cd1.azurewebsites.net/
   flow_url: https://10.190.2.5/
+  publications_url: https://ukw-bhf-sc8-stg-cd1.azurewebsites.net/basket/basket-form/
 
 whatever:
   <<: *execution_defaults
   base_url: https://www.bhf.org.uk/
   flow_url: https://uat-bhf-flow.precedenthost.co.uk/
+  publications_url: https://www.bhf.org.uk/basket/basket-form/
 
 gateway:
   <<: *execution_defaults
   base_url: https://4055544a-da9d-40df-a0cd-666cd8cab416.cloudapp.net/
   flow_url: https://10.190.2.5/
+  publications_url: https://4055544a-da9d-40df-a0cd-666cd8cab416.cloudapp.net/basket/basket-form/
 
 sandbox:
   <<: *execution_defaults
   base_url: https://bhf-sandbox.azurewebsites.net/
   flow_url: https://10.190.2.5/
+  publications_url: https://bhf-sandbox.azurewebsites.net/basket/basket-form/
 
 integration:
   <<: *execution_defaults
   base_url: https://bhf-integration.azurewebsites.net/
   flow_url: https://10.190.2.5/
+  publications_url: https://bhf-integration.azurewebsites.net/basket/basket-form/
