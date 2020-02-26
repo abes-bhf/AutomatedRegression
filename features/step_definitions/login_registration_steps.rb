@@ -29,6 +29,7 @@ Then /^I am taken to the account creation confirmation screen$/ do
 end
 
 Given /^I am logged in$/ do
+  binding.pry
   raise('Expected user to be logged in but this is not the case') unless TestBrowser.generic_page.logout_button.present?
 end
 
