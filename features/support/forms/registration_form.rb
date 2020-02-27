@@ -23,7 +23,7 @@ class RegistrationForm < GenericForm
   end
 
   def invalid_fill_form
-    binding.pry
+    select_title(random_title)
   end
 
 end
