@@ -26,6 +26,7 @@ class GenericPage
         browser.a(id: "proceed-link").click
       end
     end
+    sleep(2)
     if browser.button(title: "Accept Cookies Button").present?
       begin
         retries ||= 0

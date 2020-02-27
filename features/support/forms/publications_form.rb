@@ -15,7 +15,7 @@ class PublicationsForm < GenericForm
   def fill_form
     details = EnvConfig.data['publications_data']['details']
     pub_step1(details['email'])
-    browser.input(xpath: '//*[@id="f-forms__radio__guest__bb3dedd0-6a91-491b-877a-87d97dc473b2"]').click
+    browser.input(value: 'Continue as a guest').click
     continue
     pub_step2
     continue
@@ -37,7 +37,7 @@ class PublicationsForm < GenericForm
 
 
   def pub_step1(email)
-    email_field = browser.input(id: 'f-forms__element-input__db34cf63-37ff-4ad8-aac1-5bc64d85787c')
+    email_field = browser.text_field(id: 'f-forms__element-input__db34cf63-37ff-4ad8-aac1-5bc64d85787c')
     sendkeys!(email_field, email)
   end
 
@@ -334,12 +334,12 @@ class PublicationsForm < GenericForm
   end
 
   def address_step_4(postcode, a1, a2, towncity)
-    p_code = browser.div(class: 'f-forms__element').input
+    p_code = browser.div(class: 'f-forms__element').text_field
     p_code.send_keys(postcode)
-    browser.input(class: "f-forms__element--address1").send_keys a1
-    browser.input(class: "f-forms__element--address2").send_keys a2
+    browser.text_field(class: "f-forms__element--address1").send_keys a1
+    browser.text_field(class: "f-forms__element--address2").send_keys a2
     sleep 1
-    browser.input(class: "f-forms__element--city").send_keys towncity
+    browser.text_field(class: "f-forms__element--city").send_keys towncity
     same_billing = browser.div(class: 'f-forms__radio')
       if same_billing.present?
         same_billing.scroll.to :center
@@ -384,7 +384,7 @@ class PublicationsForm < GenericForm
 
   def fill_postcode
     details = EnvConfig.data['publications_data']['details']
-    p_code = browser.div(class: 'f-forms__element').input
+    p_code = browser.div(class: 'f-forms__element').text_field
     p_code.send_keys(details['postcode'])
   end
 
