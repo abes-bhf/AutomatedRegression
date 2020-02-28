@@ -108,9 +108,9 @@ Given("I enter a valid postcode into the postcode lookup") do
   TestBrowser.publications_form.fill_postcode
 end
 
-# Given("I click the Find Address button") do
-#   TestBrowser.publications_form.find_address
-# end
+Given("I click the Find Address button") do
+  TestBrowser.publications_form.find_address
+end
 
 
 Then("I select an address from the list of matching addresses") do
