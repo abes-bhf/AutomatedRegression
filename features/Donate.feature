@@ -50,7 +50,7 @@ Feature: Homepage
 		And I select a one-off donation preset
 		And I am taken to the first page of the donation form
 		Given I enter a valid postcode into the postcode lookup field
-		And I click the Find Address button
+		And I search for the postcode
 		And I select an address from the list of matching addresses
 		Then Address fields are shown with the address filled in
 
@@ -60,7 +60,7 @@ Feature: Homepage
 		And I select a monthly donation preset
 		And I am taken to the first page of the donation form
 		Given I enter a valid postcode into the postcode lookup field
-		And I click the Find Address button
+		And I search for the postcode
 		And I select an address from the list of matching addresses
 		Then Address fields are shown with the address filled in
 

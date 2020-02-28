@@ -128,7 +128,7 @@ And /^I click login with an invalid password$/ do
 end
 
 Then /^The registration form should refresh with blank validation messages$/ do
-  TestBrowser.login_register_page.validation_message_count(14)
+  raise("Validation messages not matching expected list") unless TestBrowser.login_register_page.validation_message_count(14)
 end
 
 Then /^I register with invalid details$/ do

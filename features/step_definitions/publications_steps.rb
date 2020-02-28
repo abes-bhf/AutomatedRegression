@@ -79,9 +79,9 @@ Then("I fill in the form triggering invalid validation messages on each page") d
   TestBrowser.publications_form.invalid_fill
 end
 
-When /^I enter valid PayPal details$/ do
-  TestBrowser.pay_pal_page.login # Write code here that turns the phrase above into concrete actions
-end
+# When /^I enter valid PayPal details$/ do
+#   TestBrowser.pay_pal_page.login # Write code here that turns the phrase above into concrete actions
+# end
 
 
 Given("I fill in the publications form ordering as a company") do
@@ -108,9 +108,9 @@ Given("I enter a valid postcode into the postcode lookup") do
   TestBrowser.publications_form.fill_postcode
 end
 
-Given("I click the Find Address button") do
-  TestBrowser.publications_form.find_address
-end
+# Given("I click the Find Address button") do
+#   TestBrowser.publications_form.find_address
+# end
 
 
 Then("I select an address from the list of matching addresses") do

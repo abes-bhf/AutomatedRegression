@@ -209,8 +209,9 @@ class GenericForm < GenericPage
   end
 
   def validation_message_count(number)
+    sleep(1)
     validation_summary = browser.div(class: "scfValidationSummary").lis
-    validation_summary.size == number
+    return validation_summary.size == number
   end
 
   def date_of_birth(dd, mm, yyyy)
