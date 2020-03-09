@@ -24,12 +24,12 @@ Then /^I am taken to the account creation confirmation screen$/ do
       f << "> #{@@new_acc_email} registered on #{@@ENV} at #{Time.now} \n"
     end
   else
+    binding.pry
     raise
   end
 end
 
 Given /^I am logged in$/ do
-  binding.pry
   raise('Expected user to be logged in but this is not the case') unless TestBrowser.generic_page.logout_button.present?
 end
 
@@ -41,7 +41,7 @@ end
 Then /^I can log in with the details used in registration$/ do
   TestBrowser.generic_page.log_in
   TestBrowser.login_register_page.login
-  raise ('logout button not found, i doubt youre actually logged in') unless TestBrowser.generic_page.logout_button != nil
+  raise ('logout button not found, you may not actually belogged in') unless TestBrowser.generic_page.logout_button != nil
 end
 
 Then /^I am on my account page$/ do
@@ -51,7 +51,7 @@ end
 Given /^I navigate to the L2B registration form without logging in$/ do
   TestBrowser.london_to_brighton_page.visit
   TestBrowser.london_to_brighton_page.guest_sign_up
-  raise unless TestBrowser.london_to_brighton_registration1.on_page?
+  raise("Failed to access L2B form") unless TestBrowser.london_to_brighton_registration1.on_page?
 end
 
 And /^I enter the email used in registration$/ do
@@ -68,6 +68,7 @@ end
 
 Then /^I am taken to the event specific questions page$/ do
   raise unless TestBrowser.london_to_brighton_registration2.on_page?
+  binding.pry
 end
 
 And /^I click login when prompted$/ do
@@ -136,5 +137,5 @@ Then /^I register with invalid details$/ do
 end
 
 Then /^The registration form should refresh with validation messages$/ do
-  binding.pry
+  raise("Validation messages not matching expected list") unless TestBrowser.login_register_page.validation_message_count(7)
 end

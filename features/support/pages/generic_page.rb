@@ -27,10 +27,10 @@ class GenericPage
       end
     end
     sleep(2)
-    if browser.button(title: "Accept Cookies Button").present?
+    if browser.button(id: "onetrust-accept-btn-handler").present?
       begin
         retries ||= 0
-        browser.button(title: "Accept Cookies Button").click
+        browser.button(id: "onetrust-accept-btn-handler").click
       rescue Selenium::WebDriver::Error::ElementClickInterceptedError
         retry if (retries += 1) < 3
       end
@@ -48,12 +48,18 @@ class GenericPage
   end
 
   def log_out
-    loginbutton = login_button
-    if loginbutton.present? == false
-      logoutbutton = logout_button
-      logoutbutton.click!
-    else
-      raise('no logout button found, are you already logged out?')
+    begin
+      retries ||= 0
+      loginbutton = login_button
+      if loginbutton.present? == false
+        logoutbutton = logout_button
+        logoutbutton.click!
+      else
+        raise('no logout button found, are you already logged out?')
+      end
+    rescue
+      sleep(1)
+      retry if (retries += 1) < 3
     end
   end
 

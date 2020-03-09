@@ -23,7 +23,15 @@ class RegistrationForm < GenericForm
   end
 
   def invalid_fill_form
+    fill_email("email")
+    invalid_password
+    postcode_lookup('NW18AW')
     select_title(random_title)
+    fill_name1('!£@^&', '123123')
+    fill_postcode('postcode')
+    fill_telephone('telephone')
+    data_protection('no', 'no', 'no', 'no')
+    continue
   end
 
 end

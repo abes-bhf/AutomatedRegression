@@ -47,4 +47,9 @@ class LondonToBrightonRegistration1 < GenericForm
     browser.input(id: "main_0_pagecontent_0_form_1EBC23CD86B440E193CE24BF725DA7C3_form_1EBC23CD86B440E193CE24BF725DA7C3_submit").click!
   end
 
+  def new_registration
+    fill_details
+    binding.pry
+  end
+
 end
