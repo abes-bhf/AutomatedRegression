@@ -1,10 +1,10 @@
-@fne
+@fnehc
 Feature: Furniture and Electrical collection
   In order to donate to the BHF
   As a supporter
   I want to request a furniture and electrical collection
 
-  @fnesmoke
+  @fnesmoke @fne
   Scenario: User navigation smoke tests
     Given I navigate to the F and E form
     Then The F and E form is displayed
@@ -15,13 +15,13 @@ Feature: Furniture and Electrical collection
     And The reason for requesting dropdown should be displayed with the expected options
 
 
-  @fnevalid
+  @fnevalid @fne
   Scenario: F and E Validation check
     Given I navigate to the F and E form
     And I submit the F and E form without filling fields
     Then The F and E form should refresh with validation messages
 
-  @fnesubmit
+  @fnesubmit @fne
   Scenario: F and E Submission
     Given I navigate to the F and E form
     And I fill in furniture collection details
