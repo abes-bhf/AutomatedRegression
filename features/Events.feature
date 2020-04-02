@@ -4,7 +4,7 @@ Feature: events
 	As a BHF supporter
 	I want to register for an event
 
-	@event @transaction @paypal
+	@event @submission @paypal
 	Scenario: event
 		Given I navigate to the L2B registration form without logging in
 		And I register for L2B with a new email and password
@@ -13,7 +13,7 @@ Feature: events
 		And I enter valid PayPal details
 		Then I am taken to the event confirmation page
 
-	@event @transaction @worldpay
+	@event @submission @worldpay
 	Scenario: event
 		Given I navigate to the L2B registration form without logging in
 		And I register for L2B with a new email and password

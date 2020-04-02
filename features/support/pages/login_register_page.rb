@@ -18,6 +18,7 @@ class LoginRegisterPage < GenericForm
   end
 
   def login
+    sleep(1)
     begin
       retries ||= 0
       email = find_textfields("Email address*")
@@ -25,8 +26,10 @@ class LoginRegisterPage < GenericForm
       sendkeys!(email, @@new_acc_email)
       sendkeys!(password, 'Pa55w0rd')
     rescue RuntimeError
+      sleep(1)
       retry if (retries += 1) < 3
     rescue NoMethodError
+      sleep(1)
       retries-=1
       retry if (retries += 1) < 3
     end

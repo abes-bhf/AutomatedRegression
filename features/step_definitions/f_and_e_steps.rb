@@ -30,12 +30,20 @@ And /^I submit the F and E form without filling fields$/ do
   TestBrowser.f_and_e_form.continue
 end
 
+And /^I submit the F and E form with invalid data$/ do
+  TestBrowser.f_and_e_form.invalid_fill_form
+end
+
 And /^I submit the HC form without filling fields$/ do
   TestBrowser.h_c_form.continue
 end
 
+Then /^The F and E form should refresh with blank validation messages$/ do
+  raise("Validation messages not matching expected list") unless TestBrowser.f_and_e_form.validation_message_count(15)
+end
+
 Then /^The F and E form should refresh with validation messages$/ do
-  raise unless TestBrowser.f_and_e_form.validation_present?('name', 'fande', 'telephone', 'dp')
+  raise("Validation messages not matching expected list") unless TestBrowser.f_and_e_form.validation_message_count(5)
 end
 
 Then /^The HC form should refresh with validation messages$/ do
@@ -53,6 +61,9 @@ end
 Then /^I am taken to the F and E confirmation page with a collection reference$/ do
   raise unless TestBrowser.f_and_e_confirmation.on_page?
   @@f_and_e_reference = TestBrowser.browser.url.split('=')[1]
+  open(File.join(Dir.pwd, 'submissions/fnecollection.txt'), 'a') do |f|
+    f << "> F&E collection request submitted on #{@@ENV} at #{Time.now}\n Reference: #{@@f_and_e_reference}\n"
+  end
 end
 
 Then /^I am taken to the HC confirmation page with a collection reference$/ do

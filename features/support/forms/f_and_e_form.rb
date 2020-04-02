@@ -29,9 +29,40 @@ class FAndEForm < GenericForm
     fne_address(details)
     sendkeys!(telephone, details['telephone'])
     sendkeys!(email, details['email'])
+    firelabels.scroll.to
+    sleep(1)
     firelabels.set
     maybedeclined.set
     sendkeys!(firstchoice, Time.now.strftime("%d/%m/#{Time.now.year+1}"))
+    dropdownselect(howdidyouhear, howdyouhearchoice)
+    data_protection(details['dpemail'],details['dptext'],details['dppost'],details['dptel'])
+    continue
+  end
+
+  def invalid_fill_form
+    details = EnvConfig.data['f_and_e_invalid']
+    title_dropdown = browser.div(class: 'scfShortDropList').select
+    first = browser.text_field(id: 'main_0_pagecontent_1_txtFirstName')
+    last = browser.text_field(id: 'main_0_pagecontent_1_txtSurname')
+    telephone = browser.text_field(id: 'main_0_pagecontent_1_txtDayTimePhone')
+    email = browser.text_field(id: 'main_0_pagecontent_1_txtEmailAddress')
+    firelabels = browser.checkbox(id: 'main_0_pagecontent_1_ReadInfoOnFireLabels')
+    maybedeclined = browser.checkbox(id: 'main_0_pagecontent_1_UnderstandItemMayBeReclined')
+    firstchoice = browser.text_field(id: 'main_0_pagecontent_1_txtFirstChoice')
+    howdidyouhear = browser.select(id: 'main_0_pagecontent_1_ddlHowDidYouHearAboutUs')
+    howdyouhearchoice = EnvConfig.data['f_and_e_how_did_you_hear']['options'].sample
+    dropdownselect(title_dropdown, random_title)
+    sendkeys!(first, details['fn'])
+    sendkeys!(last, details['ln'])
+    fne_address(details)
+    sendkeys!(telephone, details['telephone'])
+    sendkeys!(email, details['email'])
+    firelabels.scroll.to
+    sleep(1)
+    firelabels.set
+    maybedeclined.set
+    # sendkeys!(firstchoice, Time.now.strftime("%d/%m/#{Time.now.year-1}"))
+    sendkeys!(firstchoice, Time.now.strftime("123123123"))
     dropdownselect(howdidyouhear, howdyouhearchoice)
     data_protection(details['dpemail'],details['dptext'],details['dppost'],details['dptel'])
     continue

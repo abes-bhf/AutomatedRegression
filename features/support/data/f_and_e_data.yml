@@ -9,7 +9,27 @@ f_and_e:
   towncity: London
   county:
   telephone: 1234567890
-  email: abes_pet_robot@mailsac.com
+  email: autofande@mailsac.com
+  firstchoice:
+  secondchoice:
+  howdidyouhear:
+  dpemail: no
+  dptext: no
+  dppost: no
+  dptel: no
+
+f_and_e_invalid:
+  title: Professor
+  fn: 123456
+  ln: 654321
+  postcode: postcode
+  a1: This is
+  a2: A test submission
+  a3: Please ignore
+  towncity: London
+  county:
+  telephone: telephone
+  email: email@email.com
   firstchoice:
   secondchoice:
   howdidyouhear:
