@@ -11,9 +11,9 @@ Feature: publications
 		When I click the search button
 		Then I can see a list of publications
 
-# note the blank journey duplicates the gdpr field step, -- ????
+
 # complete
-  	@transactionless @liveregression @uatregression @validation @orderforme @firingblanks @guest
+  	@transactionless @liveregression @uatregression @validation @firingblanks @guest
 	Scenario: Testing blank validation messages on publications form sign in page
 		Given I navigate to the publications page
 		And I select a booklet
@@ -27,7 +27,7 @@ Feature: publications
 
 
 # complete
-  	@transactionless @liveregression @uatregression @validation @orderforme @invalid @guest
+  	@transactionless @liveregression @uatregression @validation @invalid @guest
 	Scenario: Testing validation messages on invalid data on publications form
 		Given I navigate to the publications page
 		And I select a booklet
@@ -37,7 +37,7 @@ Feature: publications
 		Then I fill in the form triggering invalid validation messages on each page
 
 # complete
-		@transactionless @liveregression @uatregression @validation @orderforme @signedin
+		@transactionless @liveregression @uatregression @validation @signedin
 	Scenario: Testing validation messages on the signed in journey
 		Given I navigate to the publications page
 		And I select a booklet
@@ -57,7 +57,7 @@ Feature: publications
 		And I select an address from the list of matching addresses
 		Then address fields are shown with the address filled in
 
-# complete - NOte the delivery address not autopopulating so this will need to change - also orderforme
+# complete -
 		@export @guest @worldpay
 	Scenario: Testing worldpay works when a donation is added to basket as a guest
 		Given I navigate to the publications page
@@ -91,7 +91,6 @@ Feature: publications
 	# 	Then I am taken to the order complete page
 
 
-# Should happy path check the basket is relfected in order summary?   <------------------later
 
 # Completed
 		@export @happypath @guest
@@ -139,10 +138,9 @@ Feature: publications
 	# 	And I enter valid PayPal details
 	# 	Then I am taken to the order complete page
 
-# [note stage URL was different to integration], random booklet sample?
-# Should happy path check the basket is relfected in order summary?   <------------------
 
-#This may need the account registration script run before this so that the user is created
+
+
 # complete
 		@export @happypath @signedin
 	Scenario: Testing publications happy path when signed in
@@ -171,7 +169,7 @@ Feature: publications
 		Then I am taken to the Worldpay page
 		And I enter valid card details
 		Then I am taken to the order confirmation page
-#https://bam.nr-data.net/events/1/7d0139173e?a=436619659&v=1158.afc605b&to=MQdUYEUFWEUHVUNQCwhNY0ZeS21BA1REUBADPxlWVhddUxIZWkBJBANFX1IQ&rst=12737&ref=https://bhf-integration.azurewebsites.net/basket/my-basket
+
 # complete
 		@export @company_order @fol
 	Scenario: Testing order as a company journey
@@ -196,8 +194,7 @@ Feature: publications
 		And I press continue
 		Then I am taken to the order confirmation page
 
-# in progress
-		# And I verify the summary matches the basket
+# complete
 		@export @multipub @guest
 	Scenario: Testing multiple publications in basket
 		Given I navigate to the publications page
@@ -209,9 +206,3 @@ Feature: publications
 		And I fill in the publications form
 		And I press continue
 		Then I am taken to the order confirmation page
-
-
-
-
-		# no Spinners on publication form
-		# unsure what emails

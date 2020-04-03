@@ -32,7 +32,7 @@ Feature: Homepage
 		And I press continue after filling in invalid details
 		Then The donate form should refresh with validation messages
 
-	@transactionless @monthly @liveregression @uatregression @validation
+	@transactionless @monthly @liveregression @uatregression @validation @mungus
 	Scenario: Testing validation messages for invalid data on monthly form
 		Given I navigate to the Donation page
 		And I select a monthly donation preset
@@ -64,7 +64,7 @@ Feature: Homepage
 		And I select an address from the list of matching addresses
 		Then Address fields are shown with the address filled in
 
-	@oneoff @uatregression @transaction @worldpay
+	@oneoff @uatregression @submission @worldpay
 	Scenario: Testing single donations complete with transactions (WorldPay)
 		Given I navigate to the Donation page
 		And I select a one-off donation preset
@@ -77,7 +77,7 @@ Feature: Homepage
 		And I enter valid card details
 		Then I am taken to the confirmation page
 
-	@oneoff @uatregression @transaction @paypal
+	@oneoff @uatregression @submission @paypal
 	Scenario: Testing single donations complete with transactions (PayPal)
 		Given I navigate to the Donation page
 		And I select a one-off donation preset
@@ -88,7 +88,7 @@ Feature: Homepage
 		And I enter valid PayPal details
 		Then I am taken to the confirmation page
 
-	@monthly @uatregression @transaction
+	@monthly @uatregression @submission
 	Scenario: Testing monthly donations complete with transactions
 		Given I navigate to the Donation page
 		And I select a monthly donation preset

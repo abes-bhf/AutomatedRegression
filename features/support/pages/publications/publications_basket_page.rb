@@ -153,8 +153,6 @@ class PublicationsBasketPage < GenericPage
     count = 0
     publications_quantity = rng_small
     browser.a(class: "quantity-increase").scroll.to :center
-    sleep 2
-    decookie
     until count == publications_quantity
       browser.a(class: "quantity-increase").click
       count += 1
@@ -168,6 +166,16 @@ class PublicationsBasketPage < GenericPage
     b = a.to_a
     return b.sample
   end
+
+  def checkout
+    browser.input(value: 'Check out').scroll.to :center
+    sleep 0.5
+    browser.input(value: 'Check out').click
+  end
+
+
+
+
 
 
 end

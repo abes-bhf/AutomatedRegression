@@ -4,7 +4,7 @@ class VolunteeringPage < GenericPage
 
   def initialize(browser)
     super
-    @url = EnvConfig.base_url + "publications"
+    @url = EnvConfig.base_url + "how-you-can-help/volunteer"
   end
 
   def nav
@@ -39,7 +39,6 @@ class VolunteeringPage < GenericPage
     count = 0
     begin
       if count < 5
-        binding.pry
         vol_link.click
       else
         raise

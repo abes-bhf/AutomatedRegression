@@ -60,6 +60,21 @@ class PublicationsForm < GenericForm
     browser.input(id: 'f-forms__element-input__269005c6-9f17-47dd-b67e-455b746f80db').send_keys ln
   end
 
+  def refill_step3(email, fn, ln, random_title)
+    title_select = browser.div(class: 'f-forms__select').select
+    browser.input(name: 'Email').send_keys email
+    drop_title = random_title
+    title_select.options.each do |option|
+      if option.text == random_title
+        option.click
+      end
+    end
+    browser.input(id: 'f-forms__element-input__3f094594-ab93-45ba-ba3e-20182e4958d2').send_keys fn
+    browser.input(id: 'f-forms__element-input__269005c6-9f17-47dd-b67e-455b746f80db').send_keys ln
+  end
+# the above could probably be avoided using the set workaround instead of using clear all inputs
+
+
   def pub_step4(postcode, a1, a2, towncity)
     p_code = browser.div(class: 'f-forms__element').input
     p_code.send_keys(postcode)
@@ -114,9 +129,8 @@ class PublicationsForm < GenericForm
   end
 
   def check_signedin
-    sleep 1
+    sleep 0.5
     raise unless browser.input(class: "f-forms__element--address1").value.length > 1
-    raise unless browser.input(class: "f-forms__element--address2").value.length > 1
     raise unless browser.input(class: "f-forms__element--city").value.length > 1
   end
 
@@ -134,7 +148,7 @@ class PublicationsForm < GenericForm
     pub_step2
     continue
     pub_blank3(blanks['blank_fn'], blanks['blank_ln'], blanks['blank_title'])
-    pub_step3(details['fn'], details['ln'], random_title)
+    pub_step3(details['email'], details['fn'], details['ln'], random_title)
     continue
     pub_blank4(blanks['blank_pc'], blanks['blank_a1'], blanks['blank_towncity'])
     pub_step4(details['postcode'], details['a1'], details['a2'], details['towncity'])
@@ -220,10 +234,10 @@ class PublicationsForm < GenericForm
     continue
     pub_step2
     continue
-    pub_step3(invalid['fn'], invalid['ln'], random_title)
+    pub_step3(details['email'], invalid['fn'], invalid['ln'], random_title)
     continue
     invalid_pub_3(message['invalid_fn'],message['invalid_ln'])
-    pub_step3(details['fn'], details['ln'], random_title)
+    refill_step3(details['email'], details['fn'], details['ln'], random_title)
     continue
     pub_step4(invalid['postcode'], invalid['a1'], invalid['a2'], invalid['towncity'])
     continue
@@ -250,7 +264,7 @@ class PublicationsForm < GenericForm
     raise unless parsley_pattern[0].text == invalid_characters
     raise unless parsley_pattern[1].text == invalid_characters
     raise unless parsley_pattern[2].text == invalid_characters
-    raise unless browser.li(class: "parsley-length").text == short_error
+    # raise unless browser.li(class: "parsley-length").text == short_error
     raise unless validation_message.present?
     clear_inputs
   end
@@ -277,7 +291,7 @@ class PublicationsForm < GenericForm
     continue
     org_type
     continue
-    pub_step3(details['fn'], details['ln'], random_title)
+    pub_step3(details['email'], details['fn'], details['ln'], random_title)
     continue
     pub_step4(details['postcode'], details['a1'], details['a2'], details['towncity'])
     continue
@@ -290,10 +304,12 @@ class PublicationsForm < GenericForm
 
   def org_type
     orgs = []
+    sleep 0.5
     browser.inputs(name: 'What type of organisation do you work for').each do |i|
       orgs << i
     end
     choice = orgs.sample
+
     choice.scroll.to :center
     sleep 1
     choice.click
@@ -306,7 +322,7 @@ class PublicationsForm < GenericForm
     continue
     friend_step2
     continue
-    pub_step3(details['fn'], details['ln'], random_title)
+    pub_step3(details['email'], details['fn'], details['ln'], random_title)
     continue
     pub_step4(details['postcode'], details['a1'], details['a2'], details['towncity'])
     continue
@@ -324,7 +340,7 @@ class PublicationsForm < GenericForm
     continue
     pub_step2
     continue
-    pub_step3(details['fn'], details['ln'], random_title)
+    pub_step3(details['email'], details['fn'], details['ln'], random_title)
     continue
     address_step_4(details['postcode'], details['a1'], details['a2'], details['towncity'])
     continue
@@ -362,9 +378,10 @@ class PublicationsForm < GenericForm
     continue
     continue
     browser.labels(class: "f-forms__radio--element")[1].scroll.to :center
-    sleep 2
+    sleep 1
     browser.labels(class: "f-forms__radio--element")[1].click
     continue
+    clear_inputs
     pub_step4(details['alt_pc'], details['alt_a1'],details['alt_a2'], details['alt_tc'])
     continue
     gdpr_field_v2
@@ -373,13 +390,32 @@ class PublicationsForm < GenericForm
   def signedin_blank_1(req_field, req_field_alt)
     continue
     raise unless required_field[0].text == req_field
-    raise unless required_field[1].text == req_field_alt
+    sleep 0.5
+    raise unless required_field[1].text == req_field_alt #cnut
     raise unless validation_message.present?
   end
 
   def go_to_address
-    address_url = @url + "/your-address"
+    address_url = @url + "your-address"
     browser.goto address_url
+    if @@ENV == "gateway"
+      if browser.button(id:"details-button").present?
+        browser.button(id:"details-button").click
+        browser.a(id: "proceed-link").click
+      end
+    end
+    cookiecount = 0
+    if cookiecount < 1
+      cookiebutton = browser.button(id: "onetrust-accept-btn-handler")
+      Watir::Wait.until {cookiebutton.present? && cookiebutton.exists?}
+        begin
+          retries ||= 0
+          cookiebutton.click
+        rescue Selenium::WebDriver::Error::ElementClickInterceptedError
+          retry if (retries += 1) < 3
+        end
+        cookiecount = 1
+    end
   end
 
   def fill_postcode

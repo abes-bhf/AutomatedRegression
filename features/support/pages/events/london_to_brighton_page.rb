@@ -13,7 +13,6 @@ class LondonToBrightonPage < GenericPage
   end
 
   def guest_sign_up
-    binding.pry
     if logout_button.present?
       log_out
       signupbutton = browser.a(text: 'Sign up')

@@ -4,22 +4,23 @@ Feature: events
 	As a BHF supporter
 	I want to register for an event
 
-	@event @transaction @paypal
+	@event @submission @paypal
 	Scenario: event
 		Given I navigate to the L2B registration form without logging in
 		And I register for L2B with a new email and password
-		And I fill in L2B event specific questions
+		And I fill in event specific questions
 		Then I decide to pay for registration through PayPal
 		And I enter valid PayPal details
 		Then I am taken to the event confirmation page
 
-	@event @transaction @worldpay
+	@event @submission @worldpay
 	Scenario: event
 		Given I navigate to the L2B registration form without logging in
 		And I register for L2B with a new email and password
-		And I fill in L2B event specific questions
+		And I fill in event specific questions
 		Then I decide to pay for registration through WorldPay
-		And I enter valid WorldPay details
+		And I am taken to the Worldpay page
+		And I enter valid card details
 		Then I am taken to the event confirmation page
 
 	@event
