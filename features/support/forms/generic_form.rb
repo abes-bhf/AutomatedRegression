@@ -96,6 +96,12 @@ class GenericForm < GenericPage
     end
   end
 
+  def invalid_password
+    passwordfields = browser.divs(class: 'scfConfirmPasswordBorder')
+    sendkeys!(passwordfields[0].text_field, '1')
+    sendkeys!(passwordfields[1].text_field, 'Pa55w0rd')
+  end
+
   def manual_address(address)
     address1 = browser.text_field(id: "main_0_pagecontent_0_form_8E055C52ADC344FFB848479DB2A001D7_field_A1BD006906684BDF99478FA1977CC767")
     towncity = browser.text_field(id: "main_0_pagecontent_0_form_8E055C52ADC344FFB848479DB2A001D7_field_757212F4026C426C9D95AC5C39AF2E16")

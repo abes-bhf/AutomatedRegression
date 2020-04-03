@@ -47,4 +47,15 @@ class LondonToBrightonRegistration1 < GenericForm
     browser.input(id: "main_0_pagecontent_0_form_1EBC23CD86B440E193CE24BF725DA7C3_form_1EBC23CD86B440E193CE24BF725DA7C3_submit").click!
   end
 
+  def new_registration
+    fill_details
+    fill_email2(@@new_acc_email)
+    select_title(random_title)
+    password = browser.text_field(id: "main_0_pagecontent_0_form_7A686591743F4EC0B53503C4317F3936_field_C1C7AC7FC92441598E7D657AF0DCD6B9border_field_C1C7AC7FC92441598E7D657AF0DCD6B9")
+    confirmpassword = browser.text_field(id: "main_0_pagecontent_0_form_7A686591743F4EC0B53503C4317F3936_field_C1C7AC7FC92441598E7D657AF0DCD6B9border_confirmation")
+    sendkeys!(password, "Pa55w0rd")
+    sendkeys!(confirmpassword, "Pa55w0rd")
+    continue
+  end
+
 end
