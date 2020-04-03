@@ -41,7 +41,7 @@ Given("I see the donation in the basket") do
 end
 # the below will need changing when the button works to navigate straight to the form
 Given("I navigate to the basket form") do
-  TestBrowser.publications_form.visit
+  TestBrowser.publications_basket_page.checkout
   # TestBrowser.publications_form.on_page?
 end
 

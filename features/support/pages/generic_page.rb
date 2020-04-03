@@ -26,16 +26,21 @@ class GenericPage
         browser.a(id: "proceed-link").click
       end
     end
-    sleep(2)
-    if browser.button(title: "Accept Cookies Button").present?
-      begin
-        retries ||= 0
-        browser.button(title: "Accept Cookies Button").click
-      rescue Selenium::WebDriver::Error::ElementClickInterceptedError
-        retry if (retries += 1) < 3
+    cookiecount = 0
+    if cookiecount < 1
+      cookiebutton = browser.button(id: "onetrust-accept-btn-handler")
+      Watir::Wait.until {cookiebutton.present? && cookiebutton.exists?}
+        begin
+          retries ||= 0
+          cookiebutton.click
+        rescue Selenium::WebDriver::Error::ElementClickInterceptedError
+          retry if (retries += 1) < 3
+        end
+        cookiecount = 1
       end
     end
-  end
+
+
 
   def login_button
     loginbutton = browser.ul(class: 'g-nav-primary__top').a(text: 'LOG IN/REGISTER')
