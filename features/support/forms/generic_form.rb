@@ -56,6 +56,9 @@ class GenericForm < GenericPage
   #   sendkeys!(last, ln)
   # end
 
+
+# what is this inheriting from??? ask able
+
   def fill_name(fn, ln)
     first = browser.div(class: "name.first-name").textarea
     last = browser.div(class: "name.last-name").textarea

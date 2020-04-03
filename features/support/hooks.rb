@@ -8,6 +8,7 @@ Before do |scenario|
   @@new_acc_email = "#{SecureRandom.hex 8}@mailsac.com"
   # @@new_acc_email = "9256667b1139c660@test.co.uk"
   @@donate_email = "#{SecureRandom.hex 8}@mailsac.com"
+  @@new_giw_email = "#{SecureRandom.hex 8}@mailsac.com"
   if ENV['CONFIG'] == nil
     @@ENV = 'integration'
   else
