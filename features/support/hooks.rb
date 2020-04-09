@@ -6,7 +6,7 @@ Before do |scenario|
   TestBrowser.browser.windows.first.use
   TestBrowser.browser.window.maximize
   @@new_acc_email = "#{SecureRandom.hex 8}@mailsac.com"
-  # @@new_acc_email = "9256667b1139c660@test.co.uk"
+  @@disposable_email = "#{SecureRandom.hex 8}@mailsac.com"
   @@donate_email = "#{SecureRandom.hex 8}@mailsac.com"
   @@new_giw_email = "#{SecureRandom.hex 8}@mailsac.com"
   if ENV['CONFIG'] == nil
