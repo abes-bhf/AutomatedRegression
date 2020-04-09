@@ -33,7 +33,6 @@ class ContactUsPage < GenericForm
     sendkeys!(address, details['address'])
     sendkeys!(city, details['city'])
     continue
-    binding.pry
   end
 
 
