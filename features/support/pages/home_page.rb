@@ -117,8 +117,12 @@ class HomePage < GenericPage
   end
 
   def random_level_three
-    levelthreelinks = level_three.last(level_three.size - 1)
-    return levelthreelinks.sample
+    begin
+      levelthreelinks = level_three.last(level_three.size - 1)
+      return levelthreelinks.sample
+    rescue ArgumentError
+      binding.pry
+    end
   end
 
   def search_button
