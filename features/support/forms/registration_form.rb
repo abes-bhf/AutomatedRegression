@@ -16,21 +16,21 @@ class RegistrationForm < GenericForm
     fill_password
     select_title(random_title)
     fill_name1('AutoReg FN', 'AutoReg LN')
-    postcode_lookup('NW18AW')
+    postcode_lookup('WR2 6NJ')
     fill_telephone('0987654321')
     data_protection('no', 'no', 'no', 'no')
     continue
   end
 
   def invalid_fill_form
+    postcode_lookup('WR2 6NJ')
     fill_email("email")
     invalid_password
-    postcode_lookup('NW18AW')
     select_title(random_title)
     fill_name1('!£@^&', '123123')
-    fill_postcode('postcode')
     fill_telephone('telephone')
     data_protection('no', 'no', 'no', 'no')
+    fill_postcode('postcode')
     continue
   end
 

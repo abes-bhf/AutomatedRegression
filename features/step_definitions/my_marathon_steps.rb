@@ -15,6 +15,5 @@ And /^I fill in MyMarathon details$/ do
 end
 
 Then /^I am taken to the MyMarathon confirmation page$/ do
-  # TestBrowser.my_marathon_confirmation.bong
   raise("Did not reach confirmation page for my marathon") unless TestBrowser.my_marathon_confirmation.on_page?
 end

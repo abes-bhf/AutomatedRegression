@@ -37,15 +37,24 @@ class GenericPage
     #       retry if (retries += 1) < 3
     #     end
     #     cookiecount = 1
-    sleep(2)
-    if browser.button(id: "onetrust-accept-btn-handler").present?
-      begin
-        retries ||= 0
-        browser.button(id: "onetrust-accept-btn-handler").click
-      rescue Selenium::WebDriver::Error::ElementClickInterceptedError
-        retry if (retries += 1) < 3
-      end
+    begin
+      retries ||= 0
+      find_logo
+      cookiebanner = browser.button(id: "onetrust-accept-btn-handler")
+      Watir::Wait.until { cookiebanner.exists? && cookiebanner.present? }
+      cookiebanner.click
+    rescue
+      retry if (retries += 1) < 3
     end
+    # sleep(2)
+    # if browser.button(id: "onetrust-accept-btn-handler").present?
+    #   begin
+    #     retries ||= 0
+    #     browser.button(id: "onetrust-accept-btn-handler").click
+    #   rescue Selenium::WebDriver::Error::ElementClickInterceptedError
+    #     retry if (retries += 1) < 3
+    #   end
+    # end
   end
 
 
