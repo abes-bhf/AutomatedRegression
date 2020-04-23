@@ -26,26 +26,30 @@ class GenericPage
         browser.a(id: "proceed-link").click
       end
     end
-    # cookiecount = 0
-    # if cookiecount < 1
-    #   cookiebutton = browser.button(id: "onetrust-accept-btn-handler")
-    #   Watir::Wait.until {cookiebutton.present? && cookiebutton.exists?}
-    #     begin
-    #       retries ||= 0
-    #       cookiebutton.click
-    #     rescue Selenium::WebDriver::Error::ElementClickInterceptedError
-    #       retry if (retries += 1) < 3
-    #     end
-    #     cookiecount = 1
-    sleep(2)
-    if browser.button(id: "onetrust-accept-btn-handler").present?
-      begin
-        retries ||= 0
-        browser.button(id: "onetrust-accept-btn-handler").click
-      rescue Selenium::WebDriver::Error::ElementClickInterceptedError
-        retry if (retries += 1) < 3
-      end
+    cookiecount = 0
+    if cookiecount < 1
+      cookiebutton = browser.button(id: "onetrust-accept-btn-handler")
+      Watir::Wait.until {cookiebutton.present? && cookiebutton.exists?}
+        begin
+          retries ||= 0
+          cookiebutton.click
+        rescue Selenium::WebDriver::Error::ElementClickInterceptedError
+          retry if (retries += 1) < 3
+        end
+        cookiecount = 1
     end
+
+    # sleep(2)
+    # if browser.button(id: "onetrust-accept-btn-handler").present?
+    #   begin
+    #     retries ||= 0
+    #     browser.button(id: "onetrust-accept-btn-handler").click
+    #   rescue Selenium::WebDriver::Error::ElementClickInterceptedError
+    #     retry if (retries += 1) < 3
+    #   end
+    # end
+  end
+
 
 
 

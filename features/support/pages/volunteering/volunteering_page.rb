@@ -37,17 +37,13 @@ class VolunteeringPage < GenericPage
   def volunteer_link_click
     vol_link = browser.a(text: 'Volunteer with us')
     count = 0
-    begin
-      if count < 5
-        vol_link.click
-      else
-        raise
-      end
-    rescue
-      puts "attempt #{count} fail"
-      count += 1
-      retry
-    end
+    Watir::Wait.until {vol_link.present?}
+        begin
+          retries ||= 0
+          vol_link.click
+        rescue Selenium::WebDriver::Error::ElementClickInterceptedError
+          retry if (retries += 1) < 3
+        end
   end
 
   def vol_sign_up

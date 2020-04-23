@@ -161,25 +161,12 @@ class PubConfirmationPage < GenericPage
     browser.execute_script("bd = document.getElementById('alert-box-title'); bd.parentNode.removeChild(bd);")
   end
 
-  # def on_page?
-  #   trait = browser.div(class: 'order-ref-number').p.text
-  #   if trait.size == 8
-  #     return true
-  #   else
-  #     return false
-  #   end
-  # end
-  def find_trait
-    @trait = browser.div(class: 'order-ref-number')
-  end
 
 
   def on_page?
     begin
-      find_trait
-      @trait = trait
-      #consider adding a URL check here
-      Watir::Wait.until { @trait.exists? && @trait.present? }
+      @trait = browser.div(class: 'order-ref-number')
+      Watir::Wait.until { @trait.exists? && @trait.present?}
       return true
     rescue
       return false

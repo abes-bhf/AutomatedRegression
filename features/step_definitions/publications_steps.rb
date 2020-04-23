@@ -18,14 +18,11 @@ end
 
 
 Given("I select a booklet") do
-  selection = TestBrowser.publications_page.select_publication
-  selection.scroll.to :center
-  sleep 1
-  selection.click
+  TestBrowser.publications_page.select_publication
 end
 
 Given("I click add to basket") do
-  TestBrowser.publications_page.add_to_basket.click
+  TestBrowser.publications_page.add_to_basket
 end
 
 Given("I am taken to my basket") do

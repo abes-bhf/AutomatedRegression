@@ -53,6 +53,7 @@ class VolunteeringForm < GenericForm
           drop_arr << i
         end
         begin
+          counts ||= 0
           drop_arr.sample.click
           if o.select.value == "Select..."
             raise ArgumentException
@@ -61,7 +62,7 @@ class VolunteeringForm < GenericForm
             raise ArgumentException
           end
         rescue
-          retry
+          retry if (counts += 1) < 5
         end
       end
   end

@@ -21,10 +21,11 @@ publications_data:
     alt_a1: Alternate
     alt_a2: Billing address
     alt_tc: Thessalonica
-    lookup_match: Greater London House Hampstead Road London NW1 7AW
-    lookup_a1: Greater London House
-    lookup_a2: Hampstead Road
-    lookup_city: London
+    lookup_match: Whitegates Moseley Road Worcester Worcestershire WR2 6NJ
+    lookup_a1: Whitegates
+    lookup_a2: Moseley Road
+    lookup_city: Worcester
+
 
   pub_invalid:
     title: Other
@@ -60,24 +61,3 @@ publications_data:
     invalid_characters: Characters and numbers only. Hyphens, spaces, dots, apostrophes and underscores are permitted.
     req_field: Required field.
     req_field_alt: This is a required field.
-
-
-
-# flow:
-#   email: siregara@bhf.org.uk
-#   password: Password1!
-#
-# hc:
-#   fn: AutoHC FN
-#   ln: AutoHC LN
-#   postcode: NW18AW
-#   a1: This is
-#   a2: A test submission
-#   a3: Please ignore
-#   towncity: London
-#   telephone: 1234567890
-#   email: abes_pet_robot@mailsac.com
-#   dpemail: no
-#   dptext: no
-#   dppost: no
-#   dptel: no

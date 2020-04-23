@@ -1,6 +1,8 @@
 # TestBrowser.browser = Watir::Browser.new (:chrome).to_sym
 # TestBrowser.browser.window.maximise
 # TestBrowser.browser = Watir::Browser.new (ENV['BROWSER'] || 'chrome').to_sym
+# consider for invalid session id : add option --enable-features=NetworkService,NetworkServiceInProcess
+# frequent handshake errors: For Chrome, you need to add --ignore-certificate-errors and --ignore-ssl-errors ChromeOptions() argument:
 Before do |scenario|
   TestBrowser.browser = Watir::Browser.new (ENV['BROWSER'] || 'chrome').to_sym, options: {options: {'useAutomationExtension' => false}}
   TestBrowser.browser.windows.first.use

@@ -153,12 +153,13 @@ class PublicationsBasketPage < GenericPage
     count = 0
     publications_quantity = rng_small
     browser.a(class: "quantity-increase").scroll.to :center
+    sleep 0.5
     until count == publications_quantity
       browser.a(class: "quantity-increase").click
       count += 1
     end
     browser.input(value: 'Update quantity').click
-    sleep 1
+    sleep 0.5
   end
 
   def rng_small

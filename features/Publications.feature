@@ -156,7 +156,7 @@ Feature: publications
 
 #  complete
 		@export @alt_billing @worldpay @fol
-	Scenario: Testing different billing address to delivery address1
+	Scenario: Testing different billing address to delivery address
 		Given I navigate to the publications page
 		And I select a booklet
 		And I click add to basket

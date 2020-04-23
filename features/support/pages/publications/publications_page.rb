@@ -40,12 +40,25 @@ class PublicationsPage < GenericPage
 
   def select_publication
     select_publication = browser.a(text: "Understanding vascular dementia")
-    return select_publication
+    select_publication.scroll.to :center
+    Watir::Wait.until {select_publication.present? & select_publication.exists?}
+    begin
+      retries ||= 0
+      select_publication.click
+    rescue Selenium::WebDriver::Error::ElementClickInterceptedError
+      retry if (retries += 1) < 3
+    end
   end
 
+  # def select_publication_zxx
+  #   select_publication = browser.a(text: "Understanding vascular dementia")
+  #   return select_publication
+  # end
+
   def add_to_basket
-    add_to_basket = browser.input(id: "main_0_pagecontent_0_btnAddToBasket")
-    return add_to_basket
+    browser.input(id: "main_0_pagecontent_0_btnAddToBasket").scroll.to :center
+    sleep 0.5
+    browser.input(id: "main_0_pagecontent_0_btnAddToBasket").click
   end
 
 
