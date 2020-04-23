@@ -4,7 +4,7 @@ Feature: Homepage
 	As a BHF supporter
 	I want to make a donation
 
-	@transactionless @oneoff @liveregression @uatregression @validation
+	@oneoff @liveregression @uatregression @validation
 	Scenario: Testing blank validation messages on one-off form
 		Given I navigate to the Donation page
 		And I select a one-off donation preset
@@ -12,7 +12,7 @@ Feature: Homepage
 		And I press continue without filling details
 		Then the donate form should refresh with blank validation messages
 
-	@transactionless @monthly @liveregression @uatregression @validation
+	@monthly @liveregression @uatregression @validation
 	Scenario: Testing blank validation messages on monthly form
 		Given I navigate to the Donation page
 		And I select a monthly donation preset
@@ -24,7 +24,7 @@ Feature: Homepage
 		And I press continue without filling direct debit details
 		Then the direct debit form should refresh with blank validation messages
 
-	@transactionless @oneoff @liveregression @uatregression @validation
+	@oneoff @liveregression @uatregression @validation
 	Scenario: Testing validation messages for invalid data on one-off form
 		Given I navigate to the Donation page
 		And I select a one-off donation preset
@@ -32,7 +32,7 @@ Feature: Homepage
 		And I press continue after filling in invalid details
 		Then The donate form should refresh with validation messages
 
-	@transactionless @monthly @liveregression @uatregression @validation @mungus
+	@monthly @liveregression @uatregression @validation
 	Scenario: Testing validation messages for invalid data on monthly form
 		Given I navigate to the Donation page
 		And I select a monthly donation preset
@@ -44,7 +44,7 @@ Feature: Homepage
 		And I press continue after filling in invalid direct debit details
 		Then The direct debit form should refresh with validation messages
 
-	@transactionless @oneoff @liveregression @uatregression @pca
+	@oneoff @liveregression @uatregression @pca
 	Scenario: Testing address lookup on one-off form
 		Given I navigate to the Donation page
 		And I select a one-off donation preset
@@ -54,7 +54,7 @@ Feature: Homepage
 		And I select an address from the list of matching addresses
 		Then Address fields are shown with the address filled in
 
-	@transactionless @monthly @liveregression @uatregression @pca
+	@monthly @liveregression @uatregression @pca
 	Scenario: Testing address lookup on monthly form
 		Given I navigate to the Donation page
 		And I select a monthly donation preset
