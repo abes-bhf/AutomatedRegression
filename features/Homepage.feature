@@ -53,7 +53,7 @@ Feature: Homepage
 		And I enter a valid search term
 		Then I should be taken to the search results for that term
 
-	Scenario: Valid search term
+	Scenario: Invalid search term
 		Given I navigate to the Homepage
 		And I click on search
 		And I enter an invalid search term

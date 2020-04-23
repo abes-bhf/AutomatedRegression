@@ -5,7 +5,7 @@ Feature: events
 	I want to register for an event
 
 	@event @submission @paypal
-	Scenario: event
+	Scenario: event paypal checkout
 		Given I navigate to the L2B registration form without logging in
 		And I register for L2B with a new email and password
 		And I fill in event specific questions
@@ -14,7 +14,7 @@ Feature: events
 		Then I am taken to the event confirmation page
 
 	@event @submission @worldpay
-	Scenario: event
+	Scenario: event worldpay checkout
 		Given I navigate to the L2B registration form without logging in
 		And I register for L2B with a new email and password
 		And I fill in event specific questions

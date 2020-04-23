@@ -1,6 +1,6 @@
 presets:
-  single: 20, 50, 85
-  monthly: 10, 25, 50
+  single: 40, 80, 100
+  monthly: 10, 20, 50
   rosco_single: 3, 10, 15
   rosco_monthly: 3, 5, 10
 
@@ -10,7 +10,7 @@ single_donation:
     ln: Auto Single LN
     tel: 0123456789
     address:
-      postcode: NW17AW
+      postcode: WR2 6NJ
       address1: Auto Address 1
       towncity: London
     dpemail: no
@@ -25,7 +25,7 @@ direct_debit:
     ln: Auto Monthly LN
     tel: 0123456789
     address:
-      postcode: NW17AW
+      postcode: WR2 6NJ
       address1: Auto Address 1
       towncity: London
     dpemail: no

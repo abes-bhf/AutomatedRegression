@@ -25,6 +25,15 @@ class GenericForm < GenericPage
     raise("#{selection} not found in dropdown list") unless dropdown.text == selection
   end
 
+  def dropdownrandom(dropdown)
+    dropdown.scroll.to
+    options = []
+    dropdown.options.each do |option|
+      options << option
+    end
+    options.sample.click
+  end
+
   def find_textfields(label)
     textfields = []
     divs= browser.divs(class: 'scfSingleLineTextBorder')
