@@ -19,13 +19,17 @@ Given("I complete the corporate volunteer form") do
 end
 
 Given("I navigate to the individual sign up form") do
-  pending # Write code here that turns the phrase above into concrete actions
+  TestBrowser.corporate_volunteering_individual_signup_form.visit
 end
 
 Given("I complete the corporate volunteer individual sign up form") do
-  pending # Write code here that turns the phrase above into concrete actions
+  TestBrowser.corporate_volunteering_individual_signup_form.fill_form
 end
 
 Then("I am taken to the enquiry confirmation page") do
   TestBrowser.corporate_volunteering_form.journey_fin
+end
+
+Then("I am taken to the individual sign up confirmation page") do
+  TestBrowser.corporate_volunteering_individual_signup_form.journey_fin
 end

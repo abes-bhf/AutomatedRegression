@@ -478,20 +478,4 @@ class PublicationsForm < GenericForm
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 end

@@ -49,17 +49,6 @@ class GenericPage
     # end
   end
 
-    # sleep(2)
-    # if browser.button(id: "onetrust-accept-btn-handler").present?
-    #   begin
-    #     retries ||= 0
-    #     browser.button(id: "onetrust-accept-btn-handler").click
-    #   rescue Selenium::WebDriver::Error::ElementClickInterceptedError
-    #     retry if (retries += 1) < 3
-    #   end
-    # end
-  end
-
 
 
 
