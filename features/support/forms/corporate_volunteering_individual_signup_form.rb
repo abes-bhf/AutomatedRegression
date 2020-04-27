@@ -1,21 +1,21 @@
-class CorporateVolunteeringForm < GenericForm
+class CorporateVolunteeringIndividualSignupForm < GenericForm
 
   def initialize(browser)
     super
-    @url = EnvConfig.base_url + "how-you-can-help/volunteer/get-your-company-volunteering/get-your-company-volunteering-form/sign-up"
+    @url = EnvConfig.base_url + "how-you-can-help/volunteer/get-your-company-volunteering/corporate-volunteer-registration/individual-sign-up"
     @continue = browser.button(value: 'Submit')
   end
 
-  def enquire_trait
-    enquire_trait = browser.a(title: 'Get your company volunteering')
-    return enquire_trait
+  def cvis_trait
+    cvis_trait = browser.a(title: 'Get your company volunteering')
+    return cvis_trait
   end
 
 
   def on_page?
     begin
-      enquire_trait
-      @trait = enquire_trait
+      cvis_trait
+      @trait = cvis_trait
       #consider adding a URL check here
       Watir::Wait.until { @trait.exists? && @trait.present? }
       return true
@@ -24,11 +24,12 @@ class CorporateVolunteeringForm < GenericForm
     end
   end
 
-
+#generic
   def radio_yes_no(value)
     browser.input(value: value).click
   end
 
+# generic
   def dropdown_field
     dropdown_field = []
     browser.divs(class: 'f-forms__select').select.each do |i|
@@ -40,7 +41,7 @@ class CorporateVolunteeringForm < GenericForm
 
 
 
-
+#generic
 #insnet if check for multiple, then do each
   def dropdown_select
       dropdown_field
@@ -64,14 +65,14 @@ class CorporateVolunteeringForm < GenericForm
       end
   end
 
-
-def corp_firstname_field_v2
-  firstname_field_v2 = browser.input(name: "First Name")
+#so much generic
+def firstname_field_v2
+  firstname_field_v2 = browser.input(name: "FirstName")
   return firstname_field_v2
 end
 
-def corp_lastname_field_v2
-  lastname_field_v2 = browser.input(name: "Last Name")
+def lastname_field_v2
+  lastname_field_v2 = browser.input(name: "LastName")
   return lastname_field_v2
 end
 
@@ -107,12 +108,7 @@ end
 
 
 
-def preferred_pcode(postcode)
-  browser.input(name: "PreferredLocationPostcode").send_keys postcode
-end
-
-
-
+#generic
 def gdpr_field_v2
   gdpr_field = browser.fieldset(class: "f-forms__gdpr")
   gdpr_field.scroll.to :top
@@ -125,7 +121,7 @@ def gdpr_field_v2
 end
 
 def journey_fin
-  raise unless browser.title == "Confirmation"
+  raise unless browser.title == "Thank you"
 end
 
 
@@ -137,17 +133,30 @@ def choice_options
 end
 
 
+def cvis_address(postcode, a1, a2, towncity)
+    p_code = browser.div(class: 'f-forms__element').input
+    p_code.send_keys(postcode)
+    browser.input(class: "f-forms__element--address1").send_keys a1
+    browser.input(class: "f-forms__element--address2").send_keys a2
+    browser.input(class: "f-forms__element--city").send_keys towncity
+end
+
 
 
 def fill_form
   details = EnvConfig.data['publications_data']['details']
-  corp_firstname_field_v2.send_keys (details['fn'])
-  corp_lastname_field_v2.send_keys (details['ln'])
-  browser.input(name: 'Organisation Name').send_keys ("Add this to yml")
-  browser.input(name: 'Volunteer Count').send_keys ("15")
+  continue
   dropdown_select
+  firstname_field_v2.send_keys (details['fn'])
+  lastname_field_v2.send_keys (details['ln'])
+  # browser.input(name: 'OrganisationName').scroll.to :top
+  browser.input(name: 'OrganisationName').send_keys ("Add this to yml")
   email_field_v2.send_keys (@@new_giw_email)
   corp_telephone_field_v2.send_keys (details['telephone'])
+  continue
+  cvis_address(details['postcode'], details['a1'], details['a2'], details['towncity'])
+  continue
+  gdpr_field_v2
   continue
 end
 

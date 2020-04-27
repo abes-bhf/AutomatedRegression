@@ -60,9 +60,6 @@ class GenericPage
     # end
   # end
 
-
-
-
   def login_button
     loginbutton = browser.ul(class: 'g-nav-primary__top').a(text: 'LOG IN/REGISTER')
     return loginbutton
