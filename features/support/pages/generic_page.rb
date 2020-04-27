@@ -58,7 +58,7 @@ class GenericPage
     #     retry if (retries += 1) < 3
     #   end
     # end
-  end
+  # end
 
 
 
