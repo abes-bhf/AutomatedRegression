@@ -24,7 +24,6 @@ class PublicationsForm < GenericForm
     pub_step4(details['postcode'], details['a1'], details['a2'], details['towncity'])
     continue
     gdpr_field_v2
-    continue
   end
 
   def select_worldpay
@@ -127,7 +126,6 @@ class PublicationsForm < GenericForm
         continue
       end
     gdpr_field_v2
-    continue
   end
 
   def check_signedin
@@ -158,7 +156,6 @@ class PublicationsForm < GenericForm
     blank_gdpr
     sleep 1
     gdpr_field_v2
-    continue
   end
 
   def pub_blank1(req_field)
@@ -247,7 +244,6 @@ class PublicationsForm < GenericForm
     pub_step4(details['postcode'], details['a1'], details['a2'], details['towncity'])
     continue
     gdpr_field_v2
-    continue
   end
 
   def invalid_pub_1(email)
@@ -299,7 +295,6 @@ class PublicationsForm < GenericForm
     pub_step4(details['postcode'], details['a1'], details['a2'], details['towncity'])
     continue
     gdpr_field_v2
-    continue
   end
 
   def company_step2
@@ -331,7 +326,6 @@ class PublicationsForm < GenericForm
     pub_step4(details['postcode'], details['a1'], details['a2'], details['towncity'])
     continue
     gdpr_field_v2
-    continue
   end
 
   def friend_step2

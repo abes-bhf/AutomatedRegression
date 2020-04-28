@@ -1,4 +1,4 @@
-class CorporateVolunteeringForm < GenericForm
+class CorporateVolunteeringForm < GenericV2Form
 
   def initialize(browser)
     super
