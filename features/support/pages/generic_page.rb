@@ -38,6 +38,8 @@ class GenericPage
         end
         cookiecount = 1
     end
+  end
+  
     # sleep(2)
     # if browser.button(id: "onetrust-accept-btn-handler").present?
     #   begin
@@ -47,7 +49,7 @@ class GenericPage
     #     retry if (retries += 1) < 3
     #   end
     # end
-  end
+
 
 
 
