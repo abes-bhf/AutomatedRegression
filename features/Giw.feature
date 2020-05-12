@@ -4,7 +4,7 @@ Feature: Gift in wills
   As a BHF supporter
   I want to leave a gift in wills
 
-  @liveregression @uatregression @validation
+  @fornow @liveregression @uatregression @validation
   Scenario: Testing blank validation messages
     Given I navigate to the Gift in wills page
     And I select request your guide
@@ -40,7 +40,7 @@ Feature: Gift in wills
     And I select continue without filling in gdpr
     Then the gift in wills form should return with validation messages
 
-  @fornow @liveregression @uatregression @validation
+  @happypath @liveregression @uatregression @validation
   Scenario: Testing complete Gift in wills form
     Given I navigate to the Gift in wills page
     And I select request your guide

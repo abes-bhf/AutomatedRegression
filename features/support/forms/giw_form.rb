@@ -112,7 +112,4 @@ class GiwForm < GenericV2Form
     submit_gdpr
   end
 
-
-
-
 end
