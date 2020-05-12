@@ -7,7 +7,7 @@ Given /^I navigate to the DYOT form$/ do
 end
 
 Then /^The DYOT page is displayed$/ do
-  raise("Unable to find header for MyMarathon page") unless TestBrowser.dyot_page.on_page?
+  raise("Unable to find header for DYOT page") unless TestBrowser.dyot_page.on_page?
 end
 
 And /^I fill in DYOT details$/ do
@@ -15,5 +15,5 @@ And /^I fill in DYOT details$/ do
 end
 
 Then /^I am taken to the DYOT confirmation page$/ do
-  raise("Did not reach confirmation page for my marathon") unless TestBrowser.dyot_confirmation_page.on_page?
+  raise("Did not reach confirmation page for DYOT") unless TestBrowser.dyot_confirmation_page.on_page?
 end

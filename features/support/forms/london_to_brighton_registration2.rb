@@ -15,7 +15,6 @@ class LondonToBrightonRegistration2 < GenericForm
     answers = EnvConfig.data['event_specific_answers']
     v = []
     values.each do |key, value|
-      binding.pry
       radio_selector_by_value(value)
     end
     next_of_kin_name = browser.text_field(id: 'ux42504bc4-8b81-48d5-a178-835104b3cecb')

@@ -28,5 +28,4 @@ Then /^I am taken to the event confirmation page$/ do
     binding.pry
     raise
   end
-  binding.pry
 end

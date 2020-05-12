@@ -49,6 +49,7 @@ Then /^I am on my account page$/ do
 end
 
 Given /^I navigate to the L2B registration form without logging in$/ do
+  # TestBrowser.london_to_brighton_page.login_visit
   TestBrowser.london_to_brighton_page.visit
   TestBrowser.london_to_brighton_page.guest_sign_up
   raise("Failed to access L2B form") unless TestBrowser.london_to_brighton_registration1.on_page?

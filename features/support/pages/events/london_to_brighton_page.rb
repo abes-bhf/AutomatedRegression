@@ -12,6 +12,16 @@ class LondonToBrightonPage < GenericPage
     return trait
   end
 
+  def login_visit
+    TestBrowser.browser.goto @url
+    if @@ENV == "gateway"
+      if browser.button(id:"details-button").present?
+        browser.button(id:"details-button").click
+        browser.a(id: "proceed-link").click
+      end
+    end
+  end
+
   def guest_sign_up
     if logout_button.present?
       log_out
@@ -19,6 +29,7 @@ class LondonToBrightonPage < GenericPage
       signupbutton.click
     elsif login_button.present?
       signupbutton = browser.a(text: 'Sign up')
+      binding.pry
       signupbutton.click
       guest_continue = browser.a(text: 'CONTINUE')
       guest_continue.click!

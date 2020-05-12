@@ -16,10 +16,11 @@ class DyotForm < GenericV2Form
     over_16
     get_via_email
     user_details(details['details'])
-    binding.pry
     address(details['address'])
+    random_fundraising_type
+    date_entry
+    some_info
     gdpr_field_v2
-    continue
   end
 
   def over_16
@@ -31,11 +32,13 @@ class DyotForm < GenericV2Form
   end
 
   def get_via_email
+    sleep(1)
     browser.label(for: "f-forms__radio__e1548700-f572-4783-a6e1-caefdfdf9ffb").click
     continue
   end
 
   def user_details(details)
+    sleep(1)
     email = browser.text_field(:id, "f-forms__element-input__5900b8ac-2e60-48bc-a6ab-2a61239166e4")
     title = browser.select(id: "f-forms__element-select__adac7cc7-d992-4354-8055-4f573fc7facb")
     firstname = browser.text_field(:id, "f-forms__element-input__49dae068-d05d-4eeb-8190-c6ea70e16ee9")
@@ -48,6 +51,7 @@ class DyotForm < GenericV2Form
   end
 
   def address(address)
+    sleep(1)
     postcode = browser.text_field(:id, "f-forms__element-input__572b0801-8673-43f2-b2dc-babba616043e")
     a1 = browser.text_field(:id, "f-forms__element-input__bd6cbef8-6f02-4e74-9987-29c74e132c5e")
     a2 = browser.text_field(:id, "f-forms__element-input__60714416-8346-423d-b37e-d8a7696847ac")
@@ -59,8 +63,29 @@ class DyotForm < GenericV2Form
     continue
   end
 
+  def random_fundraising_type
+    sleep(1)
+    type = browser.select(id: "f-forms__element-select__34b87fdb-eec8-4fef-bccd-69dff7654b50")
+    fundraising = browser.select(id: "f-forms__element-select__a1cc2c04-10ac-46d8-bdb0-5e51cbd34601")
+    dropdownrandom(type)
+    dropdownrandom(fundraising)
+    continue
+  end
+
+  def date_entry
+    sleep(1)
+    browser.input(id: "f-forms__element-date__day").send_keys Time.now.day
+    browser.input(id: "f-forms__element-date__month").send_keys Time.now.month
+    browser.input(id: "f-forms__element-date__year").send_keys (Time.now.year + 1)
+    continue
+  end
+
+  def some_info
+    continue
+  end
 
   def gdpr_field_v2
+    sleep(1)
     gdpr_field = browser.fieldset(class: "f-forms__gdpr")
     gdpr_field.scroll.to :top
     sleep 1
@@ -69,6 +94,7 @@ class DyotForm < GenericV2Form
         i.click
       end
     end
+    continue
   end
 
 

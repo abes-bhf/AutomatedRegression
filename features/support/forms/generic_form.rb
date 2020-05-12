@@ -14,6 +14,16 @@ class GenericForm < GenericPage
     dropdownselect(title_dropdown, title)
   end
 
+  def random_title_select
+    title_dropdown = browser.div(class: 'name.title').select
+    title_dropdown.scroll.to
+    options = []
+    title_dropdown.options.each do |option|
+      options << option
+    end
+    options.sample.click
+  end
+
   def dropdownselect(dropdown, selection)
     #takes a 'select' type html element as an argument and looks for the string provided as argument 1
     dropdown.scroll.to
