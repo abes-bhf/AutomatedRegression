@@ -1,0 +1,72 @@
+class RCDForm < GenericV2Form
+
+  def initialize(browser)
+    super
+    @url = EnvConfig.base_url + "retail-cash-donations/retail-cash-donations-form/your-donation"
+    @continue = browser.button(value: 'Submit')
+  end
+
+  # def rcd_trait
+  #   enquire_trait = browser.a(title: 'Get your company volunteering')
+  #   return enquire_trait
+  # end
+
+
+  def on_page?
+    begin
+      rcd_trait
+      @trait = rcd_trait
+      #consider adding a URL check here
+      Watir::Wait.until { @trait.exists? && @trait.present? }
+      return true
+    rescue
+      return false
+    end
+  end
+
+
+
+
+def preferred_pcode(postcode)
+  browser.input(name: "PreferredLocationPostcode").send_keys postcode
+end
+
+
+
+
+def journey_fin
+  raise unless browser.title == "Thank you"
+end
+
+
+
+#can this be made generic
+def random_radio
+  radios = []
+  browser.inputs(name: 'ReasonForDonating').each do |o|
+    radios << o
+  end
+  radios.sample.click
+end
+
+
+
+def fill_form
+  details = EnvConfig.data['publications_data']['details']
+  browser.input(name: "DonationAmount").send_keys "20"
+  continue
+  random_radio
+  continue
+  dropdown_select
+  gen_details_page(details['fn'], details['ln'], details['email'])
+  continue
+  gen_address_page(details['postcode'], details['a1'], details['a2'], details['towncity'])
+  continue
+  gdpr_field_v2
+  continue
+  continue
+end
+
+
+
+end

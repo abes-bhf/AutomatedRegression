@@ -45,6 +45,7 @@ class GenericV2Form < GenericForm
 
   # Selects a random item from each dropdown list on the page
   def dropdown_select
+      Watir::Wait.until {browser.div(class: 'f-forms__select').select.present?}
       dropdown_field
       dropdown_field.each do |o|
         drop_arr = []
@@ -57,7 +58,7 @@ class GenericV2Form < GenericForm
           if o.select.value == "Select..."
             raise ArgumentException
           end
-          if o.select.value ==""
+          if o.select.value == ""
             raise ArgumentException
           end
         rescue
@@ -101,11 +102,45 @@ class GenericV2Form < GenericForm
     return postcode_field_v2
   end
 
+  def date_field_day_v2
+    date_field_day_v2 = browser.input(id: "f-forms__element-date__day")
+    return date_field_day_v2
+  end
+
+  def date_field_month_v2
+    date_field_month_v2 = browser.input(id: "f-forms__element-date__month")
+    return date_field_month_v2
+  end
+
+  def date_field_year_v2
+    date_field_year_v2 = browser.input(id: "f-forms__element-date__year")
+    return date_field_year_v2
+  end
+
+  def gen_details_page(fn, ln, email)
+    firstname_field_v2.send_keys fn
+    lastname_field_v2.send_keys ln
+    email_field_v2.send_keys email
+  end
+
+
+
   def gen_address_page(postcode, a1, a2, towncity)
-      postcode_field_v2.send_keys(postcode)
+      postcode_field_v2.send_keys postcode
       address1_field_v2.send_keys a1
       address2_field_v2.send_keys a2
       city_field_v2.send_keys towncity
+  end
+
+  def gdpr_field_v2
+    gdpr_field = browser.fieldset(class: "f-forms__gdpr")
+    gdpr_field.scroll.to :top
+    sleep 1
+    gdpr_field.inputs.each do |i|
+      if i.attribute_value('id').include? "no"
+        i.click
+      end
+    end
   end
 
 end

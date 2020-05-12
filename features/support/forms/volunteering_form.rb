@@ -1,4 +1,4 @@
-class VolunteeringForm < GenericForm
+class VolunteeringForm < GenericV2Form
 
   def initialize(browser)
     super
@@ -24,53 +24,14 @@ class VolunteeringForm < GenericForm
     end
   end
 
-  #
-  # def start_vol
-  #   continue
-  # end
-  def radio_yes_no(value)
-    browser.input(value: value).click
-  end
-
-  def dropdown_field
-    dropdown_field = []
-    browser.divs(class: 'f-forms__select').select.each do |i|
-      dropdown_field << i
-    end
-    return dropdown_field
-  end
-
-
-
-
-
-#insnet if check for multiple, then do each
-  def dropdown_select
-      dropdown_field
-      dropdown_field.each do |o|
-        drop_arr = []
-        o.options.each do |i|
-          drop_arr << i
-        end
-        begin
-          counts ||= 0
-          drop_arr.sample.click
-          if o.select.value == "Select..."
-            raise ArgumentException
-          end
-          if o.select.value ==""
-            raise ArgumentException
-          end
-        rescue
-          retry if (counts += 1) < 5
-        end
-      end
-  end
+  # browser.input(id: "f-forms__element-date__day").send_keys Time.now.day
+  # browser.input(id: "f-forms__element-date__month").send_keys Time.now.month
+  # browser.input(id: "f-forms__element-date__year").send_keys (Time.now.year - 16)
 
   def enter_u17
-    browser.input(id: "f-forms__element-date__day").send_keys Time.now.day
-    browser.input(id: "f-forms__element-date__month").send_keys Time.now.month
-    browser.input(id: "f-forms__element-date__year").send_keys (Time.now.year - 16)
+    date_field_day_v2.send_keys Time.now.day
+    date_field_month_v2.send_keys Time.now.month
+    date_field_year_v2.send_keys (Time.now.year - 16)
     sleep 0.5
     continue
     radio_yes_no("No")
@@ -80,9 +41,9 @@ class VolunteeringForm < GenericForm
   end
 
   def enter_over18
-    browser.input(id: "f-forms__element-date__day").send_keys Time.now.day
-    browser.input(id: "f-forms__element-date__month").send_keys Time.now.month
-    browser.input(id: "f-forms__element-date__year").send_keys (Time.now.year - 19)
+    date_field_day_v2.send_keys Time.now.day
+    date_field_month_v2.send_keys Time.now.month
+    date_field_year_v2.send_keys (Time.now.year - 19)
     sleep 0.5
     continue
     radio_yes_no("No")
@@ -100,6 +61,7 @@ class VolunteeringForm < GenericForm
     dropdown_select
     continue
     dropdown_select
+    continue
     details_section
   end
 
@@ -110,30 +72,12 @@ def preferred_pcode(postcode)
 end
 
 def vol_details(firstname, lastname, email, telephone)
-  browser.input(name: "FirstName").send_keys firstname
-  browser.input(name: "LastName").send_keys lastname
-  browser.input(name: "Email").send_keys email
+  firstname_field_v2.send_keys firstname
+  lastname_field_v2.send_keys lastname
+  email_field_v2.send_keys email
   browser.input(name: "Phone").send_keys telephone
 end
 
-def vol_address(postcode, a1, a2, towncity)
-    p_code = browser.div(class: 'f-forms__element').input
-    p_code.send_keys(postcode)
-    browser.input(class: "f-forms__element--address1").send_keys a1
-    browser.input(class: "f-forms__element--address2").send_keys a2
-    browser.input(class: "f-forms__element--city").send_keys towncity
-end
-
-def gdpr_field_v2
-  gdpr_field = browser.fieldset(class: "f-forms__gdpr")
-  gdpr_field.scroll.to :top
-  sleep 1
-  gdpr_field.inputs.each do |i|
-    if i.attribute_value('id').include? "no"
-      i.click
-    end
-  end
-end
 
 def journey_fin
   raise unless browser.title == "Confirmation"
@@ -196,7 +140,7 @@ def details_section
   details = EnvConfig.data['publications_data']['details']
   vol_details(details['fn'], details['ln'], @@donate_email, details['telephone'])
   continue
-  vol_address(details['postcode'], details['a1'], details['a2'], details['towncity'])
+  gen_address_page(details['postcode'], details['a1'], details['a2'], details['towncity'])
   continue
   if browser.title == "Emergency contact"
     emergency_contact
