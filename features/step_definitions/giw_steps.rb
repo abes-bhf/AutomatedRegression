@@ -1,4 +1,3 @@
-
 Given("I navigate to the Gift in wills page") do
   TestBrowser.giw_page.visit
 end
