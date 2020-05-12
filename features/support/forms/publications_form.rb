@@ -1,4 +1,4 @@
-class PublicationsForm < GenericForm
+class PublicationsForm < GenericV2Form
 
   def initialize(browser)
     super
@@ -21,7 +21,7 @@ class PublicationsForm < GenericForm
     continue
     pub_step3(details['email'], details['fn'], details['ln'], random_title)
     continue
-    pub_step4(details['postcode'], details['a1'], details['a2'], details['towncity'])
+    pub_step4(details['postcode'], details['a1'], details['a2'], details['towncity'], "Yes")
     continue
     gdpr_field_v2
   end
@@ -35,10 +35,8 @@ class PublicationsForm < GenericForm
   end
 
 
-
   def pub_step1(email)
-    email_field = browser.text_field(id: 'f-forms__element-input__db34cf63-37ff-4ad8-aac1-5bc64d85787c')
-    sendkeys!(email_field, email)
+    email_field_v2.send_keys email
   end
 
   def pub_step2
@@ -46,19 +44,13 @@ class PublicationsForm < GenericForm
   end
 
 
-
   def pub_step3(email, fn, ln, random_title)
-    title_select = browser.div(class: 'f-forms__select').select
     raise unless browser.input(name: 'Email').value == email
-    drop_title = random_title
-    title_select.options.each do |option|
-      if option.text == random_title
-        option.click
-      end
-    end
-    browser.input(id: 'f-forms__element-input__3f094594-ab93-45ba-ba3e-20182e4958d2').send_keys fn
-    browser.input(id: 'f-forms__element-input__269005c6-9f17-47dd-b67e-455b746f80db').send_keys ln
+    dropdown_select
+    firstname_field_v2.send_keys fn
+    lastname_field_v2.send_keys ln
   end
+
 
   def refill_step3(email, fn, ln, random_title)
     title_select = browser.div(class: 'f-forms__select').select
@@ -75,33 +67,20 @@ class PublicationsForm < GenericForm
 # the above could probably be avoided using the set workaround instead of using clear all inputs
 
 
-  def pub_step4(postcode, a1, a2, towncity)
-    p_code = browser.div(class: 'f-forms__element').input
-    p_code.send_keys(postcode)
-    browser.input(class: "f-forms__element--address1").send_keys a1
-    browser.input(class: "f-forms__element--address2").send_keys a2
-    sleep 1
-    browser.input(class: "f-forms__element--city").send_keys towncity
+  def pub_step4(postcode, a1, a2, towncity, value)
+    gen_address_page(postcode, a1, a2, towncity)
     same_billing = browser.div(class: 'f-forms__radio')
       if same_billing.present?
         same_billing.scroll.to :center
-        sleep 1
-        browser.input(class: "f-forms__element--city").send_keys(:tab, :tab, :space)
+        begin
+          count ||= 0
+          radio_yes_no(value)
+        rescue Selenium::WebDriver::Error::ElementClickInterceptedError
+          retry if (count += 1) < 3
+        end
       end
   end
 
-
-
-  def gdpr_field_v2
-    gdpr_field = browser.fieldset(class: "f-forms__gdpr")
-    gdpr_field.scroll.to :top
-    sleep 1
-    gdpr_field.inputs.each do |i|
-      if i.attribute_value('id').include? "no"
-        i.click
-      end
-    end
-  end
 
   def sign_in
     details = EnvConfig.data['publications_data']['details']
@@ -122,7 +101,7 @@ class PublicationsForm < GenericForm
     browser.input(id: 'f-forms__radio__7b620449-e4e5-4607-83cc-d5540418cbd6').click
     continue
       if browser.title == "Delivery address"
-        pub_step4(details['postcode'], details['a1'], details['a2'], details['towncity'])
+        pub_step4(details['postcode'], details['a1'], details['a2'], details['towncity'], "Yes")
         continue
       end
     gdpr_field_v2
@@ -151,7 +130,7 @@ class PublicationsForm < GenericForm
     pub_step3(details['email'], details['fn'], details['ln'], random_title)
     continue
     pub_blank4(blanks['blank_pc'], blanks['blank_a1'], blanks['blank_towncity'])
-    pub_step4(details['postcode'], details['a1'], details['a2'], details['towncity'])
+    pub_step4(details['postcode'], details['a1'], details['a2'], details['towncity'], "Yes")
     continue
     blank_gdpr
     sleep 1
@@ -238,10 +217,10 @@ class PublicationsForm < GenericForm
     invalid_pub_3(message['invalid_fn'],message['invalid_ln'])
     refill_step3(details['email'], details['fn'], details['ln'], random_title)
     continue
-    pub_step4(invalid['postcode'], invalid['a1'], invalid['a2'], invalid['towncity'])
+    pub_step4(invalid['postcode'], invalid['a1'], invalid['a2'], invalid['towncity'], "Yes")
     continue
     invalid_pub_4(message['short_error'], message['invalid_characters'])
-    pub_step4(details['postcode'], details['a1'], details['a2'], details['towncity'])
+    pub_step4(details['postcode'], details['a1'], details['a2'], details['towncity'], "Yes")
     continue
     gdpr_field_v2
   end
@@ -292,7 +271,7 @@ class PublicationsForm < GenericForm
     continue
     pub_step3(details['email'], details['fn'], details['ln'], random_title)
     continue
-    pub_step4(details['postcode'], details['a1'], details['a2'], details['towncity'])
+    pub_step4(details['postcode'], details['a1'], details['a2'], details['towncity'], "Yes")
     continue
     gdpr_field_v2
   end
@@ -323,7 +302,7 @@ class PublicationsForm < GenericForm
     continue
     pub_step3(details['email'], details['fn'], details['ln'], random_title)
     continue
-    pub_step4(details['postcode'], details['a1'], details['a2'], details['towncity'])
+    pub_step4(details['postcode'], details['a1'], details['a2'], details['towncity'], "Yes")
     continue
     gdpr_field_v2
   end
@@ -341,25 +320,24 @@ class PublicationsForm < GenericForm
     continue
     pub_step3(details['email'], details['fn'], details['ln'], random_title)
     continue
-    address_step_4(details['postcode'], details['a1'], details['a2'], details['towncity'])
+    pub_step4(details['postcode'], details['a1'], details['a2'], details['towncity'], "No")
     continue
-    pub_step4(details['alt_pc'], details['alt_a1'],details['alt_a2'], details['alt_tc'])
+    pub_step4(details['alt_pc'], details['alt_a1'],details['alt_a2'], details['alt_tc'], "Yes")
     continue
     gdpr_field_v2
   end
 
-  def address_step_4(postcode, a1, a2, towncity)
-    p_code = browser.div(class: 'f-forms__element').text_field
-    p_code.send_keys(postcode)
-    browser.text_field(class: "f-forms__element--address1").send_keys a1
-    browser.text_field(class: "f-forms__element--address2").send_keys a2
-    sleep 1
-    browser.text_field(class: "f-forms__element--city").send_keys towncity
+  def address_step_4(postcode, a1, a2, towncity, value)
+    gen_address_page(postcode, a1, a2, towncity)
     same_billing = browser.div(class: 'f-forms__radio')
       if same_billing.present?
         same_billing.scroll.to :center
-        sleep 1
-        browser.input(value: "No").click
+        begin
+          count ||= 0
+          radio_yes_no(value)
+        rescue Selenium::WebDriver::Error::ElementClickInterceptedError
+          retry if (count += 1) < 3
+        end
       end
   end
 
@@ -381,7 +359,7 @@ class PublicationsForm < GenericForm
     browser.labels(class: "f-forms__radio--element")[1].click
     continue
     clear_inputs
-    pub_step4(details['alt_pc'], details['alt_a1'],details['alt_a2'], details['alt_tc'])
+    pub_step4(details['alt_pc'], details['alt_a1'],details['alt_a2'], details['alt_tc'], "Yes")
     continue
     gdpr_field_v2
   end

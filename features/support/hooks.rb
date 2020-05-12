@@ -5,7 +5,7 @@
 # frequent handshake errors: For Chrome, you need to add --ignore-certificate-errors and --ignore-ssl-errors ChromeOptions() argument:
 args = ['--ignore-certificate-errors', '--ignore-ssl-errors']
 Before do |scenario|
-  TestBrowser.browser = Watir::Browser.new (ENV['BROWSER'] || 'chrome').to_sym, options: {options: {'useAutomationExtension' => false}, :args => args} 
+  TestBrowser.browser = Watir::Browser.new (ENV['BROWSER'] || 'chrome').to_sym, options: {options: {'useAutomationExtension' => false}, :args => args}
   TestBrowser.browser.windows.first.use
   TestBrowser.browser.window.maximize
   @@new_acc_email = "#{SecureRandom.hex 8}@mailsac.com"
