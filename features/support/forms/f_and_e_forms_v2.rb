@@ -2,7 +2,7 @@ class FAndEFormsV2 < GenericV2Form
 
   def initialize(browser)
     super
-    @url = EnvConfig.base_url + "/shop/donating-goods/book-furniture-collection-near-me/"
+    @url = EnvConfig.base_url + "shop/donating-goods/book-furniture-collection-near-me/"
     @continue = browser.button(value: 'Submit')
   end
 
@@ -10,64 +10,21 @@ class FAndEFormsV2 < GenericV2Form
   #   vol_trait = browser.a(text: 'TO be confirmed')
   #   return vol_trait
   # end
-
-
-  def on_page?
-    begin
-      vol_trait
-      @trait = vol_trait
-      #consider adding a URL check here
-      Watir::Wait.until { @trait.exists? && @trait.present? }
-      return true
-    rescue
-      return false
-    end
-  end
-
-
-  # def radio_yes_no(value)
-  #   browser.input(value: value).click
-  # end
+  # 
   #
-  # def dropdown_field
-  #   dropdown_field = []
-  #   browser.divs(class: 'f-forms__select').select.each do |i|
-  #     dropdown_field << i
+  # def on_page?
+  #   begin
+  #     vol_trait
+  #     @trait = vol_trait
+  #     #consider adding a URL check here
+  #     Watir::Wait.until { @trait.exists? && @trait.present? }
+  #     return true
+  #   rescue
+  #     return false
   #   end
-  #   return dropdown_field
   # end
 
 
-
-
-
-# #insnet if check for multiple, then do each
-#   def dropdown_select
-#       dropdown_field
-#       dropdown_field.each do |o|
-#         drop_arr = []
-#         o.options.each do |i|
-#           drop_arr << i
-#         end
-#         begin
-#           drop_arr.sample.click
-#           if o.select.value == "Select..."
-#             raise ArgumentException
-#           end
-#           if o.select.value ==""
-#             raise ArgumentException
-#           end
-#         rescue
-#           retry
-#         end
-#       end
-#   end
-
-
-# def p_code
-#   p_code = browser.div(class: 'f-forms__element').input
-#   return p_code
-# end
 
 def date_entry
   date_field_day_v2.send_keys Time.now.day
