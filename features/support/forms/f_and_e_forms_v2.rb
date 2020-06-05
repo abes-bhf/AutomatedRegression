@@ -10,7 +10,7 @@ class FAndEFormsV2 < GenericV2Form
   #   vol_trait = browser.a(text: 'TO be confirmed')
   #   return vol_trait
   # end
-  # 
+  #
   #
   # def on_page?
   #   begin
@@ -32,10 +32,10 @@ def date_entry
   date_field_year_v2.send_keys (Time.now.year + 1)
 end
 
-def checkbox
-  checkbox = browser.div(class: 'f-forms__checkbox')
-  return checkbox
-end
+# def checkbox
+#   checkbox = browser.div(class: 'f-forms__checkbox')
+#   return checkbox
+# end
 
 
 def fill_form

@@ -45,7 +45,7 @@ class GenericV2Form < GenericForm
 
 # this may require you to add .label afterwards eg checkbox.label.click
   def checkbox
-    checkbox = browser.div(class: 'f-forms__checkbox')
+    checkbox = browser.div(class: 'f-forms__checkbox').label
     return checkbox
   end
 
