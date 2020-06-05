@@ -56,11 +56,11 @@ def fill_form
   continue
   checkbox.scroll.to :center
   sleep 0.5
-  checkbox.label.click
+  checkbox.click
   continue
   checkbox.scroll.to :center
   sleep 0.5
-  checkbox.label.click
+  checkbox.click
   continue
   radio_yes_no("No")
   continue
