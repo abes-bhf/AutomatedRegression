@@ -129,5 +129,6 @@ Then /^I register with invalid details$/ do
 end
 
 Then /^The registration form should refresh with validation messages$/ do
+  binding.pry
   raise("Validation messages not matching expected list") unless TestBrowser.login_register_page.validation_message_count(7)
 end

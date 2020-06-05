@@ -43,6 +43,7 @@ And /^I fill in direct debit details$/ do
 end
 
 Then /^I am taken to the one-off payment page$/ do
+  binding.pry
   raise unless TestBrowser.single_payment_page.on_pg?
 end
 
@@ -68,6 +69,7 @@ When /^I enter valid card details$/ do
 end
 
 When /^I enter valid PayPal details$/ do
+  binding.pry
   TestBrowser.pay_pal_page.login # Write code here that turns the phrase above into concrete actions
 end
 

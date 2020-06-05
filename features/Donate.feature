@@ -24,7 +24,7 @@ Feature: Homepage
 		And I press continue without filling direct debit details
 		Then the direct debit form should refresh with blank validation messages
 
-	@oneoff @liveregression @uatregression @validation
+	@oneoff @liveregression @uatregression @validation @a
 	Scenario: Testing validation messages for invalid data on one-off form
 		Given I navigate to the Donation page
 		And I select a one-off donation preset

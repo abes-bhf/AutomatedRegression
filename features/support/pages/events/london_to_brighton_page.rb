@@ -29,7 +29,6 @@ class LondonToBrightonPage < GenericPage
       signupbutton.click
     elsif login_button.present?
       signupbutton = browser.a(text: 'Sign up')
-      binding.pry
       signupbutton.click
       guest_continue = browser.a(text: 'CONTINUE')
       guest_continue.click!
