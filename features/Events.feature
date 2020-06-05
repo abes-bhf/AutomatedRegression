@@ -23,7 +23,7 @@ Feature: events
 		And I enter valid card details
 		Then I am taken to the event confirmation page
 
-	@event
+	@event 
 	Scenario: Live event test
 		Given I am on the login registration page
 		And I click register

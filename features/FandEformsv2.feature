@@ -5,7 +5,7 @@ Feature: Furniture and Electrical collection
   I want to request a furniture and electrical collection
 
 
-  @submission @uatregression @wip
+  @submission
   Scenario: F and E Submission
     Given I navigate to the F and E form v2
     And I fill in the F and E form v2

@@ -4,6 +4,14 @@ class GenericV2Form < GenericForm
     super
   end
 
+#
+# def date_entry(day, month, year)
+#   date_field_day_v2.send_keys (Time.now.day + day)
+#   date_field_month_v2.send_keys (Time.now.month + month)
+#   date_field_year_v2.send_keys (Time.now.year + year)
+# end
+
+
   def find_trait
     @trait = browser.div(class: 'order-ref-number')
   end
@@ -34,6 +42,13 @@ class GenericV2Form < GenericForm
   def radio_yes_no(value)
     browser.input(value: value).click
   end
+
+# this may require you to add .label afterwards eg checkbox.label.click
+  def checkbox
+    checkbox = browser.div(class: 'f-forms__checkbox').label
+    return checkbox
+  end
+
 
   def dropdown_field
     dropdown_field = []

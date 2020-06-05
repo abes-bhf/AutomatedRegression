@@ -81,6 +81,9 @@ end
 
 def journey_fin
   raise unless browser.title == "Confirmation"
+  open(File.join(Dir.pwd, 'submissions/volunteering.txt'), 'a') do |f|
+    f << "> #{@@donate_email} registered on #{@@ENV} at #{Time.now} \n"
+  end
 end
 
 def select_shop
@@ -100,7 +103,8 @@ def select_event
   details = EnvConfig.data['publications_data']['details']
   browser.divs(class: "f-forms__checkbox")[2].label.click
   continue
-  preferred_pcode(details['postcode'])
+  preferred_pcode("NW17AW")
+    # preferred_pcode(details['postcode'])
   continue
 end
 
@@ -109,7 +113,7 @@ def select_shop_and_event
   browser.divs(class: "f-forms__checkbox")[0].label.click
   browser.divs(class: "f-forms__checkbox")[2].label.click
   continue
-  preferred_pcode(details['postcode'])
+  preferred_pcode("NW17AW")
   continue
 end
 
