@@ -54,6 +54,9 @@ end
 
 def journey_fin
   raise unless browser.title == "Confirmation"
+  open(File.join(Dir.pwd, 'submissions/corp_volunteering.txt'), 'a') do |f|
+    f << "> #{@@new_giw_email} registered on #{@@ENV} at #{Time.now} \n"
+  end
 end
 
 

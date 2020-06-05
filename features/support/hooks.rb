@@ -1,8 +1,8 @@
 # TestBrowser.browser = Watir::Browser.new (:chrome).to_sym
 # TestBrowser.browser.window.maximise
 # TestBrowser.browser = Watir::Browser.new (ENV['BROWSER'] || 'chrome').to_sym
-# consider for invalid session id : add option --enable-features=NetworkService,NetworkServiceInProcess
-# frequent handshake errors: For Chrome, you need to add --ignore-certificate-errors and --ignore-ssl-errors ChromeOptions() argument:
+# consider for invalid session id : add option --enable-features=NetworkService,NetworkServiceInProcess ---  not seeming to work , 'disable-features=NetworkService' didnt work, need to be connected to vpn
+# frequent handshake errors: For Chrome, you need to add --ignore-certificate-errors and --ignore-ssl-errors ChromeOptions() argument: -- mostly working
 args = ['--ignore-certificate-errors', '--ignore-ssl-errors']
 Before do |scenario|
   TestBrowser.browser = Watir::Browser.new (ENV['BROWSER'] || 'chrome').to_sym, options: {options: {'useAutomationExtension' => false}, :args => args}

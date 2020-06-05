@@ -19,7 +19,12 @@ class GenericPage
   # end
 
   def visit
-    TestBrowser.browser.goto @url
+    begin
+      counts ||= 0
+      TestBrowser.browser.goto @url
+    rescue
+      retry if (counts += 1) < 5
+    end  
     if @@ENV == "gateway"
       if browser.button(id:"details-button").present?
         browser.button(id:"details-button").click
