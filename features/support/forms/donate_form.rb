@@ -24,7 +24,6 @@ class DonateForm < GenericForm
     manualaddressurl.click!
     manual_address(details['address'])
     data_protection(details['dpemail'],details['dptext'],details['dppost'],details['dptel'])
-    binding.pry
     continue
   end
 
