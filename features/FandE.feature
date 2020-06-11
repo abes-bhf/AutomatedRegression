@@ -15,19 +15,19 @@ Feature: Furniture and Electrical collection
     And The reason for requesting dropdown should be displayed with the expected options
 
 
-  @blank @validation @fne @uatregression
+  @blank @validation @fne
   Scenario: F and E blank Validation check
     Given I navigate to the F and E form
     And I submit the F and E form without filling fields
     Then The F and E form should refresh with blank validation messages
 
-  @invalid @validation @fne @uatregression
+  @invalid @validation @fne
   Scenario: F and E invalid Validation check
     Given I navigate to the F and E form
     And I submit the F and E form with invalid data
     Then The F and E form should refresh with validation messages
 
-  @submission @fne @uatregression @egg @egg2
+  @submission @fne @egg @egg2
   Scenario: F and E Submission
     Given I navigate to the F and E form
     And I fill in furniture collection details

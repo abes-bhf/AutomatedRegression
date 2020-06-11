@@ -21,7 +21,7 @@ class PayPalPage < GenericPage
     loginbutton.click!
     password.send_keys(EnvConfig.data['paypal']['details']['pw'])
     loginbutton.click!
-    continue = browser.button(id: "payment-submit-btn")
+    continue = browser.button(id: "confirmButtonTop")
     trait2 = browser.p(text: "Chris Thorn")
     begin
       retries ||= 0
