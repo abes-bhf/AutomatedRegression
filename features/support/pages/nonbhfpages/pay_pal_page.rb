@@ -21,15 +21,16 @@ class PayPalPage < GenericPage
     loginbutton.click!
     password.send_keys(EnvConfig.data['paypal']['details']['pw'])
     loginbutton.click!
-    continue = browser.button(id: "confirmButtonTop")
-    trait2 = browser.p(text: "Chris Thorn")
+    continue = browser.button(id: "payment-submit-btn")
+    overlay = browser.div(class: "SpinnerOverlay_SpinnerOverlay_3KudG")
     begin
       retries ||= 0
-      Watir::Wait.until { trait2.exists? && trait2.present? }
+      Watir::Wait.until { continue.exists? && continue.present? }
+      continue.click!
+      Watir::Wait.until { overlay.exists? && overlay.present? }
     rescue
       retry if (retries += 1) < 3
     end
-    continue.click!
   end
 
   def cancel
