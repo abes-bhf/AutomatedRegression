@@ -1,9 +1,9 @@
 source "http://rubygems.org"
 
+gem 'cucumber'
 gem 'rspec'
 gem 'watir'
 gem 'pry'
 gem 'fileutils'
 gem 'watir-scroll'
 gem 'page-object'
-gem 'cucumber'

@@ -78,9 +78,16 @@ class GenericForm < GenericPage
 
 # what is this inheriting from??? ask able
 
-  def fill_name(fn, ln)
+  def fill_name_old(fn, ln)
     first = browser.div(class: "name.first-name").textarea
     last = browser.div(class: "name.last-name").textarea
+    sendkeys!(first, fn)
+    sendkeys!(last, ln)
+  end
+
+  def fill_name(fn, ln)
+    first = browser.text_field("sessioncam-name": "Donor - First Name")
+    last = browser.text_field("sessioncam-name": "Donor - Last Name")
     sendkeys!(first, fn)
     sendkeys!(last, ln)
   end

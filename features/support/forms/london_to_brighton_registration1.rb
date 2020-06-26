@@ -24,7 +24,6 @@ class LondonToBrightonRegistration1 < GenericForm
   end
 
   def fill_details
-    binding.pry
     select_title(random_title)
     date_of_birth("#{Time.now.day}", "#{Time.now.month}", "#{Time.now.year - 20}")
     fill_name1('Auto LTB FN', 'Auto LTB LN')

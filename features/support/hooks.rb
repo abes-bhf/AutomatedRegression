@@ -12,6 +12,7 @@ Before do |scenario|
   @@disposable_email = "#{SecureRandom.hex 8}@mailsac.com"
   @@donate_email = "#{SecureRandom.hex 8}@mailsac.com"
   @@new_giw_email = "#{SecureRandom.hex 8}@mailsac.com"
+  @@cookiecount = 0
   if ENV['CONFIG'] == nil
     @@ENV = 'integration'
   else
