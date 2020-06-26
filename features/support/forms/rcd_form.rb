@@ -40,16 +40,6 @@ end
 
 
 
-#can this be made generic
-def random_radio
-  radios = []
-  browser.inputs(name: 'ReasonForDonating').each do |o|
-    radios << o
-  end
-  radios.sample.click
-end
-
-
 
 def fill_form
   details = EnvConfig.data['publications_data']['details']
@@ -57,6 +47,10 @@ def fill_form
   continue
   random_radio
   continue
+  if browser.title == "Own Money"
+    radio_yes_no("yes")
+    continue
+  end
   dropdown_select
   gen_details_page(details['fn'], details['ln'], details['email'])
   continue

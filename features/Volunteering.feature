@@ -20,6 +20,7 @@ Feature: volunteering
 			And I start the volunteer form
 			When I enter my age as u17
 			Then I can sign up to volunteer in shops
+
 # complete
  @over18 @shop
 		Scenario: Sign up to volunteer at shops
