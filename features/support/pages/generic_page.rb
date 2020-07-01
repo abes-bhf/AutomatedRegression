@@ -24,7 +24,7 @@ class GenericPage
       TestBrowser.browser.goto @url
     rescue
       retry if (counts += 1) < 5
-    end  
+    end
     if @@ENV == "gateway"
       if browser.button(id:"details-button").present?
         browser.button(id:"details-button").click
