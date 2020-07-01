@@ -16,7 +16,7 @@ class DonateV2Form < GenericV2Form
     sleep 4
     firstname_field_v2.send_keys "AutomatedFN"
     lastname_field_v2.send_keys "AutomatedLN"
-    email_field_v2(@@donate_email) #rndomly select emails 
+    email_field_v2.send_keys(@@donate_email) #rndomly select emails
     continue
   end
 
@@ -44,7 +44,41 @@ class DonateV2Form < GenericV2Form
     continue
   end
 
+  #direct debit deets
+  def direct_debit_date
+    direct_debit_date = browser.input(value: "1").click
+  end
 
+  def account_holder_name
+    account_holder_name = browser.input(name: "AccountHolderName")
+    return account_holder_name
+  end
+
+  def account_number
+    account_number = browser.input(name: "BankAccountNumber")
+    return account_number
+  end
+
+  def sort_code
+    sort_code = browser.input(name: "SortCode")
+    return sort_code
+  end
+
+  def bank_name
+    bank_name = browser.input(name: "BankName")
+    return bank_name
+  end
+
+  #actually inputting bank details
+
+  def direct_debit
+    direct_debit_date
+    account_holder_name.send_keys "Fiyona Testing"
+    account_number.send_keys "38290008"
+    sort_code.send_keys "200415" #make it scroll down here or somthing
+    bank_name.send_keys "Fake Bank"
+    contnue
+  end
 
 
 

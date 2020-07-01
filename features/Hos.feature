@@ -3,17 +3,17 @@ Feature: Heart of steel
 As a BHF supporter
 I want to engrave a heart of steel
 
-@validation @uatregression
-Scenario: Testing blank validation on first two pages
-  Given I navigate to heart of steel page
-  And I select continue without selecting 16 and over
-  Then a validation message should appear
-  And I select continue without filling in engraving details
-  Then engraving details validation message should appear
-
-@validation @uatregression
-Scenario: Testing invalid data on engraving details
-  Given I navigate to heart of steel page
-  And I select I am over 16
-  And I enter invalid data on engraving details
-  Then engraving details validation message should appear
+@happypath
+Scenario: Valid get started
+  Given I navigate to the heart of steal page
+  And I select I am over sixteen
+  And I fill in engraving details
+  And I fill in your details
+  Then I fill in my address
+  Then I share my story
+  And fill in gdpr
+  Then I end up in order summary page
+  And add donation
+  Then add gift aid
+  Then proceed to pay
+  Then am presented with the confirmation page

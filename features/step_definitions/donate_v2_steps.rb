@@ -44,6 +44,7 @@ end
 
 Then("I set up direct debit") do
   binding.pry
+  #TestBrowser.donate_v2_form.direct_debit
 end
 
 Then("fill in gdpr") do
