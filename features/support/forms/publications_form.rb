@@ -2,7 +2,7 @@ class PublicationsForm < GenericV2Form
 
   def initialize(browser)
     super
-    @url = EnvConfig.publications_url
+    @url = EnvConfig.base_url + "/basket/basket-form/sign-in"
     @donationamount = browser.span(id: "main_0_pagecontent_0_donations2right_0_lblPieAmount")
     @continue = browser.button(value: 'Submit')
   end
@@ -373,7 +373,7 @@ class PublicationsForm < GenericV2Form
   end
 
   def go_to_address
-    address_url = @url + "your-address"
+    address_url = EnvConfig.base_url + "/basket/basket-form/your-address"
     browser.goto address_url
     if @@ENV == "gateway"
       if browser.button(id:"details-button").present?
@@ -418,8 +418,9 @@ class PublicationsForm < GenericV2Form
 
   def select_address
     details = EnvConfig.data['publications_data']['details']
-    sleep 1
-    browser.div(class: 'f-forms__listbox--inner').ul.lis.each do |i|
+    dropbox = browser.div(class: 'f-forms__listbox--inner')
+    Watir::Wait.until {dropbox.present?}
+    dropbox.ul.lis.each do |i|
       if i.text == details['lookup_match']
         i.click
       end

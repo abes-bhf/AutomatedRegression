@@ -6,24 +6,6 @@ class FAndEFormsV2 < GenericV2Form
     @continue = browser.button(value: 'Submit')
   end
 
-  # def fnev2_trait
-  #   vol_trait = browser.a(text: 'TO be confirmed')
-  #   return vol_trait
-  # end
-  #
-  #
-  # def on_page?
-  #   begin
-  #     vol_trait
-  #     @trait = vol_trait
-  #     #consider adding a URL check here
-  #     Watir::Wait.until { @trait.exists? && @trait.present? }
-  #     return true
-  #   rescue
-  #     return false
-  #   end
-  # end
-
 
 
 def date_entry
@@ -31,11 +13,6 @@ def date_entry
   date_field_month_v2.send_keys Time.now.month
   date_field_year_v2.send_keys (Time.now.year + 1)
 end
-
-# def checkbox
-#   checkbox = browser.div(class: 'f-forms__checkbox')
-#   return checkbox
-# end
 
 
 def fill_form
@@ -56,11 +33,11 @@ def fill_form
   continue
   checkbox.scroll.to :center
   sleep 0.5
-  checkbox.label.click
+  checkbox.click
   continue
   checkbox.scroll.to :center
   sleep 0.5
-  checkbox.label.click
+  checkbox.click
   continue
   radio_yes_no("No")
   continue

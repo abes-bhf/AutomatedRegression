@@ -24,24 +24,23 @@ class GenericPage
       TestBrowser.browser.goto @url
     rescue
       retry if (counts += 1) < 5
-    end  
+    end
     if @@ENV == "gateway"
       if browser.button(id:"details-button").present?
         browser.button(id:"details-button").click
         browser.a(id: "proceed-link").click
       end
     end
-    cookiecount = 0
-    if cookiecount < 1
-      cookiebutton = browser.button(id: "onetrust-accept-btn-handler")
-      Watir::Wait.until {cookiebutton.present? && cookiebutton.exists?}
+    if @@cookiecount < 1
+      @@cookiebutton = browser.button(id: "onetrust-accept-btn-handler")
+      Watir::Wait.until {@@cookiebutton.present? && @@cookiebutton.exists?}
         begin
           retries ||= 0
-          cookiebutton.click
+          @@cookiebutton.click
         rescue Selenium::WebDriver::Error::ElementClickInterceptedError
           retry if (retries += 1) < 3
         end
-        cookiecount = 1
+        @@cookiecount = 1
     end
   end
 

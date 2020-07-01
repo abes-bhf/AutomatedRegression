@@ -24,101 +24,12 @@ class CorporateVolunteeringIndividualSignupForm < GenericV2Form
     end
   end
 
-# # #generic
-# #   def radio_yes_no(value)
-# #     browser.input(value: value).click
-# #   end
-# #
-# # # generic
-# #   def dropdown_field
-# #     dropdown_field = []
-# #     browser.divs(class: 'f-forms__select').select.each do |i|
-# #       dropdown_field << i
-# #     end
-# #     return dropdown_field
-# #   end
-# #
-# #
-# #
-# #
-# # #generic
-# # #insnet if check for multiple, then do each
-# #   def dropdown_select
-# #       dropdown_field
-# #       dropdown_field.each do |o|
-# #         drop_arr = []
-# #         o.options.each do |i|
-# #           drop_arr << i
-# #         end
-# #         begin
-# #           counts ||= 0
-# #           drop_arr.sample.click
-# #           if o.select.value == "Select..."
-# #             raise ArgumentException
-# #           end
-# #           if o.select.value ==""
-# #             raise ArgumentException
-# #           end
-# #         rescue
-# #           retry if (counts += 1) < 5
-# #         end
-# #       end
-# #   end
-# #
-# # #so much generic
-# # def firstname_field_v2
-# #   firstname_field_v2 = browser.input(name: "FirstName")
-# #   return firstname_field_v2
-# # end
-# #
-# # def lastname_field_v2
-# #   lastname_field_v2 = browser.input(name: "LastName")
-# #   return lastname_field_v2
-# # end
-# #
-# # def email_field_v2
-# #   email_field_v2 = browser.input(name: "Email")
-# #   return email_field_v2
-# # end
-# #
+
 def corp_telephone_field_v2
   telephone_field_v2 = browser.input(name: "Telephone")
   return telephone_field_v2
 end
-# #
-# # def address1_field_v2
-# #   address1_field_v2 = browser.input(class: "f-forms__element--address1")
-# #   return address1_field_v2
-# # end
-# #
-# # def address2_field_v2
-# #   address2_field_v2 = browser.input(class: "f-forms__element--address2")
-# #   return address2_field_v2
-# # end
-# #
-# # def city_field_v2
-# #   city_field_v2 = browser.input(class: "f-forms__element--city")
-# #   return city_field_v2
-# # end
-# #
-# # def postcode_field_v2
-# #   postcode_field_v2 = browser.div(class: 'f-forms__element').input
-# #   return postcode_field_v2
-# # end
-#
-#
-#
-# #generic
-# def gdpr_field_v2
-#   gdpr_field = browser.fieldset(class: "f-forms__gdpr")
-#   gdpr_field.scroll.to :top
-#   sleep 1
-#   gdpr_field.inputs.each do |i|
-#     if i.attribute_value('id').include? "no"
-#       i.click
-#     end
-#   end
-# end
+
 
 def journey_fin
   raise unless browser.title == "Thank you"

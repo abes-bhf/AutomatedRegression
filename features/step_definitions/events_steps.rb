@@ -12,6 +12,7 @@ And /^I register for L2B with a new email and password$/ do
 end
 
 And /^I decide to pay for registration through PayPal$/ do
+  binding.pry
   TestBrowser.event_payment_page.select_paypal
 end
 

@@ -38,12 +38,21 @@ class GenericV2Form < GenericForm
 #    browser.input(name: 'Email')#.to_subtype.clear_inputs
 #  end
 
-# for radio buttons
+# for radio buttons, eg yes and no
   def radio_yes_no(value)
     browser.input(value: value).click
   end
 
-# this may require you to add .label afterwards eg checkbox.label.click
+#select a random radio from a long list
+  def random_radio
+    radios = []
+    browser.inputs(type: 'radio').each do |o|
+      radios << o
+    end
+    radios.sample.click
+  end
+
+
   def checkbox
     checkbox = browser.div(class: 'f-forms__checkbox').label
     return checkbox
