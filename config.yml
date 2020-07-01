@@ -67,12 +67,6 @@ stg:
   flow_url: https://10.190.2.5/
   publications_url: https://ukw-bhf-sc8-stg-cd1.azurewebsites.net/basket/basket-form/
 
-whatever:
-  <<: *execution_defaults
-  base_url: https://www.bhf.org.uk/
-  flow_url: https://uat-bhf-flow.precedenthost.co.uk/
-  publications_url: https://www.bhf.org.uk/basket/basket-form/
-
 gateway:
   <<: *execution_defaults
   base_url: https://4055544a-da9d-40df-a0cd-666cd8cab416.cloudapp.net/

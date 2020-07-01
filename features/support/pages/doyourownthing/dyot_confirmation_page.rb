@@ -35,14 +35,13 @@ class DyotConfirmationPage < GenericPage
   #   end
   # end
   def find_trait
-    @trait = browser.div(class: 'order-ref-number')
+    @trait = browser.h1(text: 'Order complete')
   end
 
 
   def on_page?
     begin
       find_trait
-      @trait = trait
       #consider adding a URL check here
       Watir::Wait.until { @trait.exists? && @trait.present? }
       return true

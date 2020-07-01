@@ -28,6 +28,7 @@ Feature: Homepage
 		And I click one of the four main links
 		Then I am taken to the correct page
 
+	@lvl2	
 	Scenario: Level two links
 		Given I navigate to the Homepage
 		And I hover over one of the four main links
@@ -42,18 +43,20 @@ Feature: Homepage
 		And I click one of the level three links
 		Then I am taken to the correct page
 
-	@yy
+	@search
 	Scenario: Search bar
 		Given I navigate to the Homepage
 		And I click on search
 		Then The search bar should open
 
+	@search @valid
 	Scenario: Valid search term
 		Given I navigate to the Homepage
 		And I click on search
 		And I enter a valid search term
 		Then I should be taken to the search results for that term
 
+	@search @invalid
 	Scenario: Invalid search term
 		Given I navigate to the Homepage
 		And I click on search

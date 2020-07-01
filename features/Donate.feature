@@ -4,7 +4,7 @@ Feature: Homepage
 	As a BHF supporter
 	I want to make a donation
 
-	@oneoff @liveregression @uatregression @validation
+	@oneoff @liveregression @uatregression @validation @blank
 	Scenario: Testing blank validation messages on one-off form
 		Given I navigate to the Donation page
 		And I select a one-off donation preset
@@ -12,7 +12,7 @@ Feature: Homepage
 		And I press continue without filling details
 		Then the donate form should refresh with blank validation messages
 
-	@monthly @liveregression @uatregression @validation
+	@monthly @liveregression @uatregression @validation @blank
 	Scenario: Testing blank validation messages on monthly form
 		Given I navigate to the Donation page
 		And I select a monthly donation preset
@@ -24,7 +24,7 @@ Feature: Homepage
 		And I press continue without filling direct debit details
 		Then the direct debit form should refresh with blank validation messages
 
-	@oneoff @liveregression @uatregression @validation @a
+	@oneoff @liveregression @uatregression @validation @invalid
 	Scenario: Testing validation messages for invalid data on one-off form
 		Given I navigate to the Donation page
 		And I select a one-off donation preset
@@ -32,7 +32,7 @@ Feature: Homepage
 		And I press continue after filling in invalid details
 		Then The donate form should refresh with validation messages
 
-	@monthly @liveregression @uatregression @validation
+	@monthly @liveregression @uatregression @validation @invalid
 	Scenario: Testing validation messages for invalid data on monthly form
 		Given I navigate to the Donation page
 		And I select a monthly donation preset

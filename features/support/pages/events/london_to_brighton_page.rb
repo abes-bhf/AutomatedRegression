@@ -23,15 +23,18 @@ class LondonToBrightonPage < GenericPage
   end
 
   def guest_sign_up
+    signupbutton = browser.a(text: 'Sign up now')
     if logout_button.present?
       log_out
-      signupbutton = browser.a(text: 'Sign up')
+      signupbutton.scroll.to
+      sleep(1)
       signupbutton.click
     elsif login_button.present?
-      signupbutton = browser.a(text: 'Sign up')
+      signupbutton.scroll.to
+      sleep(1)
       signupbutton.click
       guest_continue = browser.a(text: 'CONTINUE')
-      guest_continue.click!
+      guest_continue.click
     else
       raise ("unable to find either a login or logout button which is very strange and probably bad")
     end
