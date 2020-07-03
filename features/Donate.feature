@@ -51,7 +51,7 @@ Feature: Homepage
 		And I am taken to the first page of the donation form
 		Given I enter a valid postcode into the postcode lookup field
 		And I search for the postcode
-		And I select an address from the list of matching addresses
+		And I select the first address from the list of matching addresses
 		Then Address fields are shown with the address filled in
 
 	@monthly @liveregression @uatregression @pca
@@ -61,7 +61,7 @@ Feature: Homepage
 		And I am taken to the first page of the donation form
 		Given I enter a valid postcode into the postcode lookup field
 		And I search for the postcode
-		And I select an address from the list of matching addresses
+		And I select the first address from the list of matching addresses
 		Then Address fields are shown with the address filled in
 
 	@oneoff @uatregression @submission @worldpay
