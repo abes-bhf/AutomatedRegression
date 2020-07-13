@@ -42,7 +42,7 @@ end
 
 
 def fill_form
-  details = EnvConfig.data['publications_data']['details']
+  details = EnvConfig.data['formsV2_data']['formsV2_details']
   browser.input(name: "DonationAmount").send_keys "20"
   continue
   random_radio

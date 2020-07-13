@@ -109,8 +109,10 @@ class PublicationsForm < GenericV2Form
 
   def check_signedin
     sleep 0.5
-    raise unless browser.input(class: "f-forms__element--address1").value.length > 1
-    raise unless browser.input(class: "f-forms__element--city").value.length > 1
+    raise unless address1_field_v2.value.length > 1
+    raise unless city_field_v2.value.length > 1
+    # raise unless browser.input(class: "f-forms__element--address1").value.length > 1
+    # raise unless browser.input(class: "f-forms__element--city").value.length > 1
   end
 
 

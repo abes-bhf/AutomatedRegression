@@ -13,10 +13,6 @@ publications_data:
     email: testingpub19@rhyta.com
     registered_email: signedinPub@rhyta.com
     password: Test1234
-    dpemail: no
-    dptext: no
-    dppost: no
-    dptel: no
     alt_pc: NO14YU
     alt_a1: Alternate
     alt_a2: Billing address
