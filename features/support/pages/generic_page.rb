@@ -1,8 +1,8 @@
 class GenericPage
   include RSpec::Matchers
+  include PageObject
   attr_accessor :browser
 
-  include PageObject
 
   def initialize(browser)
     @browser = browser

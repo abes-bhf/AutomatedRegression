@@ -69,7 +69,7 @@ class HomePage < GenericPage
 
   def level_three
     level_three_links = []
-    levelthree = browser.div(class: ['g-nav-primary__mega--subnav', 'active']).lis
+    levelthree = browser.div(class: ['g-nav-primary__mega--subnav', 'active']).ul.lis
     level3 = EnvConfig.data['navlinks'][@@hovered1][@@hovered2]
     level_three_links = []
     levelthree.each do |l|
@@ -121,7 +121,7 @@ class HomePage < GenericPage
       levelthreelinks = level_three.last(level_three.size - 1)
       return levelthreelinks.sample
     rescue ArgumentError
-      binding.pry
+      raise("Error checking level 3 links for #{@@hovered2}. Please check the #{@@hovered2} section in features\\support\\data\\navlinks.yml and ensure it matches what is displayed on the current main navigation")
     end
   end
 

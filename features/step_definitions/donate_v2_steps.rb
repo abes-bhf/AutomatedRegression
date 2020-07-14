@@ -7,7 +7,7 @@ Given("I select continue without selecting donation type") do
 end
 
 Then("donate widget should return with validation messages") do
-  raise("unable to find the right amount of validation") unless TestBrowser.validation_message_count(1)
+  raise("unable to find the right amount of validation") unless TestBrowser.donate_v2_form.validation_message_count(1)
   sleep 2
 end
 
