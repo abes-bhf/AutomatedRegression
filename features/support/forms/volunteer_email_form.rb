@@ -44,7 +44,8 @@ def fill_form
   details = EnvConfig.data['formsV2_data']['formsV2_details']
   dropdown_select
   gen_details_page(details['fn'], details['ln'], @@new_giw_email)
-  browser.input(name: 'Postcode').send_keys details['postcode']
+  postcode_field_v2.send_keys details['postcode']
+   # browser.input(name: 'Postcode').send_keys
   continue
 end
 
