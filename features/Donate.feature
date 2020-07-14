@@ -1,5 +1,5 @@
 @donate
-Feature: Homepage
+Feature: Donation
 	In order to support the BHF website
 	As a BHF supporter
 	I want to make a donation
