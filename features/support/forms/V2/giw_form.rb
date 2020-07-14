@@ -71,7 +71,6 @@ class GiwForm < GenericV2Form
   def youraddress_invalid_fill
     invalid = EnvConfig.data['formsV2_data']['formsV2_invalid']
     giw_invalid_youraddress(invalid['postcode'], invalid['a1'], invalid['a2'], invalid['towncity'])
-    binding.pry
   end
 
   def youradress_valid_fill
