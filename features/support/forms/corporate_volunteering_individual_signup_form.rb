@@ -58,7 +58,7 @@ end
 
 
 def fill_form
-  details = EnvConfig.data['publications_data']['details']
+  details = EnvConfig.data['formsV2_data']['formsV2_details']
   continue
   dropdown_select
   firstname_field_v2.send_keys (details['fn'])

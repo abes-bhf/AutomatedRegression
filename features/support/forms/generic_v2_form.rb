@@ -122,7 +122,7 @@ class GenericV2Form < GenericForm
   end
 
   def postcode_field_v2
-    postcode_field_v2 = browser.div(class: 'f-forms__element').input
+    postcode_field_v2 = browser.input(name: /^*Postcode$/)
     return postcode_field_v2
   end
 
