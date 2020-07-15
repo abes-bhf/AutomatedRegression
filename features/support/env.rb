@@ -1,5 +1,5 @@
-require 'rspec'
 require 'watir'
+require 'rspec'
 require 'pry'
 require 'fileutils'
 require 'rspec/expectations'
