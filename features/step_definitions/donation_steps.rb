@@ -147,17 +147,17 @@ Then /^The direct debit form should refresh with validation messages$/ do
 end
 
 Given /^I enter a valid postcode into the postcode lookup field$/ do
-  TestBrowser.donate_form.fill_postcode("NW18AW")
+  TestBrowser.donate_form.fill_postcode("WR26NJ")
 end
 
 Given /^I search for the postcode$/ do
   TestBrowser.donate_form.search_postcode
 end
 
-# Given /^I select an address from the list of matching addresses$/ do
-#   TestBrowser.donate_form.select_address
-# end
+Given /^I select the first address from the list of matching addresses$/ do
+  TestBrowser.donate_form.select_address
+end
 
 Then /^Address fields are shown with the address filled in$/ do
-  TestBrowser.donate_form.address_check("NW18AW")
+  TestBrowser.donate_form.address_check("WR26NJ")
 end

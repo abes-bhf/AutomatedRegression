@@ -55,7 +55,7 @@ class VolunteeringForm < GenericV2Form
 
 
   def complete_form_u17
-    details = EnvConfig.data['publications_data']['details']
+    details = EnvConfig.data['formsV2_data']['formsV2_details']
     preferred_pcode(details['postcode'])
     continue
     dropdown_select
@@ -87,7 +87,7 @@ def journey_fin
 end
 
 def select_shop
-  details = EnvConfig.data['publications_data']['details']
+  details = EnvConfig.data['formsV2_data']['formsV2_details']
   browser.divs(class: "f-forms__checkbox")[0].label.click
   continue
   preferred_pcode(details['postcode'])
@@ -100,7 +100,7 @@ def select_raise
 end
 
 def select_event
-  details = EnvConfig.data['publications_data']['details']
+  details = EnvConfig.data['formsV2_data']['formsV2_details']
   browser.divs(class: "f-forms__checkbox")[2].label.click
   continue
   preferred_pcode("NW17AW")
@@ -109,7 +109,7 @@ def select_event
 end
 
 def select_shop_and_event
-  details = EnvConfig.data['publications_data']['details']
+  details = EnvConfig.data['formsV2_data']['formsV2_details']
   browser.divs(class: "f-forms__checkbox")[0].label.click
   browser.divs(class: "f-forms__checkbox")[2].label.click
   continue
@@ -127,7 +127,7 @@ end
 
 
 def complete_form
-  details = EnvConfig.data['publications_data']['details']
+  details = EnvConfig.data['formsV2_data']['formsV2_details']
   dropdown_select
   continue
   dropdown_select
@@ -141,7 +141,7 @@ def emergency_contact
 end
 
 def details_section
-  details = EnvConfig.data['publications_data']['details']
+  details = EnvConfig.data['formsV2_data']['formsV2_details']
   vol_details(details['fn'], details['ln'], @@donate_email, details['telephone'])
   continue
   gen_address_page(details['postcode'], details['a1'], details['a2'], details['towncity'])

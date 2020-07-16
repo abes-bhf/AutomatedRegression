@@ -71,7 +71,7 @@ end
 
 
 def fill_form
-  details = EnvConfig.data['publications_data']['details']
+  details = EnvConfig.data['formsV2_data']['formsV2_details']
   corp_firstname_field_v2.send_keys (details['fn'])
   corp_lastname_field_v2.send_keys (details['ln'])
   browser.input(name: 'Organisation Name').send_keys ("Add this to yml")

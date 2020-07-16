@@ -29,16 +29,16 @@ class GenericV2Form < GenericForm
   end
 
   def validation_message_count(number)
-    sleep(1)
-    validation_summary = browser.uls(class: "filled")
+    begin
+      retries ||= 0
+      validation_summary = browser.uls(class: "filled")
+      raise unless validation_summary.size > 0
+    rescue
+      retry if (retries += 1) < 5
+    end
     return validation_summary.size == number
   end
 
-#  def invalid_email(email)
-#    browser.input(name: 'Email')#.to_subtype.clear_inputs
-#  end
-
-# for radio buttons, eg yes and no
   def radio_yes_no(value)
     browser.input(value: value).click
   end
@@ -122,7 +122,7 @@ class GenericV2Form < GenericForm
   end
 
   def postcode_field_v2
-    postcode_field_v2 = browser.div(class: 'f-forms__element').input
+    postcode_field_v2 = browser.input(name: /^*Postcode$/)
     return postcode_field_v2
   end
 
