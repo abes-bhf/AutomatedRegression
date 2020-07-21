@@ -244,7 +244,7 @@ class GenericForm < GenericPage
   end
 
   def validation_message_count(number)
-    sleep(1)
+    sleep(3)
     validation_summary = browser.div(class: "scfValidationSummary").lis
     return validation_summary.size == number
   end
