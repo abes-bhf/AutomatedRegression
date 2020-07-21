@@ -55,6 +55,8 @@ Feature: Login/Registration
 		Given I log out
 		Then I can log in with the details used in registration
 		Then I am on my account page
+
+	Scenario: Events form account recognition
 		Given I log out
 		And I navigate to the L2B registration form without logging in
 		And I enter the email used in registration
