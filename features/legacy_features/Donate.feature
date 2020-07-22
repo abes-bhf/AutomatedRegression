@@ -75,7 +75,7 @@ Feature: Donation
 		And I select Donate by credit/debit card
 		And I am taken to the Worldpay page
 		And I enter valid card details
-		Then I am taken to the confirmation page
+		Then I am taken to the donation confirmation page
 
 	@oneoff @uatregression @submission @paypal
 	Scenario: Testing single donations complete with transactions (PayPal)
@@ -86,7 +86,7 @@ Feature: Donation
 		And I answer no to the GiftAid question
 		When I select Donate by PayPal
 		And I enter valid PayPal details
-		Then I am taken to the confirmation page
+		Then I am taken to the donation confirmation page
 
 	@monthly @uatregression @submission
 	Scenario: Testing monthly donations complete with transactions
@@ -95,7 +95,7 @@ Feature: Donation
 		And I fill in direct debit details
 		Then I am taken to the monthly payment page
 		When I enter valid direct debit details
-		Then I am taken to the confirmation page
+		Then I am taken to the donation confirmation page
 
 
 
@@ -136,7 +136,7 @@ Feature: Donation
 		And I select Donate by credit/debit card
 		Then I am taken to the Worldpay page
 		When I enter valid card details
-		Then I am taken to the confirmation page
+		Then I am taken to the donation confirmation page
 
 	@monthly @payment
 	Scenario: Monthly preset donation
@@ -146,7 +146,7 @@ Feature: Donation
 		Then I am taken to the monthly payment page
 		And I should be able to select a start date within the next six months
 		When I enter valid direct debit details
-		Then I am taken to the confirmation page
+		Then I am taken to the donation confirmation page
 
 	@oneoff @campaign @payment @worldpay
 	Scenario: Single preset campaign donation card payment
@@ -157,7 +157,7 @@ Feature: Donation
 		And I answer no to the GiftAid question
 		When I select Donate by credit/debit card
 		And I enter valid card details
-		Then I am taken to the confirmation page
+		Then I am taken to the donation confirmation page
 
 	@monthly @campaign @payment
 	Scenario: Monthly preset campaign donation card payment
@@ -166,7 +166,7 @@ Feature: Donation
 		And I fill in direct debit details
 		Then I am taken to the monthly payment page
 		And I enter valid direct debit details
-		Then I am taken to the confirmation page
+		Then I am taken to the donation confirmation page
 
 	@oneoff @fail
 	Scenario: Donation form validation
@@ -200,7 +200,7 @@ Feature: Donation
 		And I select Donate by credit/debit card
 		And I am taken to the Worldpay page
 		And I enter valid card details
-		Then I am taken to the confirmation page
+		Then I am taken to the donation confirmation page
 		And I visit the Mailsac inbox for my donation email
 		Then There should be an email confirmation of my one-off donation with expected content
 

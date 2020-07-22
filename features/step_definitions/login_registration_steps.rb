@@ -20,12 +20,9 @@ end
 
 Then /^I am taken to the account creation confirmation screen$/ do
   if TestBrowser.registration_confirmation_page.on_page?
-    open(File.join(Dir.pwd, 'submissions/registrations.txt'), 'a') do |f|
-      f << "> #{@@new_acc_email} registered on #{@@ENV} at #{Time.now} \n"
-    end
+    TestBrowser.logging.write_to_file('accountcreation')
   else
-    binding.pry
-    raise
+    raise("Unable to reach account creation confirmation page")
   end
 end
 
