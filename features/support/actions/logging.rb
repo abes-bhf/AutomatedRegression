@@ -6,6 +6,7 @@ class Logging
     @browser = browser
   end
 
+  #This is a unique method that is called when logging donations
   def donateinfo
     case @@donation_type
       when "One-off"
@@ -20,6 +21,7 @@ class Logging
     return donate_info
   end
 
+  #This is the main method that you will be calling to log information
   def write_to_file(action)
     email = @@new_acc_email
     actioninfo = action
