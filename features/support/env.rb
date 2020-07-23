@@ -1,6 +1,6 @@
 require 'watir'
-require 'rspec'
 require 'pry'
+require 'rspec'
 require 'fileutils'
 require 'rspec/expectations'
 require 'watir-scroll'
