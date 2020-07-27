@@ -56,3 +56,7 @@ end
 When("I choose to raise awareness") do
   TestBrowser.volunteering_form.select_raise
 end
+
+When("I choose to volunteer in shops and raise awareness") do
+  TestBrowser.volunteering_form.select_shop_and_awareness
+end

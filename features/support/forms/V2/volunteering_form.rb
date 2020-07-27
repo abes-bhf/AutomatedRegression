@@ -156,6 +156,16 @@ def details_section
   journey_fin
 end
 
+def select_shop_and_awareness
+  details = EnvConfig.data['formsV2_data']['formsV2_details']
+  browser.divs(class: "f-forms__checkbox")[0].label.click
+  browser.divs(class: "f-forms__checkbox")[1].label.click
+  continue
+  preferred_pcode(details['postcode'])
+  continue
+end
+
+
 
 
 end
