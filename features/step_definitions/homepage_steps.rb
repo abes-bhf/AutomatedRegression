@@ -94,3 +94,23 @@ Then /^I should not be shown any search results$/ do
   TestBrowser.search_results_page.on_page?
   raise if TestBrowser.search_results_page.results.present?
 end
+
+Given("I search for nothing") do
+  TestBrowser.home_page.blank_search
+end
+
+Given("I land on the search results page") do
+  TestBrowser.home_page.search_landing
+end
+
+Given("I switch to the Shops and services tab") do
+  TestBrowser.home_page.change_tab
+end
+
+Given("I enter a valid postcode") do
+  TestBrowser.home_page.submit_postcode
+end
+
+Then("I see relevant results") do
+  TestBrowser.home_page.verify_result
+end

@@ -34,4 +34,27 @@ class RegistrationForm < GenericForm
     continue
   end
 
+  def address_check
+    lookup = EnvConfig['data']['postcodelookup']['WR26NJ']
+    address_fields = []
+    browser.divs(class: 'scfSingleLineGeneralPanel').each do |i|
+      if i.input.present?
+        address_fields << i.input
+      end
+    end
+    raise unless address_fields[4].value == lookup['address1']
+    raise unless address_fields[5].value == lookup['address2']
+    raise unless address_fields[6].value == lookup['address3']
+    raise unless address_fields[7].value == lookup['towncity']
+    raise unless address_fields[8].value == lookup['county']
+  end
+
+
+
+
+
+
+
+
+
 end

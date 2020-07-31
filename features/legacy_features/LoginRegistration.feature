@@ -101,3 +101,11 @@ Feature: Login/Registration
 		Then I decide to pay for registration through PayPal
 		And I return to the event payment page
 		Then I am taken to the events payment page
+
+ 		@liveregression @uatregression @pca
+		Scenario: Testing address lookup on one-off form
+			Given I am on the login registration page
+			And I click register
+			And I am taken to the registration form
+			And I enter and select a valid postcode from the lookup
+			Then the correct addresses appear in the right fields

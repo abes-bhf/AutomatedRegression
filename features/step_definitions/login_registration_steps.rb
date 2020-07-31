@@ -131,3 +131,11 @@ end
 Then /^The registration form should refresh with validation messages$/ do
   raise("Validation messages not matching expected list") unless TestBrowser.login_register_page.validation_message_count(7)
 end
+
+Given("I enter and select a valid postcode from the lookup") do
+  TestBrowser.registration_form.postcode_lookup('WR2 6NJ')
+end
+
+Then("the correct addresses appear in the right fields") do
+  TestBrowser.registration_form.address_check
+end

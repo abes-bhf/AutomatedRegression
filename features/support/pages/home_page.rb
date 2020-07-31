@@ -140,4 +140,31 @@ class HomePage < GenericPage
     search_bar.text_field(id: 'keyword').send_keys(term)
     search_bar.input(type: 'submit').click
   end
+
+  def blank_search
+    search_bar.input(type: 'submit').click
+  end
+
+  def search_landing
+    raise unless browser.title == "Search our site"
+    raise unless browser.h1.text == "Search"
+  end
+
+# if required in future add argument to the below, accepting the name of the tab to swap to, taken from steps. Yml containing the names vs the a index number to convert name to workable index or use an each for uls
+  def change_tab
+    browser.div(class: "pin-container").as[3].click
+  end
+
+  def submit_postcode
+    details = EnvConfig.data['formsV2_data']['formsV2_details']
+    browser.input(name: 'main_0$pagecontent_0$uxKeyword').send_keys details['postcode']
+    browser.div(class: "input-submit").input.click
+  end
+
+  def verify_result
+    raise unless browser.text.include? "Clothing Bank - Blooms Garden Centre"
+  end
+
+
+
 end
