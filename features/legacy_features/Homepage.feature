@@ -28,7 +28,7 @@ Feature: Homepage
 		And I click one of the four main links
 		Then I am taken to the correct page
 
-	@lvl2	
+	@lvl2
 	Scenario: Level two links
 		Given I navigate to the Homepage
 		And I hover over one of the four main links
@@ -62,3 +62,13 @@ Feature: Homepage
 		And I click on search
 		And I enter an invalid search term
 		Then I should not be shown any search results
+
+	@search @pca
+	Scenario: Check postcode on shops and services
+		Given I navigate to the Homepage
+		And I click on search
+		And I search for nothing
+		And I land on the search results page
+		And I switch to the Shops and services tab
+		And I enter a valid postcode
+		Then I see relevant results

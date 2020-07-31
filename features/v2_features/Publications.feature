@@ -49,7 +49,7 @@ Feature: publications
 
 
 # complete
-		@postcode
+		@pca
 	Scenario: Testing address lookup on publications form
 		Given I navigate to the publications form your-address page
 		And I enter a valid postcode into the postcode lookup
