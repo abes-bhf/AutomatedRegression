@@ -13,6 +13,7 @@ Before do |scenario|
   @@donate_email = "#{SecureRandom.hex 8}@mailsac.com"
   @@new_giw_email = "#{SecureRandom.hex 8}@mailsac.com"
   @@cookiecount = 0
+  FileUtils.mkdir_p('submissions' ) unless File.directory?('submissions' )
   if ENV['CONFIG'] == nil
     @@ENV = 'integration'
   else
