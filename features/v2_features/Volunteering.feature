@@ -40,7 +40,7 @@ Feature: volunteering
 # 			Then I can complete the form
 
 # # currently out of action
-# 	@over18 @shopandevents
+# 	@over18 @shopandevents @pca
 # 		Scenario: Sign up to volunteer in shops and events
 # 			Given I navigate to the volunteer form
 # 			And I start the volunteer form
@@ -57,10 +57,18 @@ Feature: volunteering
 			And I choose to raise awareness
 			Then I can complete the form
 
-	@over18 @shopandawareness
+	@over18 @shopandawareness @pca
 		Scenario: Sign up to volunteer in shops and raise awareness
 			Given I navigate to the volunteer form
 			And I start the volunteer form
 			When I enter my age as over eighteen
 			And I choose to volunteer in shops and raise awareness
 			Then I can complete the form
+
+
+	@pca @wip
+		Scenario: Check the address page postcode lookup
+		Given I am on the volunteer address page
+		And I search for a postcode in the volunteer lookup
+		When I select the results
+		Then the correct volunteer data is shown in the fields

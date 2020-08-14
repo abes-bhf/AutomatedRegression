@@ -17,7 +17,8 @@ end
 
 def fill_form
   details = EnvConfig.data['publications_data']['details']
-  postcode_field_v2.send_keys(details['postcode'])
+  # (details['postcode'])
+  postcode_field_v2.send_keys "BH14 9DF"
   continue
   continue
   date_entry
@@ -27,7 +28,7 @@ def fill_form
   continue
   sleep 0.5
   dropdown_select
-  fnev2_details(details['fn'], details['ln'], details['email'], details['telephone'])
+  fnev2_details(details['fn'], details['ln'], @@donate_email, details['telephone'])
   continue
   fnev2_address(details['a1'], details['a2'], details['towncity'])
   continue
@@ -60,22 +61,18 @@ def fnev2_address(a1, a2, towncity)
     city_field_v2.send_keys towncity
 end
 
-# def gdpr_field_v2
-#   gdpr_field = browser.fieldset(class: "f-forms__gdpr")
-#   gdpr_field.scroll.to :top
-#   sleep 1
-#   gdpr_field.inputs.each do |i|
-#     if i.attribute_value('id').include? "no"
-#       i.click
-#     end
-#   end
-# end
 
 #figure out regex
 def journey_fin
-  sleep 0.5
-  raise unless browser.span(class: 'is-editable-field').ps[2].text.include? "Your booking reference number:"
+  browser.span(class: 'is-editable-field').ps[2].wait_until(&:present?)
+  begin
+    sleep 0.5
+  # raise unless browser.span(class: 'is-editable-field').ps[2].text.include? "Your booking reference number:"
   raise unless browser.title == "Thank you"
+  end
+  open(File.join(Dir.pwd, 'submissions/fnev2.txt'), 'a') do |f|
+    f << "> #{@@donate_email} registered on #{@@ENV} at #{Time.now} \n"
+  end
 end
 
 

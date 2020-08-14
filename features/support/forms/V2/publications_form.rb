@@ -375,7 +375,7 @@ class PublicationsForm < GenericV2Form
   end
 
   def go_to_address
-    address_url = EnvConfig.base_url + "/basket/basket-form/your-address"
+    address_url = EnvConfig.base_url + "basket/basket-form/your-address"
     browser.goto address_url
     if @@ENV == "gateway"
       if browser.button(id:"details-button").present?

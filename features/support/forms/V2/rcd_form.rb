@@ -39,23 +39,30 @@ def journey_fin
   raise unless browser.title == "Thank you"
 end
 
+def rcd_details_page(fn, ln, email)
+  browser.divs(class: "f-forms__element")[1].input.send_keys fn
+  browser.divs(class: "f-forms__element")[2].input.send_keys ln
+  browser.divs(class: "f-forms__element")[3].input.send_keys email
+end
 
+def rcd_address_page(postcode, a1, a2, towncity)
+  browser.divs(class: "f-forms__element")[0].input.send_keys postcode
+  browser.divs(class: "f-forms__element")[4].input.send_keys a1
+  browser.divs(class: "f-forms__element")[5].input.send_keys a2
+  browser.divs(class: "f-forms__element")[7].input.send_keys towncity
+end
 
 
 def fill_form
   details = EnvConfig.data['formsV2_data']['formsV2_details']
-  browser.input(name: "DonationAmount").send_keys "20"
+  browser.i(class: "is-amount").input.send_keys "20"
   continue
   random_radio
   continue
-  if browser.title == "Own Money"
-    radio_yes_no("yes")
-    continue
-  end
   dropdown_select
-  gen_details_page(details['fn'], details['ln'], details['email'])
+  rcd_details_page(details['fn'], details['ln'], details['email'])
   continue
-  gen_address_page(details['postcode'], details['a1'], details['a2'], details['towncity'])
+  rcd_address_page(details['postcode'], details['a1'], details['a2'], details['towncity'])
   continue
   gdpr_field_v2
   continue
