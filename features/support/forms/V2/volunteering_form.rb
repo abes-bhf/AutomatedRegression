@@ -165,6 +165,69 @@ def select_shop_and_awareness
   continue
 end
 
+def go_to_address
+  address_url = EnvConfig.base_url + "how-you-can-help/volunteer/register-your-interest/your-address"
+  browser.goto address_url
+  if @@ENV == "gateway"
+    if browser.button(id:"details-button").present?
+      browser.button(id:"details-button").click
+      browser.a(id: "proceed-link").click
+    end
+  end
+  cookiecount = 0
+  if cookiecount < 1
+    cookiebutton = browser.button(id: "onetrust-accept-btn-handler")
+    Watir::Wait.until {cookiebutton.present? && cookiebutton.exists?}
+      begin
+        retries ||= 0
+        cookiebutton.click
+      rescue Selenium::WebDriver::Error::ElementClickInterceptedError
+        retry if (retries += 1) < 3
+      end
+      cookiecount = 1
+  end
+end
+
+def fill_postcode
+  details = EnvConfig.data['formsV2_data']['formsV2_details']
+  postcode_field_v2.send_keys(details['postcode'])
+end
+
+def find_address
+  count = 0
+  begin
+    browser.a(text: "Find address").click
+  rescue
+    if count <= 4
+      count += 1
+      retry
+      puts "fail count #{count}"
+    else
+      raise
+    end
+  end
+end
+
+def select_address
+  details = EnvConfig.data['formsV2_data']['formsV2_details']
+  dropbox = browser.div(class: 'f-forms__listbox--inner')
+  Watir::Wait.until {dropbox.present?}
+  dropbox.ul.lis.each do |i|
+    if i.text == details['lookup_match']
+      i.click
+    end
+  end
+end
+
+def verify_address
+  details = EnvConfig.data['formsV2_data']['formsV2_details']
+  sleep 1
+  raise unless browser.input(class: "f-forms__element--address1").value == details['lookup_a1']
+  raise unless browser.input(class: "f-forms__element--address2").value == details['lookup_a2']
+  raise unless browser.input(class: "f-forms__element--city").value == details['lookup_city']
+end
+
+
 
 
 
