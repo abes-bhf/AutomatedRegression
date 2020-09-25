@@ -79,22 +79,11 @@ And /^I should be able to select a start date within the next six months$/ do
   TestBrowser.monthly_payment_form.date_choices
 end
 
-Then /^I am taken to the confirmation page$/ do
+Then /^I am taken to the donation confirmation page$/ do
   if TestBrowser.single_confirm_page.on_page?
-    case @@donation_type
-      when "One-off"
-        @@donation_reference = TestBrowser.browser.url.split("=")[2][16..51]
-        @@donation_amount =  '%.2f' % (TestBrowser.browser.url.split("paymentAmount=")[1][0..3].to_i/100)
-      when "Monthly"
-        @@donation_amount =  '%.2f' % (TestBrowser.browser.url.split("=")[3].to_i/100)
-      when "One-off PayPal"
-        @@donation_amount =  '%.2f' % (TestBrowser.browser.url.split("=")[2].split("&").first.to_i/100)
-    end
-    open(File.join(Dir.pwd, 'submissions/donations.txt'), 'a') do |f|
-      f << "> #{@@donate_email} - #{@@donation_type} donation submitted on #{@@ENV} at #{Time.now}\n"
-    end
+    TestBrowser.logging.write_to_file('donation')
   else
-    raise
+    raise("Unable to reach donation confirmation page")
   end
 end
 

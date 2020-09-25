@@ -56,3 +56,24 @@ end
 When("I choose to raise awareness") do
   TestBrowser.volunteering_form.select_raise
 end
+
+When("I choose to volunteer in shops and raise awareness") do
+  TestBrowser.volunteering_form.select_shop_and_awareness
+end
+
+Given("I am on the volunteer address page") do
+  TestBrowser.volunteering_form.go_to_address
+end
+
+Given("I search for a postcode in the volunteer lookup") do
+  TestBrowser.volunteering_form.fill_postcode
+  TestBrowser.volunteering_form.find_address
+end
+
+When("I select the results") do
+    TestBrowser.volunteering_form.select_address
+end
+
+Then("the correct volunteer data is shown in the fields") do
+  TestBrowser.volunteering_form.verify_address
+end

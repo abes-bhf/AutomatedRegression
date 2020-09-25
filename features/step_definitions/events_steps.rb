@@ -22,11 +22,8 @@ end
 
 Then /^I am taken to the event confirmation page$/ do
   if TestBrowser.event_confirmation_page.on_page?
-    open(File.join(Dir.pwd, 'submissions/events.txt'), 'a') do |f|
-      f << "> #{@@new_acc_email} registered on #{@@ENV} at #{Time.now} \n"
-    end
+    TestBrowser.logging.write_to_file('eventregistration')
   else
-    binding.pry
-    raise
+    raise('Unable to reach event confirmation page')
   end
 end

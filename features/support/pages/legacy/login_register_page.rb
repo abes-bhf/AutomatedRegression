@@ -74,6 +74,7 @@ class LoginRegisterPage < GenericForm
   end
 
   def password_validation?
+    sleep(3)
     validation_summary = browser.div(class: "scfSubmitSummary").spans
     return validation_summary.size==1
   end

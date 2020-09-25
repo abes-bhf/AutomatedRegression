@@ -55,6 +55,8 @@ Feature: Login/Registration
 		Given I log out
 		Then I can log in with the details used in registration
 		Then I am on my account page
+
+	Scenario: Events form account recognition
 		Given I log out
 		And I navigate to the L2B registration form without logging in
 		And I enter the email used in registration
@@ -99,3 +101,11 @@ Feature: Login/Registration
 		Then I decide to pay for registration through PayPal
 		And I return to the event payment page
 		Then I am taken to the events payment page
+
+ 		@liveregression @uatregression @pca
+		Scenario: Testing address lookup on one-off form
+			Given I am on the login registration page
+			And I click register
+			And I am taken to the registration form
+			And I enter and select a valid postcode from the lookup
+			Then the correct addresses appear in the right fields

@@ -40,6 +40,8 @@ class GenericV2Form < GenericForm
   end
 
   def radio_yes_no(value)
+    browser.input(value: value).scroll.to :center
+    sleep 0.5
     browser.input(value: value).click
   end
 

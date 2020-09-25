@@ -9,18 +9,6 @@ live:
   flow_url: https://10.190.2.5/
   publications_url: https://www.bhf.org.uk/basket/basket-form/
 
-uat:
-  <<: *execution_defaults
-  base_url: https://uat-bhf.precedenthost.co.uk/
-  flow_url: https://10.190.2.5/
-  publications_url: https://uat-bhf.precedenthost.co.uk/basket/basket-form/
-
-uat2:
-  <<: *execution_defaults
-  base_url: https://bhfuat2.precedenthost.co.uk/
-  flow_url: https://10.190.2.5/
-  publications_url: https://bhfuat2.precedenthost.co.uk/basket/basket-form/
-
 
 cd1:
   <<: *execution_defaults

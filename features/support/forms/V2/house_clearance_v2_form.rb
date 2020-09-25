@@ -1,8 +1,8 @@
-class FAndEFormsV2 < GenericV2Form
+class HouseClearanceV2Form < GenericV2Form
 
   def initialize(browser)
     super
-    @url = EnvConfig.base_url + "shop/donating-goods/book-furniture-collection-near-me/"
+    @url = EnvConfig.base_url + "kris-hc-sample/hc/time-frame"
     @continue = browser.button(value: 'Submit')
   end
 
@@ -14,39 +14,52 @@ def date_entry
   date_field_year_v2.send_keys (Time.now.year + 1)
 end
 
+def hc_details_page(fn, ln, email)
+  firstname_field_v2.send_keys fn
+  lastname_field_v2.send_keys ln
+  browser.input(type: "tel").send_keys "0123456789"
+  browser.input(type: "email").send_keys email
+end
 
-def fill_form
-  details = EnvConfig.data['publications_data']['details']
+def submit_form
+  details = EnvConfig.data['formsV2_data']['formsV2_details']
   # (details['postcode'])
-  postcode_field_v2.send_keys "BH14 9DF"
+  random_radio
   continue
-  continue
-  date_entry
-  browser.divs(class: 'f-forms__checkbox ')[0].label.scroll.to :center
-  sleep 0.5
-  browser.divs(class: 'f-forms__checkbox ')[0].label.click
-  continue
-  sleep 0.5
   dropdown_select
-  fnev2_details(details['fn'], details['ln'], @@donate_email, details['telephone'])
+  fnev2_details(details['fn'], details['ln'], details['email'], details['telephone'])
   continue
   fnev2_address(details['a1'], details['a2'], details['towncity'])
+  radio_yes_no("Yes")
   continue
-  checkbox.scroll.to :center
-  sleep 0.5
-  checkbox.click
-  continue
-  checkbox.scroll.to :center
-  sleep 0.5
-  checkbox.click
-  continue
-  sleep 1
   radio_yes_no("No")
+  continue
+  dropdown_select
   continue
   gdpr_field_v2
   continue
+  stupid_hc_checkbox
   continue
+  output_reference
 end
+
+def stupid_hc_checkbox
+  count = 0
+  until count == 8
+    browser.send_keys :tab
+    count += 1
+  end
+  browser.send_keys :space
+end
+
+def output_reference
+  ref = browser.span(class: "is-editable-field").ps[1].text
+  Watir::Wait.until {browser.span(class: "is-editable-field").present?}
+    begin
+      puts ref
+    end    
+end
+
 
 
 def fnev2_details(firstname, lastname, email, telephone)
