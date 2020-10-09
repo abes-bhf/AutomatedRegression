@@ -421,6 +421,7 @@ class PublicationsForm < GenericV2Form
   def select_address
     details = EnvConfig.data['publications_data']['details']
     dropbox = browser.div(class: 'f-forms__listbox--inner')
+    # binding.pry
     Watir::Wait.until {dropbox.present?}
     dropbox.ul.lis.each do |i|
       if i.text == details['lookup_match']

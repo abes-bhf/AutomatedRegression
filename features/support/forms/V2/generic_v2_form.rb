@@ -51,7 +51,13 @@ class GenericV2Form < GenericForm
     browser.inputs(type: 'radio').each do |o|
       radios << o
     end
-    radios.sample.click
+    radios.sample.scroll.to :bottom
+    begin
+      tries ||= 0
+      radios.sample.click
+    rescue
+      retry if (tries +=1) < 3
+    end
   end
 
 
