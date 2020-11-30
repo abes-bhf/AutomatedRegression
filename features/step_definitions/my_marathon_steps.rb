@@ -16,4 +16,5 @@ end
 
 Then /^I am taken to the MyMarathon confirmation page$/ do
   raise("Did not reach confirmation page for my marathon") unless TestBrowser.my_marathon_confirmation.on_page?
+  TestBrowser.my_marathon_form.mm_output_email
 end

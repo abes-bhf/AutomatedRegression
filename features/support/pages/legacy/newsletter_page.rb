@@ -34,4 +34,11 @@ class NewsletterPage < GenericForm
     end
   end
 
+  def newsletter_output_email
+    open(File.join(Dir.pwd, 'submissions/newsletter_signup.txt'), 'a') do |f|
+      f << "> #{@@disposable_email} registered on #{@@ENV} at #{Time.now} \n"
+    end
+  end
+
+
 end

@@ -16,4 +16,5 @@ end
 
 Then /^I am taken to the DYOT confirmation page$/ do
   raise("Did not reach confirmation page for DYOT") unless TestBrowser.dyot_confirmation_page.on_page?
+  TestBrowser.dyot_form.output_dyot_email
 end

@@ -30,7 +30,8 @@ def fill_form
   continue
   sleep 0.5
   dropdown_select
-  fnev2_details(details['fn'], details['ln'], @@donate_email, details['telephone'])
+  fnev2_details(details['fn'], details['ln'], "DigitalTestTeam@bhf.org.uk", details['telephone'])
+  #@@donate_email
   continue
   fnev2_address(details['a1'], details['a2'], details['towncity'])
   # browser.div(id: 'f-forms__element__552557d1-6917-47c0-9e0b-3d331d5094ce').scroll.to :top
@@ -59,7 +60,7 @@ end
 def fnev2_details(firstname, lastname, email, telephone)
   firstname_field_v2.send_keys firstname
   lastname_field_v2.send_keys lastname
-  browser.input(name: "EmailAddress").send_keys email
+  browser.input(name: "EmailAddress").send_keys "DigitalTestTeam@bhf.org.uk"
   browser.input(name: "PhoneNumber").send_keys telephone
 end
 
@@ -73,6 +74,7 @@ end
 
 #figure out regex
 def journey_fin
+  binding.pry
   browser.span(class: 'is-editable-field').ps[2].wait_until(&:present?)
   begin
     sleep 0.5

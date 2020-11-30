@@ -34,4 +34,11 @@ class ResearchNewsletterPage < GenericForm
     end
   end
 
+  def research_newsletter_output
+    open(File.join(Dir.pwd, 'submissions/research_newsletter.txt'), 'a') do |f|
+      f << "> #{@@disposable_email} registered on #{@@ENV} at #{Time.now} \n"
+    end
+  end
+
+
 end
