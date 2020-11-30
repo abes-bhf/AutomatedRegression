@@ -12,4 +12,5 @@ end
 
 Then /^I receive newsletter signup confirmation$/ do
   raise("Did not receive confirmation for newsletter signup") unless TestBrowser.newsletter_page.confirmed?
+  TestBrowser.newsletter_page.newsletter_output_email
 end
