@@ -22,7 +22,7 @@ class JustWalkForm < GenericForm
   end
 
   def about_you(details)
-    random_title
+    random_title_select
     fn = browser.text_field(id: "main_0_form_2C24BCE832054880877FD4AB82BD8B92_field_C2D8F164A50C461A97D62266195BFC6C")
     ln = browser.text_field(id: "main_0_form_2C24BCE832054880877FD4AB82BD8B92_field_E36CE1CF0CB14A2DBF421BF2733919BB")
     sendkeys!(fn, details['fn'])

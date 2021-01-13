@@ -34,6 +34,7 @@ class VolunteeringForm < GenericV2Form
     date_field_year_v2.send_keys (Time.now.year - 16)
     sleep 0.5
     continue
+    sleep 1
     radio_yes_no("No")
     continue
     radio_yes_no("Yes")
@@ -46,6 +47,7 @@ class VolunteeringForm < GenericV2Form
     date_field_year_v2.send_keys (Time.now.year - 19)
     sleep 0.5
     continue
+    sleep 1
     radio_yes_no("No")
     continue
     radio_yes_no("Yes")
@@ -88,14 +90,24 @@ end
 
 def select_shop
   details = EnvConfig.data['formsV2_data']['formsV2_details']
-  browser.divs(class: "f-forms__checkbox")[0].label.click
+  begin
+    retries ||= 0
+    browser.divs(class: "f-forms__checkbox")[0].label.click
+  rescue Selenium::WebDriver::Error::ElementClickInterceptedError
+    retry if (retries += 1) < 5
+  end
   continue
   preferred_pcode(details['postcode'])
   continue
 end
 
 def select_raise
-  browser.divs(class: "f-forms__checkbox")[1].label.click
+  begin
+    retries ||= 0
+    browser.divs(class: "f-forms__checkbox")[1].label.click
+  rescue Selenium::WebDriver::Error::ElementClickInterceptedError
+    retry if (retries += 1) < 3
+  end
   continue
 end
 
@@ -156,9 +168,16 @@ def details_section
   journey_fin
 end
 
+#Selenium::WebDriver::Error::ElementClickInterceptedError
 def select_shop_and_awareness
   details = EnvConfig.data['formsV2_data']['formsV2_details']
-  browser.divs(class: "f-forms__checkbox")[0].label.click
+  begin
+    retries ||= 0
+    browser.divs(class: "f-forms__checkbox")[0].label.click
+    browser.divs(class: "f-forms__checkbox")[1].label.click
+  rescue
+    retry if (retries += 1) < 3
+  end
   browser.divs(class: "f-forms__checkbox")[1].label.click
   continue
   preferred_pcode(details['postcode'])
@@ -208,6 +227,7 @@ def find_address
   end
 end
 
+# 49 may need changing if postcode numbers change/ myb size max|  & dropbox.ul.lis[49].present?
 def select_address
   details = EnvConfig.data['formsV2_data']['formsV2_details']
   dropbox = browser.div(class: 'f-forms__listbox--inner')
@@ -215,6 +235,7 @@ def select_address
   dropbox.ul.lis.each do |i|
     if i.text == details['lookup_match']
       i.click
+      break
     end
   end
 end

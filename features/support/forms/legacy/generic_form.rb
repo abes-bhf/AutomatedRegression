@@ -41,7 +41,12 @@ class GenericForm < GenericPage
     dropdown.options.each do |option|
       options << option
     end
-    options.sample.click
+    begin
+      retries ||= 0
+      options.sample.click
+    rescue Selenium::WebDriver::Error::ElementClickInterceptedError
+      retry if (retries += 1) < 4
+    end
   end
 
   def find_textfields(label)
@@ -191,10 +196,14 @@ class GenericForm < GenericPage
     pst = "rbContactByPost#{yesno(post)}"
     ph = "rbContactByPhone#{yesno(phone)}"
     values = [eml, txt, pst, ph]
+    begin
     values.each do |choice|
       decision = dp.radio(value: choice)
       decision.click!
     end
+  rescue
+  end
+  
   end
 
   def radio_selector_by_value(value)

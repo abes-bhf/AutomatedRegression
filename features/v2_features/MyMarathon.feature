@@ -9,7 +9,7 @@ Feature: MyMarathon form
     Given I navigate to the MyMarathon page
     Then The MyMarathon page is displayed
 
-  @submission
+ @missing_from_site
   Scenario: MyMarathon Submission
     Given I navigate to the MyMarathon form
     And I fill in MyMarathon details

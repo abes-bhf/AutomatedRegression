@@ -42,7 +42,6 @@ def submit_form
   stupid_hc_checkbox
   continue
   output_reference
-  binding.pry
 end
 
 def stupid_hc_checkbox

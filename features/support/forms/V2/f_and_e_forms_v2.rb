@@ -48,7 +48,8 @@ def fill_form
   sleep 0.5
   checkbox.click
   continue
-  sleep 1
+  sleep 2.5
+  radio_yes_no("No")
   radio_yes_no("No")
   continue
   gdpr_field_v2
@@ -74,7 +75,6 @@ end
 
 #figure out regex
 def journey_fin
-  binding.pry
   browser.span(class: 'is-editable-field').ps[2].wait_until(&:present?)
   begin
     sleep 0.5

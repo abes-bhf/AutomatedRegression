@@ -35,14 +35,15 @@ class MailsacPage < GenericPage
   end
 
   def msg_by_subject(subject)
-    msgs = messages
-    matches = []
-    msgs.each do |m|
-      matches << m unless m.td(class:"col-xs-5").text != subject
-    end
-    binding.pry unless matches.size > 0
-    matches[0].click
-    browser.goto(matches[0].a(text: "Unblock links and images ↗").href)
+    # msgs = messages
+    # matches = []
+    # msgs.each do |m|
+    #   matches << m unless m.td(class:"col-xs-5").text != subject
+    # end
+    # binding.pry unless matches.size > 0
+    # matches[0].click
+    browser.td(class:"col-xs-5").click # Experimental line
+    # browser.goto(matches[0].a(text: "Unblock links and images ↗").href)
   end
 
   def one_off_donation_content_check

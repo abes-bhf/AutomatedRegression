@@ -47,7 +47,23 @@ class VolunteeringPage < GenericPage
   end
 
   def vol_sign_up
-    browser.a(text: "Sign up").click
+    begin
+      retries ||= 0
+      browser.a(text: "Become a shop volunteer").click
+    rescue Selenium::WebDriver::Error::ElementClickInterceptedError
+      retry if (retries += 1) < 3
+    end
+    count = 0
+    while count != 2
+      begin
+        retries ||= 0
+        browser.a(text: "Sign up now").click
+      rescue Selenium::WebDriver::Error::ElementClickInterceptedError
+        retry if (retries += 1) < 5
+      end
+      count += 1
+    end
+
   end
 
 

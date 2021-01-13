@@ -1,4 +1,4 @@
-class GiwPage < GenericPage
+class HosPage < GenericPage
 
   attr_accessor :url
 
@@ -14,7 +14,7 @@ class GiwPage < GenericPage
   end
 
   def request_giw
-    request_giw = browser.a(text: "Request your free guide")
+    request_giw = browser.a(text: "Request your guide")
     return request_giw
   end
 

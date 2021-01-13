@@ -17,7 +17,7 @@ publications_data:
     alt_a1: Alternate
     alt_a2: Billing address
     alt_tc: Thessalonica
-    lookup_match: Moseley Saw Mills Moseley Road Worcester Worcestershire WR2 6NJ
+    lookup_match: Moseley Saw Mills, Moseley Road Hallow, Worcester, WR2 6NJ
     lookup_a1: Moseley Saw Mills
     lookup_a2: Moseley Road
     lookup_city: Worcester
@@ -55,5 +55,6 @@ publications_data:
     invalid_ln: The last name can contain characters only. Hyphens and spaces are permitted.
     short_error: Field length must be between 2 and 255 characters long
     invalid_characters: Characters and numbers only. Hyphens, spaces, dots, apostrophes and underscores are permitted.
+    invalid_characters_pc: Characters and numbers only. Hyphens, spaces, dots, apostrophes and underscores are not permitted.
     req_field: Required field.
     req_field_alt: This is a required field.

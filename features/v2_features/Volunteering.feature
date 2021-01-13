@@ -14,7 +14,7 @@ Feature: volunteering
 		Then I am taken to the volunteer sign in form
 
 # complete
- @u17
+ @u17 @submission
 		Scenario: Sign up to volunteer as u17 year old
 			Given I navigate to the volunteer form
 			And I start the volunteer form
@@ -22,7 +22,7 @@ Feature: volunteering
 			Then I can sign up to volunteer in shops
 
 # complete
- @over18 @shop
+ @over18 @shop @submission
 		Scenario: Sign up to volunteer at shops
 			Given I navigate to the volunteer form
 			And I start the volunteer form
@@ -31,7 +31,7 @@ Feature: volunteering
 			Then I can complete the form
 
 # # currently out of action
-# 	@over18 @events
+# 	@over18 @events @submission
 # 		Scenario: Sign up to volunteer at events
 # 			Given I navigate to the volunteer form
 # 			And I start the volunteer form
@@ -49,7 +49,7 @@ Feature: volunteering
 # 			Then I can complete the form
 
 
-	@over18 @raisingawareness
+	@over18 @raisingawareness @submission
 		Scenario: Sign up to raise awareness
 			Given I navigate to the volunteer form
 			And I start the volunteer form
@@ -66,7 +66,7 @@ Feature: volunteering
 			Then I can complete the form
 
 
-	@pca @wip
+	@pca
 		Scenario: Check the address page postcode lookup
 		Given I am on the volunteer address page
 		And I search for a postcode in the volunteer lookup

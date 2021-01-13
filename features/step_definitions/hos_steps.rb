@@ -1,5 +1,5 @@
 Given("I navigate to heart of steel page") do
-  pending # Write code here that turns the phrase above into concrete actions
+  TestBrowser.hos_page.visit
 end
 
 Given("I select continue without selecting {int} and over") do |int|
