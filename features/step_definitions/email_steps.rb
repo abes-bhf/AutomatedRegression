@@ -15,6 +15,6 @@ Then /^There should be an email confirmation of my collection request with expec
 end
 
 Then /^There should be an email confirmation of my one-off donation with expected content$/ do
-  TestBrowser.mailsac_page.msg_by_subject("Thank you for your donation! You are a superstar.")
+  TestBrowser.mailsac_page.msg_by_subject("Thank you for your donation!")
   TestBrowser.mailsac_page.one_off_donation_content_check
 end

@@ -40,6 +40,7 @@ class PublicationsBasketPage < GenericPage
   def select_preset_amount(amount)
     @used_value = amount
     donation_section = browser.div(class: 'donate-bar')
+    Watir::Wait.until {donation_section.present?}
     donation_section.scroll.to :center
     donation_options = donation_section.as(class: 'donate-amount')
     sleep 1
@@ -171,7 +172,12 @@ class PublicationsBasketPage < GenericPage
   def checkout
     browser.input(value: 'Check out').scroll.to :center
     sleep 0.5
-    browser.input(value: 'Check out').click
+    begin
+      retries ||= 0
+      browser.input(value: 'Check out').click
+    rescue Selenium::WebDriver::Error::ElementClickInterceptedError
+      retry if (retries += 1) < 4
+    end
   end
 
 

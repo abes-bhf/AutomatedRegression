@@ -39,7 +39,7 @@ class PublicationsPage < GenericPage
 
 
   def select_publication
-    select_publication = browser.a(text: "Understanding vascular dementia")
+    select_publication = browser.a(text: "Understanding cholesterol")
     select_publication.scroll.to :center
     Watir::Wait.until {select_publication.present? & select_publication.exists?}
     begin
@@ -56,9 +56,19 @@ class PublicationsPage < GenericPage
   # end
 
   def add_to_basket
-    browser.input(id: "main_0_pagecontent_0_btnAddToBasket").scroll.to :center
-    sleep 0.5
-    browser.input(id: "main_0_pagecontent_0_btnAddToBasket").click
+    add_to_basket_button = browser.input(id: "main_0_pagecontent_0_btnAddToBasket")#
+    begin
+      Watir::Wait.until {add_to_basket_button.present?}
+    rescue
+      binding.pry
+    end
+    add_to_basket_button.scroll.to :center
+    begin
+      retries ||= 0
+    add_to_basket_button.click
+    rescue Selenium::WebDriver::Error::ElementClickInterceptedError
+      retry if (retries += 1) < 7
+    end
   end
 
 

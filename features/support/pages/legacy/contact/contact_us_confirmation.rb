@@ -9,7 +9,7 @@ class ContactUsConfirmation < GenericForm
   end
 
   def trait
-    trait = browser.h1(text: 'Thank you!')
+    trait = browser.div(id: 'main_0_pagecontent_0_middlecontent_0_form_F76DDE83AF99444382BAA25611431FF2_fieldContainer')
     return trait
   end
 

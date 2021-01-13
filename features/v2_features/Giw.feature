@@ -40,7 +40,7 @@ Feature: Gift in wills
     And I select continue without filling in gdpr
     Then the gift in wills form should return with validation messages
 
-  @happypath @liveregression @uatregression @validation
+  @happypath @liveregression @uatregression @submission
   Scenario: Testing complete Gift in wills form
     Given I navigate to the Gift in wills page
     And I select request your guide

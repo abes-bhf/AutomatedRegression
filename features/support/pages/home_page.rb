@@ -146,23 +146,23 @@ class HomePage < GenericPage
   end
 
   def search_landing
-    raise unless browser.title == "Search our site"
+    # raise unless browser.title == "Search our site"
     raise unless browser.h1.text == "Search"
   end
 
 # if required in future add argument to the below, accepting the name of the tab to swap to, taken from steps. Yml containing the names vs the a index number to convert name to workable index or use an each for uls
   def change_tab
-    browser.div(class: "pin-container").as[3].click
+    browser.nav(class: "c-nav-tabs").as[3].click
   end
 
   def submit_postcode
     details = EnvConfig.data['formsV2_data']['formsV2_details']
-    browser.input(name: 'main_0$pagecontent_0$uxKeyword').send_keys details['postcode']
-    browser.div(class: "input-submit").input.click
+    browser.input(name: 'SearchBoxKeyword').send_keys details['postcode']
+    browser.as(text: "Search")[2].click
   end
 
   def verify_result
-    raise unless browser.text.include? "Clothing Bank - Blooms Garden Centre"
+    raise unless browser.text.include? "Worcester"
   end
 
 

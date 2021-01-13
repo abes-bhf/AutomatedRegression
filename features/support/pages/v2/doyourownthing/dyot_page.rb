@@ -21,7 +21,7 @@ class DyotPage < GenericPage
   end
 
   def trait
-    trait = browser.h1(text: "Your fundraising pack")
+    trait = browser.h1(text: "Sign up to raise money")
     return trait
   end
 

@@ -8,7 +8,7 @@ class JustWalkConfirmation < GenericForm
   end
 
   def trait
-    trait = browser.span(text: 'Thank you for joining us to help find the cures and treatments to bea heart and circulatory diseases.')
+    trait = browser.span(text: 'Thank you for joining us to help find the cures and treatments to beat heart and circulatory diseases.')
     return trait
   end
 
