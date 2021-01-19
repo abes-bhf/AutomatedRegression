@@ -4,7 +4,7 @@ class LondonToBrightonPage < GenericPage
 
   def initialize(browser)
     super
-    @url = EnvConfig.base_url + "how-you-can-help/events/bike-rides/london-to-brighton-bike-ride-2020"
+    @url = EnvConfig.base_url + "how-you-can-help/events/bike-rides/london-to-brighton-bike-ride-2021-ryi"
   end
 
   def trait
@@ -23,7 +23,7 @@ class LondonToBrightonPage < GenericPage
   end
 
   def guest_sign_up
-    signupbutton = browser.a(text: 'Sign up now')
+    signupbutton = browser.a(text: 'Register your interest')
     if logout_button.present?
       log_out
       signupbutton.scroll.to
