@@ -106,7 +106,7 @@ def select_raise
     retries ||= 0
     browser.divs(class: "f-forms__checkbox")[1].label.click
   rescue Selenium::WebDriver::Error::ElementClickInterceptedError
-    retry if (retries += 1) < 3
+    retry if (retries += 1) < 5
   end
   continue
 end
