@@ -34,9 +34,11 @@ class VolunteeringForm < GenericV2Form
     date_field_year_v2.send_keys (Time.now.year - 16)
     sleep 0.5
     continue
-    sleep 1
-    radio_yes_no("No")
+    Watir::Wait.until {browser.text.include? ("criminal")}
+    5.times do radio_yes_no("No")
+    end
     continue
+    Watir::Wait.until {browser.text.include? ("UK address")}
     radio_yes_no("Yes")
     continue
   end
@@ -47,9 +49,11 @@ class VolunteeringForm < GenericV2Form
     date_field_year_v2.send_keys (Time.now.year - 19)
     sleep 0.5
     continue
-    sleep 1
-    radio_yes_no("No")
+    Watir::Wait.until {browser.text.include? ("criminal")}
+    5.times do radio_yes_no("No")
+    end
     continue
+    Watir::Wait.until {browser.text.include? ("UK address")}
     radio_yes_no("Yes")
     continue
   end
