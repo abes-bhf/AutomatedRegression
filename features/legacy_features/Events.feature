@@ -41,7 +41,7 @@ Feature: events
 		And I return to the event payment page
 		Then I am taken to the events payment page
 
-		@event @run @worldpay
+		@event @run @worldpay @submission
 		Scenario: sign up to a run with worldpay
 			Given I navigate to the kew gardens 10k run without logging in
 			And I register for kew gardens with a new email and password
@@ -51,7 +51,7 @@ Feature: events
 			And I enter valid card details
 			Then I am taken to the event confirmation page
 
-		@event @run @paypal @wip
+		@event @run @paypal @submission
 		Scenario: sign up to a run with worldpay
 			Given I navigate to the kew gardens 10k run without logging in
 			And I register for kew gardens with a new email and password
