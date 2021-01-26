@@ -38,17 +38,15 @@ Then("I select this is my own money") do
   TestBrowser.donate_v2_form.isthisyourmoney
 end
 
-Then("add gift aid") do
-  TestBrowser.donate_v2_form.add_giftaid
-end
+# Then("add gift aid") do
+#   TestBrowser.donate_v2_form.add_giftaid
+# end
 
 Then("I set up direct debit") do
   binding.pry
+  #TestBrowser.donate_v2_form.direct_debit
 end
 
-Then("fill in gdpr") do
-  pending # Write code here that turns the phrase above into concrete actions
-end
 
 Then("select confirm and pay") do
   pending # Write code here that turns the phrase above into concrete actions

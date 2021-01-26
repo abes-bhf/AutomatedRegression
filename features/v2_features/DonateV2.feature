@@ -22,7 +22,7 @@ Scenario: Testing donate widget
   And I fill in details about you
   Then I fill in my address
   And I select this is my own money
-  Then add gift aid
+  Then add gift aid check hos gift aid
   Then I set up direct debit
   And fill in gdpr
   Then select confirm and pay

@@ -1,27 +1,42 @@
-Given("I navigate to heart of steel page") do
+
+Given("I navigate to the heart of steal page") do
   TestBrowser.hos_page.visit
 end
 
-Given("I select continue without selecting {int} and over") do |int|
-  pending # Write code here that turns the phrase above into concrete actions
+Given("I select I am over sixteen") do
+  TestBrowser.hos_form.select_over_sixteen
 end
 
-Then("a validation message should appear") do
-  pending # Write code here that turns the phrase above into concrete actions
+Given("I fill in engraving details") do
+  TestBrowser.hos_form.engraving_details
 end
 
-Then("I select continue without filling in engraving details") do
-  pending # Write code here that turns the phrase above into concrete actions
+Given("I fill in your details") do
+  TestBrowser.hos_form.details_section
 end
 
-Then("engraving details validation message should appear") do
-  pending # Write code here that turns the phrase above into concrete actions
+Then("I share my story") do
+  TestBrowser.hos_form.share_my_story
 end
 
-Given("I select I am over {int}") do |int|
-  pending # Write code here that turns the phrase above into concrete actions
+Then("fill in gdpr") do
+  TestBrowser.hos_form.select_gdpr
 end
 
-Given("I enter invalid data on engraving details") do
-  pending # Write code here that turns the phrase above into concrete actions
+Then("I end up in order summary page") do
+  TestBrowser.hos_form.summary
 end
+
+Then("add donation") do
+  TestBrowser.hos_form.add_donation
+end
+
+Then("add gift aid") do
+  TestBrowser.hos_form.add_gift_aid
+end
+
+Then("am presented with the hos confirmation page") do
+  TestBrowser.hos_form.hos_confirmation
+end
+
+### END OF HAPPY PATH
