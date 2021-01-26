@@ -15,5 +15,7 @@ Scenario: Valid get started
   Then I end up in order summary page
   And add donation
   Then add gift aid
-  Then proceed to pay
-  Then am presented with the confirmation page
+  And I press pay via worldpay
+  Then I am taken to the Worldpay page
+  And I enter valid card details
+  Then am presented with the hos confirmation page

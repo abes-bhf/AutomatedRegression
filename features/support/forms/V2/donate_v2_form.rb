@@ -22,8 +22,8 @@ class DonateV2Form < GenericV2Form
 
   def correct_address
     postcode_field_v2.send_keys "WR2 6NJ"
-    address1_field_v2.send_keys "TEST"
-    address2_field_v2.send_keys "TEST"
+    address1_field_v2.send_keys "Automated Test"
+    address2_field_v2.send_keys "Automated Test"
     city_field_v2.send_keys "LONDON"
     continue
   end

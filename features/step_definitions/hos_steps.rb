@@ -8,31 +8,35 @@ Given("I select I am over sixteen") do
 end
 
 Given("I fill in engraving details") do
-  TestBrowser.hos_form.enter_engraving_details
+  TestBrowser.hos_form.engraving_details
 end
 
 Given("I fill in your details") do
-  binding.pry 
+  TestBrowser.hos_form.details_section
 end
 
 Then("I share my story") do
-  pending # Write code here that turns the phrase above into concrete actions
+  TestBrowser.hos_form.share_my_story
+end
+
+Then("fill in gdpr") do
+  TestBrowser.hos_form.select_gdpr
 end
 
 Then("I end up in order summary page") do
-  pending # Write code here that turns the phrase above into concrete actions
+  TestBrowser.hos_form.summary
 end
 
 Then("add donation") do
-  pending # Write code here that turns the phrase above into concrete actions
+  TestBrowser.hos_form.add_donation
 end
 
-Then("proceed to pay") do
-  pending # Write code here that turns the phrase above into concrete actions
+Then("add gift aid") do
+  TestBrowser.hos_form.add_gift_aid
 end
 
-Then("am presented with the confirmation page") do
-  pending # Write code here that turns the phrase above into concrete actions
+Then("am presented with the hos confirmation page") do
+  TestBrowser.hos_form.hos_confirmation
 end
 
 ### END OF HAPPY PATH
