@@ -13,7 +13,6 @@ class JustWalkForm < GenericForm
 
   def fill_form
     details = EnvConfig.data['jw']
-    sleep(1)
     about_you(details['about_you'])
     contact_details(details['contact_details'])
     about_fundraising
@@ -22,6 +21,7 @@ class JustWalkForm < GenericForm
   end
 
   def about_you(details)
+    Watir::Wait.until {browser.text.include? "About you"}
     random_title_select
     fn = browser.text_field(id: "main_0_form_2C24BCE832054880877FD4AB82BD8B92_field_C2D8F164A50C461A97D62266195BFC6C")
     ln = browser.text_field(id: "main_0_form_2C24BCE832054880877FD4AB82BD8B92_field_E36CE1CF0CB14A2DBF421BF2733919BB")

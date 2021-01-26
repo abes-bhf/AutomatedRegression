@@ -32,11 +32,14 @@ And /^I fill in run event specific questions$/ do
 end
 
 Then /^I am taken to the event confirmation page$/ do
-  if TestBrowser.event_confirmation_page.on_page?
+  er_count = 0
+  begin
+    TestBrowser.event_confirmation_page.on_page?
     TestBrowser.logging.write_to_file('eventregistration')
-  else
-    raise('Unable to reach event confirmation page')
+  rescue
+    retry if (er_count +=1) < 3
   end
+
 
 
 

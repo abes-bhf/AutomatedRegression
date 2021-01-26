@@ -45,7 +45,7 @@ class GenericV2Form < GenericForm
     browser.input(value: value).scroll.to :center
     begin
       retries ||= 0
-      browser.input(value: value).click
+      click!(browser.input(value: value))
     rescue
       retry if (retries += 1) < 5
     end
@@ -68,7 +68,7 @@ class GenericV2Form < GenericForm
 
 
   def checkbox
-    checkbox = browser.div(class: 'f-forms__checkbox').label
+    checkbox = browser.div(class: 'f-forms__checkbox')
     return checkbox
   end
 
