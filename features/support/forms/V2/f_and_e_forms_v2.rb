@@ -20,6 +20,8 @@ def fill_form
   # (details['postcode'])
   postcode_field_v2.send_keys "BH14 9DF"
   continue
+  # browser.div(id: 'f-forms__radio__51295d68-3ffa-45f9-9f00-94a7658e92b9').scroll.to :center
+  random_radio
   continue
   date_entry
   browser.divs(class: 'f-forms__checkbox ')[0].label.scroll.to :center
@@ -28,9 +30,15 @@ def fill_form
   continue
   sleep 0.5
   dropdown_select
-  fnev2_details(details['fn'], details['ln'], @@donate_email, details['telephone'])
+  fnev2_details(details['fn'], details['ln'], "DigitalTestTeam@bhf.org.uk", details['telephone'])
+  #@@donate_email
   continue
   fnev2_address(details['a1'], details['a2'], details['towncity'])
+  # browser.div(id: 'f-forms__element__552557d1-6917-47c0-9e0b-3d331d5094ce').scroll.to :top
+  random_radio
+  if browser.input(name: 'CollectionLocation2').present?
+    browser.input(name: 'CollectionLocation2').send_keys "Under the doormat"
+  end
   continue
   checkbox.scroll.to :center
   sleep 0.5
@@ -40,7 +48,8 @@ def fill_form
   sleep 0.5
   checkbox.click
   continue
-  sleep 1
+  sleep 2.5
+  radio_yes_no("No")
   radio_yes_no("No")
   continue
   gdpr_field_v2
@@ -52,7 +61,7 @@ end
 def fnev2_details(firstname, lastname, email, telephone)
   firstname_field_v2.send_keys firstname
   lastname_field_v2.send_keys lastname
-  browser.input(name: "EmailAddress").send_keys email
+  browser.input(name: "EmailAddress").send_keys "DigitalTestTeam@bhf.org.uk"
   browser.input(name: "PhoneNumber").send_keys telephone
 end
 

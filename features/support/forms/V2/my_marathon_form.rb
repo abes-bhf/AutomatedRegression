@@ -59,5 +59,11 @@ class MyMarathonForm < GenericV2Form
     end
   end
 
+def mm_output_email
+  open(File.join(Dir.pwd, 'submissions/my_marathon.txt'), 'a') do |f|
+    f << "> #{@@disposable_email} registered on #{@@ENV} at #{Time.now} \n"
+  end
+end
+
 
 end

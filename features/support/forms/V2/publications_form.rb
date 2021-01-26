@@ -221,7 +221,7 @@ class PublicationsForm < GenericV2Form
     continue
     pub_step4(invalid['postcode'], invalid['a1'], invalid['a2'], invalid['towncity'], "Yes")
     continue
-    invalid_pub_4(message['short_error'], message['invalid_characters'])
+    invalid_pub_4(message['invalid_characters_pc'], message['invalid_characters'])
     pub_step4(details['postcode'], details['a1'], details['a2'], details['towncity'], "Yes")
     continue
     gdpr_field_v2
@@ -240,8 +240,8 @@ class PublicationsForm < GenericV2Form
     clear_inputs
   end
 
-  def invalid_pub_4(short_error, invalid_characters)
-    raise unless parsley_pattern[0].text == invalid_characters
+  def invalid_pub_4(invalid_characters_pc, invalid_characters)
+    raise unless parsley_pattern[0].text == invalid_characters_pc
     raise unless parsley_pattern[1].text == invalid_characters
     raise unless parsley_pattern[2].text == invalid_characters
     # raise unless browser.li(class: "parsley-length").text == short_error
@@ -421,10 +421,12 @@ class PublicationsForm < GenericV2Form
   def select_address
     details = EnvConfig.data['publications_data']['details']
     dropbox = browser.div(class: 'f-forms__listbox--inner')
+    # binding.pry
     Watir::Wait.until {dropbox.present?}
     dropbox.ul.lis.each do |i|
       if i.text == details['lookup_match']
         i.click
+        break
       end
     end
   end

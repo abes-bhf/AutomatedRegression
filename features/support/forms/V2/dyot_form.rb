@@ -104,5 +104,11 @@ class DyotForm < GenericV2Form
     continue
   end
 
+  def output_dyot_email
+    open(File.join(Dir.pwd, 'submissions/dyot.txt'), 'a') do |f|
+      f << "> #{@@disposable_email} registered on #{@@ENV} at #{Time.now} \n"
+    end
+  end
+
 
 end

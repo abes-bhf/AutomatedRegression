@@ -111,4 +111,11 @@ class GiwForm < GenericV2Form
     submit_gdpr
   end
 
+  def output_email
+    open(File.join(Dir.pwd, 'submissions/giw.txt'), 'a') do |f|
+      f << "> #{@@new_giw_email} registered on #{@@ENV} at #{Time.now} \n"
+    end
+  end
+
+
 end

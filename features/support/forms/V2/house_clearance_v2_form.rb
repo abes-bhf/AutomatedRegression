@@ -27,7 +27,8 @@ def submit_form
   random_radio
   continue
   dropdown_select
-  fnev2_details(details['fn'], details['ln'], details['email'], details['telephone'])
+  fnev2_details(details['fn'], details['ln'], "DigitalTestTeam@bhf.org.uk", details['telephone'])
+  #details['email']
   continue
   fnev2_address(details['a1'], details['a2'], details['towncity'])
   radio_yes_no("Yes")
@@ -52,12 +53,13 @@ def stupid_hc_checkbox
   browser.send_keys :space
 end
 
+#the below is not working
 def output_reference
   ref = browser.span(class: "is-editable-field").ps[1].text
   Watir::Wait.until {browser.span(class: "is-editable-field").present?}
     begin
       puts ref
-    end    
+    end
 end
 
 

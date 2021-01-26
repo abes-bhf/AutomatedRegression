@@ -39,10 +39,16 @@ class GenericV2Form < GenericForm
     return validation_summary.size == number
   end
 
+# Selenium::WebDriver::Error::ElementClickInterceptedError
   def radio_yes_no(value)
+    Watir::Wait.until {browser.label(class: "f-forms__radio--element ").present?}
     browser.input(value: value).scroll.to :center
-    sleep 0.5
-    browser.input(value: value).click
+    begin
+      retries ||= 0
+      browser.input(value: value).click
+    rescue
+      retry if (retries += 1) < 5
+    end
   end
 
 #select a random radio from a long list
@@ -51,7 +57,13 @@ class GenericV2Form < GenericForm
     browser.inputs(type: 'radio').each do |o|
       radios << o
     end
-    radios.sample.click
+    # radios.sample.scroll.to :bottom
+    begin
+      tries ||= 0
+      radios.sample.click
+    rescue
+      retry if (tries +=1) < 3
+    end
   end
 
 

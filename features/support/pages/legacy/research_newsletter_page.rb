@@ -26,12 +26,19 @@ class ResearchNewsletterPage < GenericForm
 
   def confirmed?
     begin
-      confirmation_message = browser.div(id: "form_A4A93621EEC445949C6D02C2DAE1CF6B")
+      confirmation_message = browser.div(id: "skipto-content")
       Watir::Wait.until { confirmation_message.exists? && confirmation_message.present? }
       return true
     rescue
       return false
     end
   end
+
+  def research_newsletter_output
+    open(File.join(Dir.pwd, 'submissions/research_newsletter.txt'), 'a') do |f|
+      f << "> #{@@disposable_email} registered on #{@@ENV} at #{Time.now} \n"
+    end
+  end
+
 
 end

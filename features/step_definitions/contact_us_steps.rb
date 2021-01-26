@@ -11,5 +11,5 @@ And /^I fill in the contact us form$/ do
 end
 
 Then /^I am taken to contact us confirmation page$/ do
-  raise("Did not reach confirmation page for contact us page") unless TestBrowser.contact_us_confirmation.on_page?
+  raise("Did not reach confirmation page for contact us page") if TestBrowser.contact_us_confirmation.on_page?
 end

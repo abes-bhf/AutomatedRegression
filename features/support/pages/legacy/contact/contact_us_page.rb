@@ -15,16 +15,22 @@ class ContactUsPage < GenericForm
 
   def fill_form
     details = EnvConfig.data['contact']
-    subjectdropdown = browser.select(id: "main_0_pagecontent_0_middlecontent_0_form_5B880F10B5AC4A8DB448B8E82F0BD90F_field_8E5DAB68B20A462CB2E2131C87D8A52E")
+    begin
+      retries ||= 0
+      browser.a(href: "/what-we-do/contact-us/feedback-and-complaints").click
+    rescue Selenium::WebDriver::Error::ElementClickInterceptedError
+      retry if (retries += 1) < 4
+    end
+    subjectdropdown = browser.select(id: "main_0_pagecontent_0_middlecontent_0_form_F76DDE83AF99444382BAA25611431FF2_field_B2BD2666ED9C46708698D0D532965F90")
     dropdownrandom(subjectdropdown)
-    query =  browser.textarea(id: "main_0_pagecontent_0_middlecontent_0_form_5B880F10B5AC4A8DB448B8E82F0BD90F_field_F9F877837902465380CE8901B132F996")
-    title = browser.select(id: "main_0_pagecontent_0_middlecontent_0_form_5B880F10B5AC4A8DB448B8E82F0BD90F_field_7ADC50D09C904D3583FFAFEA81BE664F")
-    firstname = browser.text_field(id: "main_0_pagecontent_0_middlecontent_0_form_5B880F10B5AC4A8DB448B8E82F0BD90F_field_A0D6CA1DAB9D457185198289F30E3267")
-    lastname = browser.text_field(id: "main_0_pagecontent_0_middlecontent_0_form_5B880F10B5AC4A8DB448B8E82F0BD90F_field_9FC1BF52E8AD4B00A131AAD997A9ABEA")
-    email = browser.text_field(id: "main_0_pagecontent_0_middlecontent_0_form_5B880F10B5AC4A8DB448B8E82F0BD90F_field_D1892D14732E402AACD2849201F1C656")
-    postcode = browser.text_field(id: "main_0_pagecontent_0_middlecontent_0_form_5B880F10B5AC4A8DB448B8E82F0BD90F_field_9C69BACF71C44EFE974E0E9D2C1D294E")
-    address = browser.text_field(id: "main_0_pagecontent_0_middlecontent_0_form_5B880F10B5AC4A8DB448B8E82F0BD90F_field_997DFF7A19D846169DC70822DFF72764")
-    city = browser.text_field(id: "main_0_pagecontent_0_middlecontent_0_form_5B880F10B5AC4A8DB448B8E82F0BD90F_field_03B32C5639D14F45AF608546FDAA3A1A")
+    query =  browser.textarea(id: "main_0_pagecontent_0_middlecontent_0_form_F76DDE83AF99444382BAA25611431FF2_field_2A372486618042CEA1AEE711D0B360D2")
+    title = browser.select(id: "main_0_pagecontent_0_middlecontent_0_form_F76DDE83AF99444382BAA25611431FF2_field_A668A0C5DF42450F9C11FE98E763841C")
+    lastname = browser.text_field(id: "main_0_pagecontent_0_middlecontent_0_form_F76DDE83AF99444382BAA25611431FF2_field_7E4D386602EE49188AF3F79594F6F824")
+    firstname = browser.text_field(id: "main_0_pagecontent_0_middlecontent_0_form_F76DDE83AF99444382BAA25611431FF2_field_4651684B139C43F793BFAA0D7C59F962")
+    email = browser.text_field(id: "main_0_pagecontent_0_middlecontent_0_form_F76DDE83AF99444382BAA25611431FF2_field_A92258070A0C4FC4B6656D685C0B6E7A")
+    postcode = browser.text_field(id: "main_0_pagecontent_0_middlecontent_0_form_F76DDE83AF99444382BAA25611431FF2_field_9D0427AC3ABE4686B70D4A2E92A995E8")
+    address = browser.text_field(id: "main_0_pagecontent_0_middlecontent_0_form_F76DDE83AF99444382BAA25611431FF2_field_100349730E914D489EB76B63D80CABB9")
+    city = browser.text_field(id: "main_0_pagecontent_0_middlecontent_0_form_F76DDE83AF99444382BAA25611431FF2_field_C1192E73D6DA405A8EAB83992D17D18A")
     sendkeys!(query, details['query'])
     sendkeys!(firstname, details['firstname'])
     sendkeys!(lastname, details['lastname'])
@@ -32,7 +38,24 @@ class ContactUsPage < GenericForm
     sendkeys!(postcode, details['postcode'])
     sendkeys!(address, details['address'])
     sendkeys!(city, details['city'])
+    c_data_protection(details['dpemail'],details['dppost'],details['dptel'])
     continue
+  end
+
+  def c_data_protection(email, post, phone)
+    dp = browser.table(class: "data-protection-table")
+    eml = "rbContactByEmail#{yesno(email)}"
+    pst = "rbContactByPost#{yesno(post)}"
+    ph = "rbContactByPhone#{yesno(phone)}"
+    values = [eml, pst, ph]
+    begin
+    values.each do |choice|
+      decision = dp.radio(value: choice)
+      decision.click!
+    end
+    rescue
+    end
+    
   end
 
 

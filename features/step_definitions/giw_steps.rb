@@ -59,6 +59,7 @@ end
 
 Then("I am taken to the giw confirmation page") do
   TestBrowser.giw_confirmation_page.on_page?
+  TestBrowser.giw_form.output_email
 end
 
 Then("I can download gift in wills guide") do
