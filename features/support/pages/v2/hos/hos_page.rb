@@ -4,24 +4,14 @@ class HosPage < GenericPage
 
   def initialize(browser)
     super
-    @url = EnvConfig.base_url + "how-you-can-help/leave-a-gift-in-your-will"
-    @continue = browser.a(text: "Request your guide")
+    @url = EnvConfig.base_url + "how-you-can-help/fundraise/heartofsteel/order-engraving/get-started"
+    @contnue = browser.input(id: 'submit')
+
   end
 
   def trait
-    trait = browser.a(text: "Leave a gift in your Will")
+    trait = browser.a(text: "Heart of steel")
     return trait
   end
-
-  def request_giw
-    request_giw = browser.a(text: "Request your guide")
-    return request_giw
-  end
-
-  def request
-    request_giw.click
-    #binding.pry
-  end
-
 
 end

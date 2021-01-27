@@ -11,5 +11,5 @@ And /^I fill in JW details$/ do
 end
 
 Then /^I am taken to the JW confirmation page$/ do
-  raise("Did not reach confirmation page for just walk") unless TestBrowser.just_walk_confirmation.on_page?
+  TestBrowser.just_walk_form.jw_end
 end

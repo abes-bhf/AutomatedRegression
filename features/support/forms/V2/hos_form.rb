@@ -1,4 +1,4 @@
-class HosForm <GenericV2Form
+class HosForm < GenericV2Form
 
   def initialize(browser)
     super
@@ -8,7 +8,7 @@ class HosForm <GenericV2Form
 
   def select_over_sixteen
     #over_sixteen = browser.div(class: 'f-forms__checkbox ').label
-    checkbox.click!
+    click!(checkbox)
     continue
   end
 
@@ -73,17 +73,13 @@ class HosForm <GenericV2Form
 
   def add_gift_aid
     browser.span(class: "f-forms__radio--label").scroll.to :center
-    sleep 2
-    browser.span(class: "f-forms__radio--label").click
-    sleep 1
-    checkbox.scroll.to :center
     count_1 = 0
     begin
-      checkbox.click
+      # browser.span(class: "f-forms__radio--label").click
+      radio_yes_no("Yes")
     rescue
       retry if (count_1 += 1) < 4
     end
-
   end
 
   def hos_confirmation

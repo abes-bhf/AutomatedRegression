@@ -5,7 +5,7 @@ I want to engrave a heart of steel
 
 @happypath
 Scenario: Valid get started
-  Given I navigate to the heart of steal page
+  Given I navigate to the heart of steel page
   And I select I am over sixteen
   And I fill in engraving details
   And I fill in your details
