@@ -60,4 +60,11 @@ class JustWalkForm < GenericForm
     browser.table(class: "ui-datepicker-calendar").tbody.tds("data-handler": "selectDay").to_a.sample.click
   end
 
+  def jw_end
+    raise("Did not reach confirmation page for just walk") unless browser.title == "Thank for signing up to Just Walk | BHF"
+    open(File.join(Dir.pwd, 'submissions/jw.txt'), 'a') do |f|
+      f << "> #{@@disposable_email}} registered on #{@@ENV} at #{Time.now} \n"
+    end
+  end
+
 end

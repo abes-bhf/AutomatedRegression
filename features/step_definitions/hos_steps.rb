@@ -1,5 +1,5 @@
 
-Given("I navigate to the heart of steal page") do
+Given("I navigate to the heart of steel page") do
   TestBrowser.hos_page.visit
 end
 
