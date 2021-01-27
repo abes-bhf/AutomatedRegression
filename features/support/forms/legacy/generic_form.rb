@@ -147,6 +147,7 @@ class GenericForm < GenericPage
   def postcode_lookup(pc)
     fill_postcode(pc)
     search_postcode
+    sleep 1
     select_address
   end
 
@@ -203,7 +204,7 @@ class GenericForm < GenericPage
     end
   rescue
   end
-  
+
   end
 
   def radio_selector_by_value(value)

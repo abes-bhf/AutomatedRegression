@@ -21,10 +21,17 @@ class ContactUsPage < GenericForm
     rescue Selenium::WebDriver::Error::ElementClickInterceptedError
       retry if (retries += 1) < 4
     end
-    subjectdropdown = browser.select(id: "main_0_pagecontent_0_middlecontent_0_form_F76DDE83AF99444382BAA25611431FF2_field_B2BD2666ED9C46708698D0D532965F90")
-    dropdownrandom(subjectdropdown)
+    selects = []
+    browser.selects.each do |o|
+      if o.present?
+        selects << o
+      end
+    end
+    selects.each do |p|
+      p.options[1].click
+    end
     query =  browser.textarea(id: "main_0_pagecontent_0_middlecontent_0_form_F76DDE83AF99444382BAA25611431FF2_field_2A372486618042CEA1AEE711D0B360D2")
-    title = browser.select(id: "main_0_pagecontent_0_middlecontent_0_form_F76DDE83AF99444382BAA25611431FF2_field_A668A0C5DF42450F9C11FE98E763841C")
+  #  title = browser.select(id: "main_0_pagecontent_0_middlecontent_0_form_F76DDE83AF99444382BAA25611431FF2_field_A668A0C5DF42450F9C11FE98E763841C")
     lastname = browser.text_field(id: "main_0_pagecontent_0_middlecontent_0_form_F76DDE83AF99444382BAA25611431FF2_field_7E4D386602EE49188AF3F79594F6F824")
     firstname = browser.text_field(id: "main_0_pagecontent_0_middlecontent_0_form_F76DDE83AF99444382BAA25611431FF2_field_4651684B139C43F793BFAA0D7C59F962")
     email = browser.text_field(id: "main_0_pagecontent_0_middlecontent_0_form_F76DDE83AF99444382BAA25611431FF2_field_A92258070A0C4FC4B6656D685C0B6E7A")
@@ -55,7 +62,7 @@ class ContactUsPage < GenericForm
     end
     rescue
     end
-    
+
   end
 
 

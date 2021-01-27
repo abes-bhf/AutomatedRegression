@@ -98,7 +98,12 @@ class GenericPage
     #scrolls to element and clicks
     Watir::Wait.until { element.exists? }
     element.scroll.to
-    element.click
+    click_retries = 0
+    begin
+      element.click
+    rescue
+      retry if (click_retries += 1) < 4
+    end
   end
 
   def continue

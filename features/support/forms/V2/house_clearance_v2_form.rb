@@ -33,7 +33,8 @@ def submit_form
   fnev2_address(details['a1'], details['a2'], details['towncity'])
   radio_yes_no("Yes")
   continue
-  radio_yes_no("No")
+  3.times do radio_yes_no("No")
+  end
   continue
   dropdown_select
   continue

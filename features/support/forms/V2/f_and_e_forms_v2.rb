@@ -40,17 +40,12 @@ def fill_form
     browser.input(name: 'CollectionLocation2').send_keys "Under the doormat"
   end
   continue
-  checkbox.scroll.to :center
-  sleep 0.5
-  checkbox.click
+  click!(checkbox)
   continue
-  checkbox.scroll.to :center
-  sleep 0.5
-  checkbox.click
+  click!(checkbox)
   continue
-  sleep 2.5
   radio_yes_no("No")
-  radio_yes_no("No")
+    # 4.times do 
   continue
   gdpr_field_v2
   continue
