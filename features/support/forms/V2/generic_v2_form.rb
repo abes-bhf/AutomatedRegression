@@ -60,7 +60,7 @@ class GenericV2Form < GenericForm
     # radios.sample.scroll.to :bottom
     begin
       tries ||= 0
-      radios.sample.click
+      click!(radios.sample)
     rescue
       retry if (tries +=1) < 3
     end

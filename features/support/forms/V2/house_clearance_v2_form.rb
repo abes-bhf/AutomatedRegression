@@ -2,7 +2,7 @@ class HouseClearanceV2Form < GenericV2Form
 
   def initialize(browser)
     super
-    @url = EnvConfig.base_url + "kris-hc-sample/hc/time-frame"
+    @url = EnvConfig.base_url + "shop/donating-goods/house-clearance/request/time-frame"
     @continue = browser.button(value: 'Submit')
   end
 
@@ -33,8 +33,7 @@ def submit_form
   fnev2_address(details['a1'], details['a2'], details['towncity'])
   radio_yes_no("Yes")
   continue
-  3.times do radio_yes_no("No")
-  end
+  radio_yes_no("No")
   continue
   dropdown_select
   continue
@@ -82,6 +81,7 @@ end
 
 #figure out regex
 def journey_fin
+  binding.pry
   browser.span(class: 'is-editable-field').ps[2].wait_until(&:present?)
   begin
     sleep 0.5

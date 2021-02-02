@@ -61,11 +61,11 @@ gateway:
   flow_url: https://10.190.2.5/
   publications_url: https://4055544a-da9d-40df-a0cd-666cd8cab416.cloudapp.net/basket/basket-form/
 
-# gateway:
-#   <<: *execution_defaults
-#   base_url: https://www.bhfstaging.org.uk/
-#   flow_url: https://10.190.2.5/
-#   publications_url: https://4055544a-da9d-40df-a0cd-666cd8cab416.cloudapp.net/basket/basket-form/
+stage:
+  <<: *execution_defaults
+  base_url: https://www.bhfstaging.org.uk/
+  flow_url: https://10.190.2.5/
+  publications_url: https://www.bhfstaging.org.uk/basket/basket-form/
 
 sandbox:
   <<: *execution_defaults

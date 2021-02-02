@@ -126,6 +126,7 @@ class GenericPage
   end
 
   def on_page?
+    op_count = 0
     begin
       find_logo
       @trait = trait
@@ -134,6 +135,7 @@ class GenericPage
       Watir::Wait.until { @trait.exists? && @trait.present? }
       return true
     rescue
+      retry if (op_count += 1) < 3
       return false
     end
   end

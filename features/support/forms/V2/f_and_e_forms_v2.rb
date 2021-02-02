@@ -45,7 +45,6 @@ def fill_form
   click!(checkbox)
   continue
   radio_yes_no("No")
-    # 4.times do 
   continue
   gdpr_field_v2
   continue

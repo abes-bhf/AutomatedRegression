@@ -3,7 +3,7 @@ Feature: Heart of steel
 As a BHF supporter
 I want to engrave a heart of steel
 
-@happypath
+@happypath @submission
 Scenario: Valid get started
   Given I navigate to the heart of steel page
   And I select I am over sixteen
