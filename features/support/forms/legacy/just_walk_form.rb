@@ -61,7 +61,12 @@ class JustWalkForm < GenericForm
   end
 
   def jw_end
-    raise("Did not reach confirmation page for just walk") unless browser.title == "Thank for signing up to Just Walk | BHF"
+    jw_count = 0
+    begin
+      raise("Did not reach confirmation page for just walk") unless browser.title == "Thank for signing up to Just Walk | BHF"
+    rescue
+      retry if (jw_count += 1) < 4
+    end
     open(File.join(Dir.pwd, 'submissions/jw.txt'), 'a') do |f|
       f << "> #{@@disposable_email}} registered on #{@@ENV} at #{Time.now} \n"
     end

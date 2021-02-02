@@ -35,8 +35,7 @@ class VolunteeringForm < GenericV2Form
     sleep 0.5
     continue
     Watir::Wait.until {browser.text.include? ("criminal")}
-    5.times do radio_yes_no("No")
-    end
+    radio_yes_no("No")
     continue
     Watir::Wait.until {browser.text.include? ("UK address")}
     radio_yes_no("Yes")
@@ -50,8 +49,7 @@ class VolunteeringForm < GenericV2Form
     sleep 0.5
     continue
     Watir::Wait.until {browser.text.include? ("criminal")}
-    5.times do radio_yes_no("No")
-    end
+    radio_yes_no("No")
     continue
     Watir::Wait.until {browser.text.include? ("UK address")}
     radio_yes_no("Yes")

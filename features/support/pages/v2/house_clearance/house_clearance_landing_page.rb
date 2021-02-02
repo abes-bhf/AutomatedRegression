@@ -4,7 +4,7 @@ class HouseClearanceLandingPage < GenericPage
 
   def initialize(browser)
     super
-    @url = EnvConfig.base_url + "kris-hc-sample"
+    @url = EnvConfig.base_url + "shop/donating-goods/house-clearance"
   end
 
 

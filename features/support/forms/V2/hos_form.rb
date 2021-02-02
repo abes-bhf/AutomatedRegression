@@ -13,22 +13,16 @@ class HosForm < GenericV2Form
   end
 
   def engraving_details
-    sleep 2
     add_engraving = browser.div(class: 'cta-label')
-    add_engraving.scroll.to :center
-    sleep 1
-    add_engraving.click
-    sleep 1
+    click!(add_engraving)
     browser.input(class: 'engraving-name').send_keys "Automated Test"
-    add_date = browser.a(text: 'Add a date').click
+    add_date = browser.a(text: 'Add a date')
+    click!(add_date)
     browser.input(id: 'f-forms__element-date__day').send_keys "01"
     browser.input(id: 'f-forms__element-date__month').send_keys "01"
     browser.input(id: 'f-forms__element-date__year').send_keys "1990"
-    sleep 3
-    add_name = browser.a(text: 'Add name').click
-    sleep 3
-    browser.scroll.to :center
-    sleep 3
+    add_name = browser.a(text: 'Add name')
+    click!(add_name)
     continue
   end
 
@@ -47,7 +41,7 @@ class HosForm < GenericV2Form
 
   def share_my_story
     dropdown_select
-    sleep 2
+    # sleep 2
     browser.scroll.to :center
     browser.textarea(id: 'f-forms__element-textarea__64923671-c659-4731-88e0-52663498c140').send_keys "TEST TEST TEST TEST"
     continue
@@ -59,16 +53,14 @@ class HosForm < GenericV2Form
   end
 
   def summary
-    browser.text.include?("Your order summary").should == true
+    raise unless browser.text.include?("Your order summary")
     continue
   end
 
   def add_donation
     browser.input(value: "£50").click
     browser.scroll.to :center
-    sleep 1
-    browser.input(value: "Add extra donation").click
-    sleep 1
+    click!(browser.input(value: "Add extra donation"))
   end
 
   def add_gift_aid
@@ -85,7 +77,7 @@ class HosForm < GenericV2Form
   def hos_confirmation
       hos_count = 0
       begin
-        raise unless browser.text.include? ("Thank you for your support!")
+        raise("test") unless browser.text.include? ("Thank you for your support!")
       rescue
         retry if (hos_count += 1) < 4
       end

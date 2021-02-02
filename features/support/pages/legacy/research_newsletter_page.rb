@@ -25,11 +25,13 @@ class ResearchNewsletterPage < GenericForm
   end
 
   def confirmed?
+    rn_count = 0
     begin
-      confirmation_message = browser.div(id: "skipto-content")
+      confirmation_message = browser.h1(text: "Thank you for signing up to our research newsletter")
       Watir::Wait.until { confirmation_message.exists? && confirmation_message.present? }
       return true
     rescue
+      retry if (rn_count += 1) < 3
       return false
     end
   end
