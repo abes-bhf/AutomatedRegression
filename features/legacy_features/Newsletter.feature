@@ -14,3 +14,8 @@ Feature: Newsletter signup page
     Given I navigate to the newsletter signup page
     And I sign up for the newsletter
     Then I receive newsletter signup confirmation
+
+  @liveregression @transactionless
+  Scenario: Newsletter signup liveregression
+    Given I navigate to the newsletter signup page
+    And I complete the newsletter signup to the point of submission

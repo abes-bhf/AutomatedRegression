@@ -79,7 +79,7 @@ def fill_form
   dropdown_select
   email_field_v2.send_keys (@@new_giw_email)
   corp_telephone_field_v2.send_keys (details['telephone'])
-  continue
+  # continue
 end
 
 

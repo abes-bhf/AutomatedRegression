@@ -26,3 +26,15 @@ Feature: volunteering
 			Given I navigate to the individual sign up form
 			And I complete the corporate volunteer individual sign up form
 			Then I am taken to the individual sign up confirmation page
+
+	# complete
+	 @corp_individual @transactionless @liveregression
+	 		Scenario: Progress without submitting through form for an individual for corporate volunteering
+				Given I navigate to the individual sign up form
+				Then I complete the corporate volunteer individual sign up form up to the point of submission
+
+	# complete
+	 @corp_enquiries @transactionless @liveregression
+			Scenario: Sign up to enquire about corporate volunteering
+				Given I navigate to the corporate volunteer form
+				Then I complete the corporate volunteer up to the point of submission

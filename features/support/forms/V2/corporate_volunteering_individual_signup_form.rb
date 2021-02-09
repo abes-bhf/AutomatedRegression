@@ -71,7 +71,7 @@ def fill_form
   cvis_address(details['postcode'], details['a1'], details['a2'], details['towncity'])
   continue
   gdpr_field_v2
-  continue
+  # continue
 end
 
 

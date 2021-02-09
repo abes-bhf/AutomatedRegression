@@ -8,9 +8,14 @@ end
 
 And /^I sign up for the research newsletter$/ do
   TestBrowser.research_newsletter_page.fill_form
+  TestBrowser.research_newsletter_page.continue
 end
 
 Then /^I receive research newsletter signup confirmation$/ do
   raise("Did not receive confirmation for newsletter signup") unless TestBrowser.research_newsletter_page.confirmed?
   TestBrowser.research_newsletter_page.research_newsletter_output
+end
+
+Given('I complete the research newsletter signup to the point of submission') do
+  TestBrowser.research_newsletter_page.fill_form
 end

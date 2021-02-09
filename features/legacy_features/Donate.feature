@@ -4,7 +4,8 @@ Feature: Donation
 	As a BHF supporter
 	I want to make a donation
 
-	@oneoff @liveregression @uatregression @validation @blank
+#@liveregression
+	@oneoff @uatregression @validation @blank
 	Scenario: Testing blank validation messages on one-off form
 		Given I navigate to the Donation page
 		And I select a one-off donation preset
@@ -12,7 +13,8 @@ Feature: Donation
 		And I press continue without filling details
 		Then the donate form should refresh with blank validation messages
 
-	@monthly @liveregression @uatregression @validation @blank
+#@liveregression
+	@monthly  @uatregression @validation @blank
 	Scenario: Testing blank validation messages on monthly form
 		Given I navigate to the Donation page
 		And I select a monthly donation preset
@@ -24,7 +26,8 @@ Feature: Donation
 		And I press continue without filling direct debit details
 		Then the direct debit form should refresh with blank validation messages
 
-	@oneoff @liveregression @uatregression @validation @invalid
+#@liveregression
+	@oneoff @uatregression @validation @invalid
 	Scenario: Testing validation messages for invalid data on one-off form
 		Given I navigate to the Donation page
 		And I select a one-off donation preset
@@ -32,7 +35,8 @@ Feature: Donation
 		And I press continue after filling in invalid details
 		Then The donate form should refresh with validation messages
 
-	@monthly @liveregression @uatregression @validation @invalid
+#@liveregression
+	@monthly  @uatregression @validation @invalid
 	Scenario: Testing validation messages for invalid data on monthly form
 		Given I navigate to the Donation page
 		And I select a monthly donation preset
@@ -44,6 +48,7 @@ Feature: Donation
 		And I press continue after filling in invalid direct debit details
 		Then The direct debit form should refresh with validation messages
 
+
 	@oneoff @liveregression @uatregression @pca
 	Scenario: Testing address lookup on one-off form
 		Given I navigate to the Donation page
@@ -53,6 +58,7 @@ Feature: Donation
 		And I search for the postcode
 		And I select the first address from the list of matching addresses
 		Then Address fields are shown with the address filled in
+
 
 	@monthly @liveregression @uatregression @pca
 	Scenario: Testing address lookup on monthly form
@@ -205,7 +211,7 @@ Feature: Donation
 		Then There should be an email confirmation of my one-off donation with expected content
 
 
-	@transactionless @oneoff @liveregression @simp
+	@transactionless @oneoff @liveregression
 	Scenario: Testing single donations live without completing transactions
 		Given I navigate to the Donation page
 		And I select a one-off donation preset

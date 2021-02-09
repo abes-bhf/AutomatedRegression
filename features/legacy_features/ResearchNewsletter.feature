@@ -14,3 +14,8 @@ Feature: Research newsletter signup page
     Given I navigate to the research newsletter signup page
     And I sign up for the research newsletter
     Then I receive research newsletter signup confirmation
+
+  @liveregression @transactionless
+  Scenario: Research newsletter signup live regression
+    Given I navigate to the research newsletter signup page
+    And I complete the research newsletter signup to the point of submission

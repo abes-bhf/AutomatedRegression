@@ -58,7 +58,7 @@ Feature: publications
 		Then address fields are shown with the address filled in
 
 # complete -
-		@export @guest @worldpay
+		@export @guest @worldpay @submission
 	Scenario: Testing worldpay works when a donation is added to basket as a guest
 		Given I navigate to the publications page
 		And I select a booklet
@@ -142,7 +142,7 @@ Feature: publications
 
 
 # complete
-		@export @happypath @signedin
+		@export @happypath @signedin @submission
 	Scenario: Testing publications happy path when signed in
 		Given I navigate to the publications page
 		And I select a booklet
@@ -206,3 +206,16 @@ Feature: publications
 		And I fill in the publications form
 		And I press continue
 		Then I am taken to the order confirmation page
+
+		@liveregression @transactionless
+	Scenario: Testing different billing address to delivery address
+		Given I navigate to the publications page
+		And I select a booklet
+		And I click add to basket
+		And I am taken to my basket
+		And I add a preset donation to the basket
+		And I see the donation in the basket
+		And I navigate to the basket form
+		And I fill in the publications form with a different billing address
+		And I press pay via worldpay
+		Then I am taken to the Worldpay page

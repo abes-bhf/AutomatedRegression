@@ -46,7 +46,6 @@ class ContactUsPage < GenericForm
     sendkeys!(address, details['address'])
     sendkeys!(city, details['city'])
     c_data_protection(details['dpemail'],details['dppost'],details['dptel'])
-    continue
   end
 
   def c_data_protection(email, post, phone)

@@ -14,3 +14,8 @@ Feature: DYOT form
     Given I navigate to the DYOT form
     And I fill in DYOT details
     Then I am taken to the DYOT confirmation page
+
+@liveregression @transactionless
+  Scenario: DYOT Submission
+    Given I navigate to the DYOT form
+    And I fill in DYOT details

@@ -10,3 +10,10 @@ Feature: House Clearance
     Given I navigate to the house clearance landing page
     And I submit a valid postcode
     Then I am able to complete the house clearance form
+
+
+  @liveregression @transactionless
+  Scenario: House Clearance v2 submission
+    Given I navigate to the house clearance landing page
+    And I submit a valid postcode
+    Then I am able to complete the house clearance form up to the point of submission

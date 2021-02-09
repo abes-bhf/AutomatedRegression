@@ -66,7 +66,6 @@ def fill_form
   continue
   gdpr_field_v2
   continue
-  continue
 end
 
 

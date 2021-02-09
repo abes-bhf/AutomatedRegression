@@ -21,7 +21,7 @@ def hc_details_page(fn, ln, email)
   browser.input(type: "email").send_keys email
 end
 
-def submit_form
+def fill_form
   details = EnvConfig.data['formsV2_data']['formsV2_details']
   # (details['postcode'])
   random_radio
@@ -40,9 +40,9 @@ def submit_form
   gdpr_field_v2
   continue
   stupid_hc_checkbox
-  continue
-  output_reference
 end
+
+
 
 def stupid_hc_checkbox
   count = 0

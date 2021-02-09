@@ -10,3 +10,9 @@ Feature: Furniture and Electrical collection
     Given I navigate to the F and E form v2
     And I fill in the F and E form v2
     Then I am taken to the F and E form v2 confirmation page
+
+
+  @liveregression @transactionless
+  Scenario: F and E Submission
+    Given I navigate to the F and E form v2
+    And I fill in the F and E form v2
