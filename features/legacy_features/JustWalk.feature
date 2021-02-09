@@ -14,3 +14,8 @@ Feature: Just Walk form
     Given I navigate to the JW form
     And I fill in JW details
     Then I am taken to the JW confirmation page
+
+  @liveregression @transactionless
+  Scenario: JW Submission
+    Given I navigate to the JW form
+    And I fill in JW details

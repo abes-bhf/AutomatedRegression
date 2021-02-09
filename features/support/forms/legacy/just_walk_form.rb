@@ -17,7 +17,6 @@ class JustWalkForm < GenericForm
     contact_details(details['contact_details'])
     about_fundraising
     data_protection(false,false,false,false)
-    continue
   end
 
   def about_you(details)

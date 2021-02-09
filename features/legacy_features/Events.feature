@@ -59,3 +59,18 @@ Feature: events
 			Then I decide to pay for registration through PayPal
 			And I enter valid PayPal details
 			Then I am taken to the event confirmation page
+
+		@event @run @worldpay @liveregression @transactionless
+		Scenario: sign up to a run with worldpay
+			Given I navigate to the kew gardens 10k run without logging in
+			And I register for kew gardens with a new email and password
+			And I fill in run event specific questions
+			Then I decide to pay for registration through WorldPay
+			And I am taken to the Worldpay page
+
+		@event @run @paypal @liveregression @transactionless
+		Scenario: sign up to a run with worldpay
+			Given I navigate to the kew gardens 10k run without logging in
+			And I register for kew gardens with a new email and password
+			And I fill in run event specific questions
+			Then I decide to pay for registration through PayPal

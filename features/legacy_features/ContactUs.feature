@@ -14,3 +14,8 @@ Feature: Contact us form
     Given I navigate to the contact us page
     And I fill in the contact us form
     Then I am taken to contact us confirmation page
+
+  @liveregression @transactionless
+  Scenario: Contact us form live regression check
+    Given I navigate to the contact us page
+    Then I fill in the contact us form up to the point of submission

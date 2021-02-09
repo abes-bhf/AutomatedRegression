@@ -84,6 +84,7 @@ end
 
 
 def journey_fin
+  continue
   raise unless browser.title == "Confirmation"
   open(File.join(Dir.pwd, 'submissions/volunteering.txt'), 'a') do |f|
     f << "> #{@@donate_email} registered on #{@@ENV} at #{Time.now} \n"
@@ -166,8 +167,6 @@ def details_section
   continue
   continue
   gdpr_field_v2
-  continue
-  journey_fin
 end
 
 #Selenium::WebDriver::Error::ElementClickInterceptedError

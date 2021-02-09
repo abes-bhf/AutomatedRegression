@@ -17,3 +17,8 @@ Feature: volunteer email
 			Given I navigate to the volunteer email form
 			And I complete the volunteer email form
 			Then I am taken to the volunteer email confirmation page
+
+		@liveregression @transactionless
+		Scenario: Sign up to receive volunteer emails
+			Given I navigate to the volunteer email form
+			And I complete the volunteer email form up to the final submission page

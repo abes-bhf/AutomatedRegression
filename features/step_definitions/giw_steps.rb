@@ -66,6 +66,10 @@ Then("I can download gift in wills guide") do
   TestBrowser.giw_confirmation_page.download
 end
 
+Given('I fill in the giw gdpr page') do
+  TestBrowser.giw_form.valid_gdpr
+end
+
 #------------------------------------
 
 

@@ -21,7 +21,6 @@ class NewsletterPage < GenericForm
     sendkeys!(lastname, "AutoNLLN")
     sendkeys!(email, @@disposable_email)
     browser.table(class: "data-protection-table").radio(value: "rbContactByEmailNo").click!
-    continue
   end
 
   def confirmed?

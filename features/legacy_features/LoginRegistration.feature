@@ -73,7 +73,7 @@ Feature: Login/Registration
 		And I enter valid PayPal details
 		Then I am taken to the event confirmation page
 
-	@transactionless @liveregression
+	#@transactionless @liveregression
 	Scenario: User account registration
 		Given I am on the login registration page
 		And I click register
@@ -108,3 +108,16 @@ Feature: Login/Registration
 			And I am taken to the registration form
 			And I enter and select a valid postcode from the lookup
 			Then the correct addresses appear in the right fields
+
+		@transactionless @liveregression
+		Scenario: User account registration liveregression
+			Given I am on the login registration page
+			And I click register
+			Then I am taken to the registration form
+			Given I fill in the registration form
+			Then I am taken to the account creation confirmation screen
+			And I am logged in
+			And I log out
+			Then I can log in with the details used in registration
+			Then I am on my account page
+			Given I log out

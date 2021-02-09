@@ -7,5 +7,11 @@ Given /^I submit a valid postcode$/ do
 end
 
 Then /^I am able to complete the house clearance form$/ do
-  TestBrowser.house_clearance_v2_form.submit_form
+  TestBrowser.house_clearance_v2_form.fill_form
+  TestBrowser.house_clearance_v2_form.continue
+  TestBrowser.house_clearance_v2_form.output_reference
+end
+
+Then('I am able to complete the house clearance form up to the point of submission') do
+  TestBrowser.house_clearance_v2_form.fill_form
 end

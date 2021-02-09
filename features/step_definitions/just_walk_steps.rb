@@ -8,6 +8,7 @@ end
 
 And /^I fill in JW details$/ do
   TestBrowser.just_walk_form.fill_form
+  TestBrowser.just_walk_form.continue
 end
 
 Then /^I am taken to the JW confirmation page$/ do

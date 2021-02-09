@@ -91,18 +91,6 @@ class DyotForm < GenericV2Form
     continue
   end
 
-  def gdpr_field_v2
-    sleep(2)
-    gdpr_field = browser.fieldset(class: "f-forms__gdpr")
-    gdpr_field.scroll.to :top
-    sleep 1
-    gdpr_field.inputs.each do |i|
-      if i.attribute_value('id').include? "no"
-        i.click
-      end
-    end
-    continue
-  end
 
   def output_dyot_email
     open(File.join(Dir.pwd, 'submissions/dyot.txt'), 'a') do |f|

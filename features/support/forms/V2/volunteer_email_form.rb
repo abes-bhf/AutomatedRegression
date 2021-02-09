@@ -46,7 +46,6 @@ def fill_form
   gen_details_page(details['fn'], details['ln'], @@new_giw_email)
   postcode_field_v2.send_keys details['postcode']
    # browser.input(name: 'Postcode').send_keys
-  continue
 end
 
 

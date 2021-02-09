@@ -57,7 +57,7 @@ Feature: volunteering
 			And I choose to raise awareness
 			Then I can complete the form
 
-	@over18 @shopandawareness @pca
+	@over18 @shopandawareness @pca @submission
 		Scenario: Sign up to volunteer in shops and raise awareness
 			Given I navigate to the volunteer form
 			And I start the volunteer form
@@ -72,3 +72,11 @@ Feature: volunteering
 		And I search for a postcode in the volunteer lookup
 		When I select the results
 		Then the correct volunteer data is shown in the fields
+
+	@over18 @shopandawareness @pca @liveregression @transactionless
+		Scenario: Sign up to volunteer in shops and raise awareness live regression
+			Given I navigate to the volunteer form
+			And I start the volunteer form
+			When I enter my age as over eighteen
+			And I choose to volunteer in shops and raise awareness
+			Then I can complete the volunteer form up to the point of submission

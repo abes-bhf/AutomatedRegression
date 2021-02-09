@@ -14,8 +14,13 @@ Feature: retail cash donation
 
 
 # complete
- @submission @wip
+ @submission
 		Scenario: Complete rcd form
 			Given I navigate to the rcd form
 			And I complete the rcd form
 			Then I am taken to the rcd thank you page
+
+	@liveregression @transactionless
+ 		Scenario: Fill RCD up to point of completion
+ 			Given I navigate to the rcd form
+ 			And I complete the rcd form up to the final page

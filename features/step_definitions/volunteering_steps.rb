@@ -77,3 +77,8 @@ end
 Then("the correct volunteer data is shown in the fields") do
   TestBrowser.volunteering_form.verify_address
 end
+
+
+Then('I can complete the volunteer form up to the point of submission') do
+  TestBrowser.volunteering_form.complete_form
+end
