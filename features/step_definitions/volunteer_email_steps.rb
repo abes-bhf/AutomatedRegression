@@ -16,7 +16,7 @@ end
 
 Given("I complete the volunteer email form") do
   TestBrowser.volunteer_email_form.fill_form
-  TestBrowser.volunteering_email.continue
+  TestBrowser.volunteer_email_form.continue
 end
 
 Then("I am taken to the volunteer email confirmation page") do

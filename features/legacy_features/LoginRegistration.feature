@@ -36,7 +36,7 @@ Feature: Login/Registration
 		And I press continue without filling details
 		Then The registration form should refresh with blank validation messages
 
-	@transactionless @liveregression @uatregression @validation @invalid
+	 @uatregression @validation @invalid
 	Scenario: Testing validation messages for invalid data on registration form
 		Given I am on the login registration page
 		And I click register

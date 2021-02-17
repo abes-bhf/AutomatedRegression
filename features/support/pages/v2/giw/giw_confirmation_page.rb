@@ -8,15 +8,13 @@ class GiwConfirmationPage < GenericV2Form
   end
 
   def download_now
-    download_now = browser.a(text: "Download now")
+    download_now = browser.a(text: "Download guide now")
     return download_now
   end
 
   def download
     download_now.scroll.to :center
-    sleep 1
-    download_now.click
-    sleep 3
+    click!(download_now)
   end
 
 end

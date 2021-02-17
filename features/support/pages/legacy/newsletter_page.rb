@@ -25,7 +25,7 @@ class NewsletterPage < GenericForm
 
   def confirmed?
     begin
-      confirmation_message = browser.div(id: "form_5CA69DA874A3478FAD4723B30068DA22")
+      confirmation_message = browser.h2(text: "Never miss a beat")
       Watir::Wait.until { confirmation_message.exists? && confirmation_message.present? }
       return true
     rescue

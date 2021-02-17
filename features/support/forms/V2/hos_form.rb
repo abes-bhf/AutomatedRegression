@@ -72,6 +72,7 @@ class HosForm < GenericV2Form
     rescue
       retry if (count_1 += 1) < 4
     end
+    click!(checkbox)
   end
 
   def hos_confirmation

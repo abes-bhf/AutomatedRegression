@@ -81,7 +81,6 @@ end
 
 #figure out regex
 def journey_fin
-  binding.pry
   browser.span(class: 'is-editable-field').ps[2].wait_until(&:present?)
   begin
     sleep 0.5
