@@ -31,6 +31,7 @@ end
 
 Then("I can sign up to volunteer in shops") do
   TestBrowser.volunteering_form.complete_form_u17
+  TestBrowser.volunteering_form.journey_fin
 end
 
 When("I enter my age as over eighteen") do
@@ -43,6 +44,7 @@ end
 
 Then("I can complete the form") do
   TestBrowser.volunteering_form.complete_form
+  TestBrowser.volunteering_form.journey_fin
 end
 
 When("I choose to volunteer at events") do

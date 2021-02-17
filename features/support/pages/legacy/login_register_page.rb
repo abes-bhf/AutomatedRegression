@@ -30,7 +30,7 @@ class LoginRegisterPage < GenericForm
       retry if (retries += 1) < 3
     rescue NoMethodError
       sleep(1)
-      retries-=1
+      # retries-=1
       retry if (retries += 1) < 3
     end
     click_login
@@ -51,7 +51,7 @@ class LoginRegisterPage < GenericForm
     rescue RuntimeError
       retry if (retries += 1) < 3
     rescue NoMethodError
-      retries-=1
+      # retries-=1
       retry if (retries += 1) < 3
     end
     click_login

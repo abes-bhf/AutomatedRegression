@@ -25,7 +25,7 @@ class HouseClearanceLandingPage < GenericPage
     Watir::Wait.until {postcode_field_v2.present?}
         begin
           retries ||= 0
-          postcode_field_v2.send_keys (details['postcode'])
+          postcode_field_v2.send_keys ("XX1 1XX")
         rescue Selenium::WebDriver::Error::ElementClickInterceptedError
           retry if (retries += 1) < 3
         end

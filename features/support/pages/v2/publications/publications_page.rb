@@ -45,7 +45,8 @@ class PublicationsPage < GenericPage
     begin
       retries ||= 0
       select_publication.click
-    rescue Selenium::WebDriver::Error::ElementClickInterceptedError
+      raise unless browser.title == "Understanding cholesterol | BHF"
+    rescue
       retry if (retries += 1) < 3
     end
   end
@@ -60,7 +61,7 @@ class PublicationsPage < GenericPage
     begin
       Watir::Wait.until {add_to_basket_button.present?}
     rescue
-      binding.pry
+      select_publication
     end
     add_to_basket_button.scroll.to :center
     begin

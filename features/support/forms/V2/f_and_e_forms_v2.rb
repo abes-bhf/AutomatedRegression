@@ -18,7 +18,8 @@ end
 def fill_form
   details = EnvConfig.data['publications_data']['details']
   # (details['postcode'])
-  postcode_field_v2.send_keys "BH14 9DF"
+  postcode_field_v2.send_keys "XX1 1XX"
+  continue
   continue
   # browser.div(id: 'f-forms__radio__51295d68-3ffa-45f9-9f00-94a7658e92b9').scroll.to :center
   random_radio

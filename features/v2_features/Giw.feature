@@ -8,7 +8,7 @@ Feature: Gift in wills
   Scenario: Testing blank validation messages
     Given I navigate to the Gift in wills page
     And I select request your guide
-    And I select continue
+    And I select next
     And I am taken to your details page of the gift in wills form
     And I select continue without filling details
     Then the gift in wills form should return with validation messages
@@ -17,7 +17,7 @@ Feature: Gift in wills
   Scenario: Testing validation messages for invalid data
     Given I navigate to the Gift in wills page
     And I select request your guide
-    And I select continue
+    And I select next
     And I am taken to your details page of the gift in wills form
     And I press continue after filling in invalid details on your details page
     Then the gift in wills form should return with validation messages
@@ -26,7 +26,7 @@ Feature: Gift in wills
   Scenario: Testing blank validation on address lookup
     Given I navigate to the Gift in wills page
     And I select request your guide
-    And I select continue
+    And I select next
     And I navigate to your address page of the gift in wills form
     And validation fires when incorrect address details are entered
 
@@ -34,7 +34,7 @@ Feature: Gift in wills
   Scenario: Testing blank validation for gdpr
     Given I navigate to the Gift in wills page
     And I select request your guide
-    And I select continue
+    And I select next
     And I navigate to your address page of the gift in wills form
     And I navigate to the gdpr page of the gift in wills form
     And I select continue without filling in gdpr
@@ -44,8 +44,9 @@ Feature: Gift in wills
   Scenario: Testing complete Gift in wills form
     Given I navigate to the Gift in wills page
     And I select request your guide
-    And I select continue
+    And I select next
     And I navigate to your address page of the gift in wills form
+    And I navigate to the leaving a gift page of the gift in wills form
     And I navigate to the gdpr page of the gift in wills form
     And I select continue after filling in gdpr
     Then I am taken to the giw confirmation page
@@ -56,7 +57,8 @@ Feature: Gift in wills
   Scenario: Testing complete Gift in wills form
     Given I navigate to the Gift in wills page
     And I select request your guide
-    And I select continue
+    And I select next
     And I navigate to your address page of the gift in wills form
+    And I navigate to the leaving a gift page of the gift in wills form
     And I navigate to the gdpr page of the gift in wills form
     And I fill in the giw gdpr page

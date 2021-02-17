@@ -6,7 +6,7 @@ Given("I select request your guide") do
   TestBrowser.giw_page.request
 end
 
-Given("I select continue") do
+Given("I select next") do
   TestBrowser.giw_form.continue
 end
 
@@ -42,11 +42,16 @@ end
 #------------------------------------
 
 And("I navigate to the gdpr page of the gift in wills form") do
-  TestBrowser.giw_form.youradress_valid_fill
+  TestBrowser.giw_form.random_radio
+  TestBrowser.giw_form.press_next
 end
 
 And("I select continue without filling in gdpr") do
   TestBrowser.giw_form.submit_gdpr
+end
+
+Given('I navigate to the leaving a gift page of the gift in wills form') do
+  TestBrowser.giw_form.youraddress_valid_fill
 end
 
 #Then("the gift in wills form should return with validation messages") do
@@ -54,7 +59,8 @@ end
 #end
 
 And("I select continue after filling in gdpr") do
-  TestBrowser.giw_form.happy_path
+  TestBrowser.giw_form.gdpr_field_v2
+  TestBrowser.giw_form.submit_gdpr
 end
 
 Then("I am taken to the giw confirmation page") do
