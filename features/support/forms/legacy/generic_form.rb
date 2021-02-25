@@ -104,6 +104,13 @@ class GenericForm < GenericPage
     sendkeys!(last, ln)
   end
 
+  def fill_name1a(fn, ln)
+    first = browser.div(class: 'name.first-name').text_field
+    last = browser.div(class: 'name.last-name').text_field
+    sendkeys!(first, fn)
+    sendkeys!(last, ln)
+  end
+
 
   def fill_email(em)
     email = browser.div(class: 'name.e-mail').text_field
@@ -117,11 +124,10 @@ class GenericForm < GenericPage
     emailabel.click!
   end
 
-  # def fill_new_email
-  #   email = browser.div(class: 'name.emailaddress').textfield
-  #   sendkeys!(email, "#{SecureRandom.hex 8}@test.org.uk")
-  #   new_pw
-  # end
+  def fill_email_3(em)
+    email = browser.text_field(type: 'email')
+    sendkeys!(email, em)
+  end
 
   def fill_password
     passwordfields = browser.divs(class: 'scfConfirmPasswordBorder')
@@ -147,7 +153,6 @@ class GenericForm < GenericPage
   def postcode_lookup(pc)
     fill_postcode(pc)
     search_postcode
-    sleep 1
     select_address
   end
 
@@ -164,6 +169,7 @@ class GenericForm < GenericPage
     postcode_dropdown = browser.select(class: 'pcaResults')
     postcode_dropdown.scroll.to
     postcode_dropdown.click!
+    Watir::Wait.until {postcode_dropdown.options[1].present?}
     postcode_dropdown.options[1].click
   end
 
@@ -189,6 +195,12 @@ class GenericForm < GenericPage
     telephone = browser.div(class: 'scfTelephoneGeneralPanel').text_field
     sendkeys!(telephone, tel)
   end
+
+  def fill_telephone_2(tel)
+    telephone = browser.div(class: 'name.telephone').text_field
+    sendkeys!(telephone, tel)
+  end
+
 
   def data_protection(email, text, post, phone)
     dp = browser.table(class: "data-protection-table")
