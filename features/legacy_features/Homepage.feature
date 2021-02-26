@@ -8,6 +8,7 @@ Feature: Homepage
 		Given I navigate to the Homepage
 		Then the BHF logo is displayed
 
+		@wip
 	Scenario: User navigates to the login/registration page
 		Given I navigate to the Homepage
 		And I click log in/register

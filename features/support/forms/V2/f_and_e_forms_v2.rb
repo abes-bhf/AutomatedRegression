@@ -4,8 +4,13 @@ class FAndEFormsV2 < GenericV2Form
     super
     @url = EnvConfig.base_url + "shop/donating-goods/book-furniture-collection-near-me/"
     @continue = browser.button(value: 'Submit')
+    # @trait = browser.h1(text: "Book a free collection")
   end
 
+  def trait
+    trait = browser.h1(text: "Book a free collection")
+    return trait
+  end
 
 
 def date_entry
@@ -21,7 +26,6 @@ def fill_form
   postcode_field_v2.send_keys "XX1 1XX"
   continue
   continue
-  # browser.div(id: 'f-forms__radio__51295d68-3ffa-45f9-9f00-94a7658e92b9').scroll.to :center
   random_radio
   continue
   date_entry
@@ -31,11 +35,11 @@ def fill_form
   continue
   sleep 0.5
   dropdown_select
-  fnev2_details(details['fn'], details['ln'], "DigitalTestTeam@bhf.org.uk", details['telephone'])
-  #@@donate_email
+  fnev2_details(details['fn'], details['ln'], @@donate_email, details['telephone'])
+  #
+  # DigitalTestTeam@bhf.org.uk
   continue
   fnev2_address(details['a1'], details['a2'], details['towncity'])
-  # browser.div(id: 'f-forms__element__552557d1-6917-47c0-9e0b-3d331d5094ce').scroll.to :top
   random_radio
   if browser.input(name: 'CollectionLocation2').present?
     browser.input(name: 'CollectionLocation2').send_keys "Under the doormat"
