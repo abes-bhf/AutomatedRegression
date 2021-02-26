@@ -12,7 +12,7 @@ class SearchResultsPage < GenericPage
   end
 
   def results
-    results = browser.div(class: ['list-results', 'list-results-constrained'])
+    results = browser.ul(class: "c-search-results-MVC__list").lis
     return results
   end
 

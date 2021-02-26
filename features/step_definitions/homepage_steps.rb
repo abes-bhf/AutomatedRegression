@@ -15,7 +15,7 @@ And /^I click Book a collection$/ do
 end
 
 Then /^I am taken to the f and e form$/ do
-  raise unless TestBrowser.f_and_e_form.on_page?
+  raise unless TestBrowser.f_and_e_forms_v2.on_page?
 end
 
 And /^I click Donate$/ do
@@ -33,9 +33,10 @@ And /^I click one of the four main links$/ do
 end
 
 And /^I hover over one of the four main links$/ do
-  random_main_link = TestBrowser.home_page.random_level_one
-  random_main_link.hover
-  @@hovered1 = random_main_link.text
+  @@random_main_link = TestBrowser.home_page.random_level_one
+  @@hovered1 = @@random_main_link.text
+  sleep 2
+  @@random_main_link.hover
 end
 
 And /^I hover over a level two link with subitems$/ do
@@ -87,12 +88,12 @@ end
 
 Then /^I should be taken to the search results for that term$/ do
   TestBrowser.search_results_page.on_page?
-  raise unless TestBrowser.search_results_page.results.present?
+  raise unless TestBrowser.search_results_page.results.size > 0
 end
 
 Then /^I should not be shown any search results$/ do
   TestBrowser.search_results_page.on_page?
-  raise if TestBrowser.search_results_page.results.present?
+  raise if TestBrowser.search_results_page.results.size > 0
 end
 
 Given("I search for nothing") do

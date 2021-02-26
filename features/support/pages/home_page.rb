@@ -21,13 +21,17 @@ class HomePage < GenericPage
   end
 
   def trait
-    trait = browser.h1(itemprop: 'headline', text: "Beat heartbreak forever")
+    trait = browser.h1(itemprop: 'headline', text: "Beating heartbreak together")
     return trait
   end
 
   def login
     loginregister = browser.a(text: 'LOG IN/REGISTER')
-    loginregister.click!
+    begin
+      loginregister.click
+    rescue
+      browser.a(text: "SIGN IN/REGISTER").click
+    end
   end
 
   def book_a_collection
@@ -86,10 +90,13 @@ class HomePage < GenericPage
   end
 
   def level_two_links
+    ltl_count ||= 0
     begin
       leveltwolinks = level_two.last(level_two.size - 1)
     rescue ArgumentError
+      @@random_main_link.hover
       binding.pry
+      retry if (ltl_count += 1) > 3
     end
     return leveltwolinks
   end
@@ -137,7 +144,7 @@ class HomePage < GenericPage
 
   def search(term)
     search_button.click unless search_bar.present?
-    search_bar.text_field(id: 'keyword').send_keys(term)
+    browser.text_field(name: 'keyword').send_keys(term)
     search_bar.input(type: 'submit').click
   end
 
